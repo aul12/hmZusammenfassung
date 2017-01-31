@@ -192,6 +192,16 @@
         \lim_{n \rightarrow \infty} a_n = a
     \end{equation*}
 
+    \subsection{Bestimmte Divergenz}
+    Eine Folge $a_n$ heißt bestimmt Divergent wenn gilt
+    \begin{equation*}
+        \forall x \in \mathbb{R}\ \exists n(x):\ a_n>x \text{ bzw. } a_n<x
+    \end{equation*}
+    \textbf{Schreibweise:}
+    \begin{equation*}
+        \lim_{n \rightarrow \infty} a_n = \infty \text{ bzw. } -\infty
+    \end{equation*}
+
     \subsection{Beschränktheit}
     Eine Folge heißt beschränkt wenn gilt:
     \begin{equation*}
@@ -202,16 +212,6 @@
     Eine Folge heißt nach oben (bzw.~unten) beschränkt wenn gilt:
     \begin{equation*}
         a_n < n\ \forall n \in \mathbb{N} \text{ bzw. }a_n > c\ \forall n \in \mathbb{N}
-    \end{equation*}
-
-    \subsubsection{Bestimmte Divergenz}
-    Eine Folge $a_n$ heißt bestimmt Divergent wenn gilt
-    \begin{equation*}
-        \forall x \in \mathbb{R}\ \exists n(x):\ a_n>x \text{ bzw. } a_n<x
-    \end{equation*}
-    \textbf{Schreibweise:}
-    \begin{equation*}
-        \lim_{n \rightarrow \infty} a_n = \infty \text{ bzw. } -\infty
     \end{equation*}
 
     \subsection{Zusammenhang Konvergenz --- Beschränktheit}
@@ -252,4 +252,18 @@
         \item $a_n \leq c_n \leq b_n\ \forall n \in \mathbb{N} \wedge a=b
         \Rightarrow c=\lim\limits_{n \rightarrow \infty} c_n = a = b$
     \end{itemize}
+
+    \subsection{Monotonie}
+    Eine Folge ${(a_n)}_{n=1}^\infty$ in $\mathbb{R}$ heißt:
+    \begin{itemize}
+        \item Monoton wachsend falls: $a_{n+1} \geq {a_n}\ \forall n \in \mathbb{N}$ (Schreibweise: $a_n \nearrow$)
+        \item Monoton fallend falls: $a_{n+1} \leq {a_n}\ \forall n \in \mathbb{N}$ (Schreibweise: $a_n \searrow$)
+        \item Streng Monoton wachsend falls: $a_{n+1} > {a_n}\ \forall n \in \mathbb{N}$ (Schreibweise: $a_n \uparrow$)
+        \item Streng Monoton fallend falls: $a_{n+1} < {a_n}\ \forall n \in \mathbb{N}$ (Schreibweise: $a_n \downarrow$)
+    \end{itemize}
+
+    \subsection{Zusammenhang Monotonie und Beschränktheit}
+    Jede Monotone und beschränkte Folge konvergiert.
+
+    \section{Häufungswerte}
 \end{document}
