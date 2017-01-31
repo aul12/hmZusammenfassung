@@ -1,0 +1,255 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{commath}
+\usepackage[ngerman]{babel}
+
+\newcommand{\Korp}{$\mathbb{K}$}
+\setlength\parindent{0pt}
+
+\title{Zusammenfassung HM I}
+\author{Paul Nykiel}
+
+\begin{document}
+    \maketitle
+    \pagebreak
+    \tableofcontents
+    \pagebreak
+
+    \part{Grenzwerte}
+    \section{Gruppen und Körper}
+    \subsection{Gruppen}
+    Eine Gruppe ist definiert als ein Tuppel aus einer (nicht-leeren) Menge
+    und einer Gruppe.
+    Eine Gruppe erfüllt die folgenden Axiome (seien $a,b,c \in \mathbb{G}$):
+    \begin{itemize}
+        \item $a \circ (b \circ c) = (a \circ b) \circ c$ (Assoziativität)
+        \item $a \circ \varepsilon = a$ (Rechtsneutrales Element)
+        \item $a \circ a' = \varepsilon$ (Rechtsinverses Element)
+    \end{itemize}
+    Eine abelsche Gruppe erfüllt des weiteren:
+    \begin{itemize}
+        \item $a \circ b = b \circ a$ (Kommutativität)
+    \end{itemize}
+
+
+    \subsection{Körper}
+    Ein Körper ist definiert als eine Menge mit mindestens zwei Elementen
+    (0 und 1) und zwei Verknüfungen.
+    \begin{itemize}
+        \item $+: \mathbb{K} \times \mathbb{K} \rightarrow \mathbb{K}$
+        \item $\cdot: \mathbb{K} \times \mathbb{K} \rightarrow \mathbb{K}$
+    \end{itemize}
+    \Korp\ ist bezüglich der Addition und der Multiplikation (genau: $\mathbb{K} \backslash \{0\}$) ein abelscher
+    Körper, das heißt es gilt (seien $a,b,c \in \mathbb{K}$):
+    \begin{itemize}
+        \item $a + (b + c) = (a + b) + c$ (Assoziativität bez.\ der Addition)
+        \item $a + 0 = a$ (Existenz einer Null)
+        \item $a + (-a) = 0$ (Existenz eines Inversen bez.\ der Addition)
+        \item $a + b = b + a$ (Kommutativität bez.\ der Addition)
+        \item $a \cdot (b \cdot c) = (a \cdot b) \cdot c$ (Assoziativität bez.\ der Multiplikation)
+        \item $a \cdot 1 = a$ (Existenz einer 1)
+        \item $a \cdot a^-1 = 1$ (Existenz eines Inversen bez.\ der Multiplikation)
+        \item $a \cdot b = b \cdot a$ (Kommutativität bezüglich der Multiplikation)
+    \end{itemize}
+    außerdem gilt:
+    \begin{itemize}
+        \item $a \cdot (b + c) = (a \cdot b) + (a \cdot c)$ (Distributivgesetz)
+    \end{itemize}
+    \textbf{Bem.:}
+    $\mathbb{Q}$, $\mathbb{R}$ und $\mathbb{C}$ sind Körper.
+    $\mathbb{Z}$ und $\mathbb{N}$ nicht (kein additiv inverses bei $\mathbb{N}$,
+    kein multiplikativ inverses bei beiden).
+
+
+    \subsection{Angeordnete Körper}
+    Ein Körper heißt angeordent wenn folgende Axiome erfüllt sind
+    (seien $a,b,c \in \mathbb{K}$):
+    \begin{itemize}
+         \item $a<b\ \vee\ b<a\ \vee\ a=b$
+         \item $a<b\ \wedge\ b<c\ \Rightarrow\ a<c$
+         \item $a<b \Rightarrow a+c<b+c$
+         \item $a<b \wedge c>0 \Rightarrow a*c<b*c$
+    \end{itemize}
+    \textbf{Bem.:}
+    $\mathbb{Q}$ und $\mathbb{R}$ sind angeordnete Körper. Für $\mathbb{C}$
+    kann keine Ordnungsrelation definiert werden so das alle Axiome erfüllt
+    sind.
+
+    \subsubsection{Gebräuchliche Definition zu angeordenten Körpern}
+    Für gewöhnlich gilt $0<1$.
+
+     Die Ordnungsrelation wird dann definiert durch:
+    \begin{eqnarray*}
+        2&:=& 1+1 \\
+        3&:=& 2+1 \\
+        4&:=&3+1 \\
+        &\cdots&
+    \end{eqnarray*}
+
+     Die Natürlichen Zahlen werden Induktiv definiert:
+    \begin{enumerate}
+        \item $1 :\in \mathbb{N}$
+        \item $n \in \mathbb{N} \Rightarrow (n+1)\in\mathbb{N}$
+    \end{enumerate}
+
+    \textbf{Bem:}
+    Aus 2.\ lässt sich direkt ableiten das $\mathbb{N}$ nach oben unbeschränkt ist.
+
+    \subsubsection{Vollständig Angeordnete Körper}
+    Ein Körper heißt Vollständig, falls jede nach oben beschränkte, nicht-leere
+    teilmenge ein Supremum besitzt.
+
+    \textbf{Bem I:} $\mathbb{R}$ ist der einzige Vollständig angeordnete Körper.
+
+    \textbf{Bem II:} $\mathbb{Q}$ ist nicht vollständig angeordnet, da
+    $A := \{x | x^2 \leq 2\} \subset \mathbb{Q}$ kein obere Schrank besitzt
+    (obere Schranke ist $\sqrt{2} \notin \mathbb{Q}$).
+
+
+    \subsection{Minimum und Maximum}
+    Sei \Korp\ ein angeordnter Körper und $A \subset$ \Korp\ dann heißt
+    $m$ Minimum falls gilt:
+    \begin{enumerate}
+        \item $m \in \mathbb{K}$
+        \item $a \geq m\ \forall a \in A$
+    \end{enumerate}
+    Analog ist das Maximum definiert:
+    Sei \Korp\ ein angeordnter Körper und $A \subset$ \Korp\ dann heißt
+    $m$ Maximum falls gilt:
+    \begin{enumerate}
+        \item $m \in \mathbb{K}$
+        \item $a \leq m\ \forall a \in A$
+    \end{enumerate}
+    \textbf{Schreibweisen:}
+    $m = \min{(A)}$ bzw.\ $m = \max{(A)}$\\
+    \textbf{Bem.:}
+    Minimum und Maximum exisitieren nicht immer.\\
+    \textbf{Beispiel:} $A := \{x | x>0\}\subset\ \mathbb{R}$
+    hat nicht 0 als Minimum da $0 \notin A$ und kein beliebiges $m$ da $\tilde{m} := \frac{m}{2} < m\ \forall m \in A$
+
+    \subsection{Obere und untere Schranke}
+    Sei \Korp\ ein angeordenter Körper und $A \subset$ \Korp\ dann ist $s$ untere
+    Schranke falls gilt:
+    \begin{itemize}
+        \item $s \geq a\ \forall a \in A$
+    \end{itemize}
+
+     Analog ist die obere Schranke definiert:
+    Sei \Korp\ ein angeordenter Körper und $A \subset$ \Korp\ dann ist $s$ obere
+    Schranke falls gilt:
+    \begin{itemize}
+        \item $s \leq a\ \forall a \in A$
+    \end{itemize}
+
+    \textbf{Bem.:} Hat eine Menge eine obere (bzw.\ untere) Schranke
+    heißt er nach oben (bzw.\ unten) beschränkt. Ist eine Menge nach unten und
+    oben beschränkt bezeichnet man sie als beschränkt.
+
+    \subsection{Supremum und Infimum}
+    $s$ heißt Infimum (größte untere Schranke) falls gilt:
+    \begin{itemize}
+        \item $s$ ist untere Schranke
+        \item Falls $\tilde{s}$ ebenfalls untere Schranke ist gilt
+        $s\geq\tilde{s}$
+    \end{itemize}
+
+     Analog ist das Supremum definiert: $s$ heißt Supremum (kleinste obere Schranke) falls gilt:
+    \begin{itemize}
+        \item $s$ ist obere Schranke
+        \item Falls $\tilde{s}$ ebenfalls obere Schranke ist gilt
+        $s\leq\tilde{s}$
+    \end{itemize}
+
+    \textbf{Bem.:}
+    Wenn Minimum (bzw. Maximum) existieren sind diese gleich dem
+    Infimum (bzw. Supremum).
+
+    \textbf{Schreibweise:}
+    $s = \inf{(A)}$ bzw. $s = \sup{(A)}$
+
+
+    \section{Folgen}
+    Eine Folge $a_n$ ist definiert als eine Funktion:
+    \begin{equation*}
+        a_n := \varphi: \mathbb{N} \rightarrow \mathbb{M} \subset \mathbb{R}
+    \end{equation*}
+    oder auch ${(a_n)}_{n=1}^\infty$.
+
+    \subsection{Konvergenz}
+    Eine Folge $a_n$ heißt konvergent wenn gilt:
+    \begin{equation*}
+        \forall \varepsilon>0\ \exists~n_0(\varepsilon):\ \abs{a_n - a} < \varepsilon\ \forall \varepsilon > n_0(\varepsilon)
+    \end{equation*}
+
+    \textbf{Bem.:}
+    Der Grenzwert ist eindeutig, d.h.\ es existiert nur ein Grenzwert.
+
+    \subsubsection{Schreibweise}
+    Falls $a_n$ gegen $a$ konvergiert schreibt man:
+    \begin{equation*}
+        \lim_{n \rightarrow \infty} a_n = a
+    \end{equation*}
+
+    \subsection{Beschränktheit}
+    Eine Folge heißt beschränkt wenn gilt:
+    \begin{equation*}
+        \abs{a_n} < c\ \forall n
+    \end{equation*}
+
+    \subsubsection{Beschränktheit nach oben/unten}
+    Eine Folge heißt nach oben (bzw.~unten) beschränkt wenn gilt:
+    \begin{equation*}
+        a_n < n\ \forall n \in \mathbb{N} \text{ bzw. }a_n > c\ \forall n \in \mathbb{N}
+    \end{equation*}
+
+    \subsubsection{Bestimmte Divergenz}
+    Eine Folge $a_n$ heißt bestimmt Divergent wenn gilt
+    \begin{equation*}
+        \forall x \in \mathbb{R}\ \exists n(x):\ a_n>x \text{ bzw. } a_n<x
+    \end{equation*}
+    \textbf{Schreibweise:}
+    \begin{equation*}
+        \lim_{n \rightarrow \infty} a_n = \infty \text{ bzw. } -\infty
+    \end{equation*}
+
+    \subsection{Zusammenhang Konvergenz --- Beschränktheit}
+    Jede Konvergente Folge ist beschränkt.
+
+    \subsection{Grenzwertrechenregeln}
+    Seien ${(a_n)}_{n=1}^\infty$, ${(b_n)}_{n=1}^\infty$, ${(c_n)}_{n=1}^\infty$ Folgen
+    in $\mathbb{C}$ mit:
+    \begin{equation*}
+        \lim_{n \rightarrow \infty} a_n = a \text{ und }
+        \lim_{n \rightarrow \infty} b_n = b
+    \end{equation*}
+
+    Dann gilt:
+
+    \begin{itemize}
+        \item $\lim\limits_{n \rightarrow \infty} \abs{a_n} = \abs{a}$
+        \item $\lim\limits_{n \rightarrow \infty}(a_n + b_n) = a + b$
+        \item $\lim\limits_{n \rightarrow \infty}(a_n \cdot b_n) = a \cdot b$
+        \item Falls $b \neq 0$:
+        $\lim\limits_{n \rightarrow \infty}\dfrac{a_n}{b_n} = \dfrac{a}{b}$
+    \end{itemize}
+
+    \subsection{Sandwich Theorem u.a.}
+    Seien ${(a_n)}_{n=1}^\infty$, ${(b_n)}_{n=1}^\infty$, ${(c_n)}_{n=1}^\infty$
+    Folgen in $\mathbb{R}$ mit:
+    \begin{equation*}
+        \lim_{n \rightarrow \infty}a_n = a \text{, }
+        \lim_{n \rightarrow \infty}b_n = b \text{ und } \gamma \in \mathbb{R}
+    \end{equation*}
+
+    Dann gilt:
+
+    \begin{itemize}
+        \item $a_n \leq \gamma\ \forall n \in \mathbb{N} \Rightarrow a \leq \gamma$
+        \item $a_n \geq \gamma\ \forall n \in \mathbb{N} \Rightarrow a \geq \gamma$
+        \item $a_n \leq b_n\ \forall n \in \mathbb{N} \Rightarrow a \leq b$
+        \item $a_n \leq c_n \leq b_n\ \forall n \in \mathbb{N} \wedge a=b
+        \Rightarrow c=\lim\limits_{n \rightarrow \infty} c_n = a = b$
+    \end{itemize}
+\end{document}
