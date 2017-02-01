@@ -4,11 +4,22 @@
 \usepackage{amsmath}
 \usepackage{commath}
 \usepackage[ngerman]{babel}
+\usepackage{enumitem}
 
-\newcommand{\Korp}{$\mathbb{K}$}
+\newcommand{\K}{$\mathbb{K}$}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\an}{{(a_n)}_{n=1}^\infty}
+\newcommand{\sn}{{(s_n)}_{n=1}^\infty}
+\newcommand{\ReP}{\operatorname{Re}}
+\newcommand{\ImP}{\operatorname{Im}}
+
 \setlength\parindent{0pt}
 
-\title{Zusammenfassung HM I}
+\title{Zusammenfassung HM I --- Übungsklausur 2}
 \author{Paul Nykiel}
 
 \begin{document}
@@ -23,57 +34,56 @@
     Eine Gruppe ist definiert als ein Tuppel aus einer (nicht-leeren) Menge
     und einer Gruppe.
     Eine Gruppe erfüllt die folgenden Axiome (seien $a,b,c \in \mathbb{G}$):
-    \begin{itemize}
-        \item $a \circ (b \circ c) = (a \circ b) \circ c$ (Assoziativität)
-        \item $a \circ \varepsilon = a$ (Rechtsneutrales Element)
-        \item $a \circ a' = \varepsilon$ (Rechtsinverses Element)
-    \end{itemize}
+    \begin{align*}
+        a \circ (b \circ c) &= (a \circ b) \circ c &&\text{(Assoziativität)}\\
+        a \circ \varepsilon &= a &&\text{(Rechtsneutrales Element)}\\
+        a \circ a' &= \varepsilon  &&\text{(Rechtsinverses Element)}
+    \end{align*}
     Eine abelsche Gruppe erfüllt des weiteren:
-    \begin{itemize}
-        \item $a \circ b = b \circ a$ (Kommutativität)
-    \end{itemize}
-
+    \begin{align*}
+        a \circ b &= b \circ a  &&\text{(Kommutativität)}
+    \end{align*}
 
     \subsection{Körper}
     Ein Körper ist definiert als eine Menge mit mindestens zwei Elementen
     (0 und 1) und zwei Verknüfungen.
-    \begin{itemize}
-        \item $+: \mathbb{K} \times \mathbb{K} \rightarrow \mathbb{K}$
-        \item $\cdot: \mathbb{K} \times \mathbb{K} \rightarrow \mathbb{K}$
-    \end{itemize}
-    \Korp\ ist bezüglich der Addition und der Multiplikation (genau: $\mathbb{K} \backslash \{0\}$) ein abelscher
+    \begin{eqnarray*}
+        +: \mathbb{K} \times \mathbb{K} &\rightarrow& \mathbb{K}\\
+        \cdot: \mathbb{K} \times \mathbb{K} &\rightarrow& \mathbb{K}
+    \end{eqnarray*}
+    \K\ ist bezüglich der Addition und der Multiplikation (genauer: $\mathbb{K} \backslash \{0\}$) ein abelscher
     Körper, das heißt es gilt (seien $a,b,c \in \mathbb{K}$):
-    \begin{itemize}
-        \item $a + (b + c) = (a + b) + c$ (Assoziativität bez.\ der Addition)
-        \item $a + 0 = a$ (Existenz einer Null)
-        \item $a + (-a) = 0$ (Existenz eines Inversen bez.\ der Addition)
-        \item $a + b = b + a$ (Kommutativität bez.\ der Addition)
-        \item $a \cdot (b \cdot c) = (a \cdot b) \cdot c$ (Assoziativität bez.\ der Multiplikation)
-        \item $a \cdot 1 = a$ (Existenz einer 1)
-        \item $a \cdot a^-1 = 1$ (Existenz eines Inversen bez.\ der Multiplikation)
-        \item $a \cdot b = b \cdot a$ (Kommutativität bezüglich der Multiplikation)
-    \end{itemize}
+    \begin{align*}
+        a + (b + c) &= (a + b) + c &&\text{(Assoziativität bez.\ der Addition)}\\
+        a + 0 &= a &&\text{(Existenz einer Null)}\\
+        a + (-a) &= 0 &&\text{(Existenz eines Inversen bez.\ der Addition)}\\
+        a + b &= b + a &&\text{(Kommutativität bez.\ der Addition)}\\
+        a \cdot (b \cdot c) &= (a \cdot b) \cdot c &&\text{(Assoziativität bez.\ der Multiplikation)}\\
+        a \cdot 1 &= a &&\text{(Existenz einer 1)}\\
+        a \cdot a^-1 &= 1 &&\text{(Existenz eines Inversen bez.\ der Multiplikation)}\\
+        a \cdot b &= b \cdot a &&\text{(Kommutativität bezüglich der Multiplikation)}
+    \end{align*}
     außerdem gilt:
-    \begin{itemize}
-        \item $a \cdot (b + c) = (a \cdot b) + (a \cdot c)$ (Distributivgesetz)
-    \end{itemize}
+    \begin{align*}
+        a \cdot (b + c) &= (a \cdot b) + (a \cdot c) &&\text{(Distributivgesetz)}
+    \end{align*}
     \textbf{Bem.:}
-    $\mathbb{Q}$, $\mathbb{R}$ und $\mathbb{C}$ sind Körper.
-    $\mathbb{Z}$ und $\mathbb{N}$ nicht (kein additiv inverses bei $\mathbb{N}$,
+    $\Q$, $\R$ und $\C$ sind Körper.
+    $\Z$ und $\N$ nicht (kein additiv inverses bei $\N$,
     kein multiplikativ inverses bei beiden).
 
 
     \subsection{Angeordnete Körper}
     Ein Körper heißt angeordent wenn folgende Axiome erfüllt sind
     (seien $a,b,c \in \mathbb{K}$):
-    \begin{itemize}
-         \item $a<b\ \vee\ b<a\ \vee\ a=b$
-         \item $a<b\ \wedge\ b<c\ \Rightarrow\ a<c$
-         \item $a<b \Rightarrow a+c<b+c$
-         \item $a<b \wedge c>0 \Rightarrow a*c<b*c$
-    \end{itemize}
+    \begin{eqnarray*}
+        a<b\ \vee\ &b<a&\ \vee\ a=b\\
+        a<b\ \wedge\ b<c\ &\Rightarrow&\ a<c\\
+        a<b &\Rightarrow& a+c<b+c\\
+        a<b \wedge c>0 &\Rightarrow& a*c<b*c
+    \end{eqnarray*}
     \textbf{Bem.:}
-    $\mathbb{Q}$ und $\mathbb{R}$ sind angeordnete Körper. Für $\mathbb{C}$
+    $\Q$ und $\R$ sind angeordnete Körper. Für $\C$
     kann keine Ordnungsrelation definiert werden so das alle Axiome erfüllt
     sind.
 
@@ -95,28 +105,28 @@
     \end{enumerate}
 
     \textbf{Bem:}
-    Aus 2.\ lässt sich direkt ableiten das $\mathbb{N}$ nach oben unbeschränkt ist.
+    Aus 2.\ lässt sich direkt ableiten das $\N$ nach oben unbeschränkt ist (Archimedisches Prinzip).
 
     \subsubsection{Vollständig Angeordnete Körper}
     Ein Körper heißt Vollständig, falls jede nach oben beschränkte, nicht-leere
     teilmenge ein Supremum besitzt.
 
-    \textbf{Bem I:} $\mathbb{R}$ ist der einzige Vollständig angeordnete Körper.
+    $\Rightarrow$ $\R$ ist der einzige Vollständig angeordnete Körper.
 
-    \textbf{Bem II:} $\mathbb{Q}$ ist nicht vollständig angeordnet, da
+    \textbf{Bem:} $\Q$ ist nicht vollständig angeordnet, da
     $A := \{x | x^2 \leq 2\} \subset \mathbb{Q}$ kein obere Schrank besitzt
     (obere Schranke ist $\sqrt{2} \notin \mathbb{Q}$).
 
 
     \subsection{Minimum und Maximum}
-    Sei \Korp\ ein angeordnter Körper und $A \subset$ \Korp\ dann heißt
+    Sei \K\ ein angeordnter Körper und $A \subset$ \K\ dann heißt
     $m$ Minimum falls gilt:
     \begin{enumerate}
         \item $m \in \mathbb{K}$
         \item $a \geq m\ \forall a \in A$
     \end{enumerate}
     Analog ist das Maximum definiert:
-    Sei \Korp\ ein angeordnter Körper und $A \subset$ \Korp\ dann heißt
+    Sei \K\ ein angeordnter Körper und $A \subset$ \K\ dann heißt
     $m$ Maximum falls gilt:
     \begin{enumerate}
         \item $m \in \mathbb{K}$
@@ -130,14 +140,14 @@
     hat nicht 0 als Minimum da $0 \notin A$ und kein beliebiges $m$ da $\tilde{m} := \frac{m}{2} < m\ \forall m \in A$
 
     \subsection{Obere und untere Schranke}
-    Sei \Korp\ ein angeordenter Körper und $A \subset$ \Korp\ dann ist $s$ untere
+    Sei \K\ ein angeordenter Körper und $A \subset$ \K\ dann ist $s$ untere
     Schranke falls gilt:
     \begin{itemize}
         \item $s \geq a\ \forall a \in A$
     \end{itemize}
 
      Analog ist die obere Schranke definiert:
-    Sei \Korp\ ein angeordenter Körper und $A \subset$ \Korp\ dann ist $s$ obere
+    Sei \K\ ein angeordenter Körper und $A \subset$ \K\ dann ist $s$ obere
     Schranke falls gilt:
     \begin{itemize}
         \item $s \leq a\ \forall a \in A$
@@ -175,7 +185,7 @@
     \begin{equation*}
         a_n := \varphi: \mathbb{N} \rightarrow \mathbb{M} \subset \mathbb{R}
     \end{equation*}
-    oder auch ${(a_n)}_{n=1}^\infty$.
+    oder auch $\an$.
 
     \subsection{Konvergenz}
     Eine Folge $a_n$ heißt konvergent wenn gilt:
@@ -218,8 +228,8 @@
     Jede Konvergente Folge ist beschränkt.
 
     \subsection{Grenzwertrechenregeln}
-    Seien ${(a_n)}_{n=1}^\infty$, ${(b_n)}_{n=1}^\infty$, ${(c_n)}_{n=1}^\infty$ Folgen
-    in $\mathbb{C}$ mit:
+    Seien $\an$, ${(b_n)}_{n=1}^\infty$, ${(c_n)}_{n=1}^\infty$ Folgen
+    in $\C$ mit:
     \begin{equation*}
         \lim_{n \rightarrow \infty} a_n = a \text{ und }
         \lim_{n \rightarrow \infty} b_n = b
@@ -236,8 +246,8 @@
     \end{itemize}
 
     \subsection{Sandwich Theorem u.a.}
-    Seien ${(a_n)}_{n=1}^\infty$, ${(b_n)}_{n=1}^\infty$, ${(c_n)}_{n=1}^\infty$
-    Folgen in $\mathbb{R}$ mit:
+    Seien $\an$, ${(b_n)}_{n=1}^\infty$, ${(c_n)}_{n=1}^\infty$
+    Folgen in $\R$ mit:
     \begin{equation*}
         \lim_{n \rightarrow \infty}a_n = a \text{, }
         \lim_{n \rightarrow \infty}b_n = b \text{ und } \gamma \in \mathbb{R}
@@ -254,7 +264,7 @@
     \end{itemize}
 
     \subsection{Monotonie}
-    Eine Folge ${(a_n)}_{n=1}^\infty$ in $\mathbb{R}$ heißt:
+    Eine Folge $\an$ in $\R$ heißt:
     \begin{itemize}
         \item Monoton wachsend falls: $a_{n+1} \geq {a_n}\ \forall n \in \mathbb{N}$ (Schreibweise: $a_n \nearrow$)
         \item Monoton fallend falls: $a_{n+1} \leq {a_n}\ \forall n \in \mathbb{N}$ (Schreibweise: $a_n \searrow$)
@@ -266,4 +276,123 @@
     Jede Monotone und beschränkte Folge konvergiert.
 
     \section{Häufungswerte}
+    Häufungswerte sind Grenzwerte einer Teilfolge.
+
+    \subsection{Teilfolgen}
+    Eine Folge ${(b_n)}_{n=1}^\infty$ heißt Teilfolge von $\an$, wenn
+    eine streng monotone Funktion $\varphi: \mathbb{N} \rightarrow \mathbb{N}$ exisitiert
+    mit $b_n = a_{\varphi(n)}$.
+
+    \subsection{Teilfolgen einer Konvergenten Folge}
+    Sei $\an$ eine konvergente Folge in $\C$ mit:
+    $\lim\limits_{n \rightarrow \infty} a_n = a$ und ${(b_n)}_{n=1}^\infty$
+    sei eine Teilfolge. Dann gilt $\lim\limits_{n \rightarrow \infty} b_n = a$.
+
+    \subsection{Häufungswerte} Sei $\an$ eine Folge in $\C$. Dann heißt
+    $a \in\C$\ ein Häufungswert einer Folge, falls eine Teilfolge gegen $a$ konvergiert.
+
+    \subsection{Limes superior/inferior}
+    Sei $\an$ eine reele Folge, dann heißt:
+    \begin{equation*}
+        \lim_{n \rightarrow \infty} \sup a_n :=
+        \varlimsup{n \rightarrow \infty} a_n :=
+        \sup \{ x \in \R, a_n > x\ \infty\text{-oft}\}
+    \end{equation*}
+    der Limes superior von $\an$ und
+    \begin{equation*}
+        \lim_{n \rightarrow \infty} \inf a_n :=
+        \varliminf{n \rightarrow \infty} a_n :=
+        \inf \{ x \in \R, a_n < x\ \infty\text{-oft}\}
+    \end{equation*}
+    der Limes inferior von $\an$.
+
+    \subsection{Konvergenz und limsup/liminf}
+    Eine beschränkte Folge $\an$ in $\R$ konvergiert $\Leftrightarrow$
+    \begin{equation*}
+         \varlimsup_{n \rightarrow \infty} a_n
+        = \varliminf_{n \rightarrow \infty} a_n
+    \end{equation*}
+
+    \subsection{Satz von Bolzano-Weierstraß}
+    Jede beschränkte Folge in $\C$ besitzt eine konvergente Teilfolge
+
+    \subsection{Cauchy-Kriterium}
+    Sei $\an$ eine Folge in $\C$, dann gilt
+    \begin{equation*}
+        \an \text{ konv.} \Leftrightarrow
+        \forall \varepsilon > 0\ \exists n_0(\varepsilon):\
+        \abs{a_n - a_m} < \varepsilon\ \forall n,m > n_0(\varepsilon)
+    \end{equation*}
+    \textbf{Bem:} Im Gegensatz zur Definition der Folgenkonvergenz muss der
+    Grenzwert nicht bekannt sein.
+
+    \section{Unendliche Reihen}
+    \subsection{Definition}
+    Sei $\an$ eine Folge in $\C$, dan  heißt die durch
+    \begin{equation*}
+        s_n = \sum_{k=1}^n a_k
+    \end{equation*}
+    definiert Folge $\sn$ eine Folge von Partialsummen der
+    unendlichen Reihe:
+    \begin{equation*}
+        \sum_{k=1}^\infty a_k
+    \end{equation*}
+    Falls die Folge $\sn$ konvergiert setzten wir:
+    \begin{equation*}
+        \lim_{n \rightarrow \infty} s_n =: \sum_{k=1}^\infty a_k
+    \end{equation*}
+
+    \subsection{Cauchy-Kriterium für unendliche Reihen}
+    Sei $\sum_{k=1}^\infty a_k$ eine $\infty$-Reihe, dann gilt:
+    \begin{equation*}
+        \sum_{k=1}^\infty a_k \text{ konv.} \Leftrightarrow
+        \forall \varepsilon > 0\ \exists n_0(\varepsilon):\
+        \abs{\sum_{k=m}^n} < \varepsilon\
+        \forall n, m>n_0(\varepsilon)
+    \end{equation*}
+    und:
+    \begin{equation*}
+        \sum_{k=1}^\infty a_k \text{ konv.} \Rightarrow
+        \lim_{n \rightarrow \infty} a_n = 0
+    \end{equation*}
+
+    \subsection{Grenzwertrechenregeln für unendliche Reihen}
+    Seien
+    \begin{equation*}
+        \sum_{n=1}^\infty a_k \text{ und } \sum_{n=1}^\infty b_k
+        \text{ gegeben und } \alpha,\beta \in \C
+    \end{equation*}
+    dann gilt:
+    \begin{enumerate}[label= (\alph*)]
+        \item
+            \begin{eqnarray*}
+                \sum_{n=1}^\infty a_k \text{ und } \sum_{n=1}^\infty b_k \text{ konv.:}\\
+                \Rightarrow \sum_{k=1}^\infty(\alpha a_k &+& \beta b_k) \text{ konv.}\\
+                \text{und: }
+                \sum_{k=1}^\infty(\alpha a_k + \beta b_k) &=& \alpha \sum_{n=1}^\infty a_k
+                + \beta \sum_{n=1}^\infty b_k
+            \end{eqnarray*}\\
+        \item
+            \begin{equation*}
+                \sum_{k=1}^\infty a_k \text{ konv.} \Leftrightarrow
+                \sum_{k=1}^\infty \ReP(a_k) \text{ und }
+                \sum_{k=1}^\infty \ImP(a_k) \text{ konv.}
+            \end{equation*}
+        \item
+            \begin{equation*}
+                \sum_{k=1}^\infty a_k \text{ konv.} \Leftrightarrow
+                \text{ die Restreihe } R_n := \sum_{k=n}^\infty a_k \text{ konv.\ gegen }0\\
+                \Rightarrow \lim_{n \rightarrow \infty} R_n = 0
+            \end{equation*}
+    \end{enumerate}
+
+    \subsection{Positive Folgen}
+    Es sei $\an$ eine Folge mit $\an \in \left[0, \infty\right)$ dann gilt:
+    \begin{equation*}
+        \sum_{k=1}^\infty a_k \text{ konv. } \Leftrightarrow
+        \text{ Folge der Partialsummen }\sum_{k=1}^n a_k \text{ ist beschr.}
+    \end{equation*}
+
+    \subsection{Leibniz-Kriterium}
+
 \end{document}

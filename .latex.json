@@ -1,0 +1,11 @@
+{
+  "projectPath": "/home/paul/Dokumente/Uni/HM",
+  "title": "LaTeX-Plus Project",
+  "root": "ubungsklausur2.tex",
+  "program": "pdflatex",
+  "latexmkOptions": "-bibtex -pdf -shell-escape",
+  "output": ".latex",
+  "openOutput": "true",
+  "postAction": "copy",
+  "postPath": ""
+}
