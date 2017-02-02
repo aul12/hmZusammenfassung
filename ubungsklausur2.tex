@@ -550,5 +550,117 @@
         \lim_{n \rightarrow \infty} {\left(1 + \frac{1}{n}\right)}^n = \exp{(z)}
     \end{equation*}
 
+    \section{Funktionsgrenzwerte}
+
+    \subsection{Bemerkung}
+    In diesem Intervall bezeichnet $I$ stehts ein offenes Intervall und
+    $\overline{I}$ dessen sog.\ Abschluss z.B.:
+    \begin{enumerate}[label= (\alph*)]
+        \item $I = (a, b)$ und $\overline{I} = [a, b]$
+        \item $I = (-\infty, b)$ und $\overline{I} = (-\infty, b]$
+        \item $I = (a, \infty)$ und $\overline{I} = [a, \infty)$
+        \item $I = (\infty, \infty)$ und $\overline{I} = (\infty, \infty)$
+    \end{enumerate}
+
+    \subsection{Epsilon-Umgebung}
+    Für $x_0 \in \R$ und $\varepsilon > 0$ heißt
+    \begin{equation*}
+        U_e(x_0) := \{ x \in \R: \abs{x - x_0}<\varepsilon \} =
+        (x_0 - \varepsilon, x_0+\varepsilon)
+    \end{equation*}
+    die $\varepsilon$-Umgebung von $x_0$. Und
+    \begin{equation*}
+        \dot{U}_e(x_0) := U_e(x_0)\backslash \{0\} =
+        (x_0-\varepsilon, x_0) \cup (x_0, x_0+\varepsilon)
+    \end{equation*}
+    die punktierte $\varepsilon$-Umgebung von $x_0$.
+
+    \subsection{Funktionsgrenzwerte (über Delta-Epsilon-Kriterium)}
+    Sei $f: I \rightarrow \R$ und $x_0 \in I$
+    \begin{enumerate}[label= (\alph*)]
+        \item $f$ konv.\ gegen ein $a\in \R$ für $x \rightarrow x_0$
+            (kurz: $\lim\limits_{x \rightarrow x_0}) f(x)=a$) wenn gilt
+            \begin{equation*}
+                \forall \varepsilon > 0\ \exists \delta(\varepsilon):\
+                \abs{f(x) - a} < \varepsilon\ \forall x \text{ mit }
+                \abs{x- x_0} < \delta(\varepsilon) \text{ und } x \neq x_0
+            \end{equation*}
+            Schreibweise:
+            \begin{equation*}
+                \lim_{x \rightarrow x_0} f(x) = a
+                \text{ oder } f(x)=a \text{ für } x \rightarrow x_0
+            \end{equation*}
+        \item Sei $x_o \in I$, dann konv.\ f einseitig von links
+            gegen $a\in\R$ wenn gilt:
+            \begin{equation*}
+                \forall \varepsilon > 0\  \exists \delta(\varepsilon):\
+                \abs{f(x) -a} < \varepsilon\ \forall x \in
+                (x_0 - \delta{\varepsilon}, x_0)
+             \end{equation*}
+            Schreibweise:
+            \begin{equation*}
+                \lim_{x \rightarrow x_{0^-}} f(x) = a
+            \end{equation*}
+        \item Sei $x_o \in I$, dann konv.\ f einseitig von rechts
+            gegen $a\in\R$ wenn gilt:
+            \begin{equation*}
+                \forall \varepsilon > 0\  \exists \delta(\varepsilon):\
+                \abs{f(x) -a} < \varepsilon\ \forall x \in
+                (x_0 , x_0 + \delta{\varepsilon})
+             \end{equation*}
+            Schreibweise:
+            \begin{equation*}
+                \lim_{x \rightarrow x_{0^+}} f(x) = a
+            \end{equation*}
+        \item Sei $I = (\alpha, \infty)$ (bzw. $I = (-\infty, \beta)$) dann
+            konv. $f$ gegen $a$ für $x \rightarrow \infty$
+            (bzw. $x \rightarrow -\infty$) wenn gilt:
+            \begin{equation*}
+                \forall \varepsilon > 0\ \exists x_1(\varepsilon):\
+                \abs{f(x) - a}<\varepsilon\ \forall x \in I:\ x > x_1(\varepsilon)
+                \text{ (bzw. } x < x_1(\varepsilon) \text{)}
+            \end{equation*}
+    \end{enumerate}
+
+    \subsection{Folgenkriterium}
+    Sei $f: I \rightarrow \R$ und $x_0 \in \overline{I}, u \in \R$ dann gilt
+    $\lim\limits_{x \rightarrow \infty} f(x) = a \Leftrightarrow$
+
+    \begin{equation*}
+        \begin{cases}
+            \text{Für eine beliebe Folge } {(x_n)}_{n=1}^\infty \text{ mit}\\
+            \text{(i)} x_n \neq x_0 \forall n\\
+            \text{(ii)} \lim\limits_{x \rightarrow \infty} x_n = x_0\\
+            \text{gilt stets:}\\
+            \lim\limits_{n \rightarrow \infty} f(x_n) = a
+        \end{cases}
+    \end{equation*}
+
+    \subsection{Rechenregeln für Funktionsgrenzwerte}
+    Seien $f, g: I \rightarrow \R$ und $x_0 \ in I$ und gelte
+    \begin{equation*}
+        \lim_{x \rightarrow x_0} f(x) = a \text{, }
+        \lim_{x \rightarrow x_0} g(x) = b
+    \end{equation*}
+    Dann gilt:
+    \begin{enumerate}[label= (\alph*)]
+        \item
+            \begin{equation*}
+                \lim_{x \rightarrow x_0} (\alpha \cdot f(x)) = \alpha \cdot a
+            \end{equation*}
+        \item
+            \begin{equation*}
+                \lim_{x \rightarrow x_0} (g(x) + f(x)) = a + b
+            \end{equation*}
+        \item
+            \begin{equation*}
+                \lim_{x \rightarrow x_0} (g(x) \cdot f(x)) = a \cdot b
+            \end{equation*}
+        \item
+            \begin{equation*}
+                \lim_{x \rightarrow x_0} \left(\frac{f(x)}{g(x)}\right) = \frac{a}{b}
+                \qquad\text{falls } b \neq 0
+            \end{equation*}
+    \end{enumerate}
 
 \end{document}
