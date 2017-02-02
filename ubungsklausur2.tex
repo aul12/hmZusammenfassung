@@ -397,7 +397,7 @@
 
     \subsection{Leibniz-Kriterium}
     Sei $\an$ eine monoton fallende, stetige Folge. Dann gilt falls
-    $\lim\limits_{n \rightarrow \infty} a_n = 0$ ist, konv. die sogennante
+    $\lim\limits_{n \rightarrow \infty} a_n = 0$ ist, konv.\ die sogennante
     alternierende Reihe
     \begin{equation*}
         \sum_{k=1}^\infty {(-1)}^k a_k
@@ -449,7 +449,7 @@
     \subsection{Umordnung einer Reihe}
     Eine Reihe $\sum_{k=1}^\infty b_k$ heißt Umordnung der Reihe
     $\sum_{k=1}^\infty a_k$,
-    wenn eine bij. Abb $\varphi: \N \rightarrow \N$ ex. mit $b_k = a_{\varphi(k)}$.
+    wenn eine bij. Abb $\varphi: \N \rightarrow \N$ ex.\ mit $b_k = a_{\varphi(k)}$.
 
     \textbf{Bem.:}
     Die Reihe konvergiert nur gegen den selben Wert, wenn $\sum_{k=1}^\infty a_k$
@@ -465,6 +465,90 @@
     \end{equation*}
     und $\sum_{k=0}^\infty c_k$ konv.\ ebenfalls absolut.
 
+    \section{Potenzreihen}
+
+    \subsection{Definition}
+    Sei $\an$ eine Folge in $\C$ und $z_0 \in \C$. Dann heißt
+    \begin{equation*}
+        \sum_{k=0}^\infty a_k \cdot {(z - z_0)}^k
+    \end{equation*}
+    eine Potenzreihe mit Entwicklungspunkt $z_0$ und Koeffizienten
+    $a_n$.
+
+    \textbf{Bem.:} Viele wichtige Funktionen können als Potenzreihen dargestellt
+    werden.
+
+    \subsection{Hadamard}
+    Sei $\sum_{k=0}^\infty a_k {(z-z_o)}^k$ eine PR.\ Definiere
+    \begin{equation*}
+        R := \frac{1}{\varlimsup\limits_{n \rightarrow \infty} \nthSqrt{n}{\abs{a_n}}}
+    \end{equation*}
+
+    Dabei sei $R:=\infty$, falls
+    $\varlimsup\limits_{n \rightarrow \infty} \nthSqrt{n}{\abs{a_n}} = 0$ und
+    $R=0$ falls
+    $\varlimsup\limits_{n \rightarrow \infty} \nthSqrt{n}{\abs{a_n}} = \infty$.
+
+    Dann konv.\ die PR absolut, falls $\abs{z - z_0} < R$ und divergiert falls
+    $\abs{z - z_0} > R$.
+
+    \textbf{Bem. I:} Für $\abs{z - z_0} = R$ wird keine Aussage gemacht.
+
+    \textbf{Bem. II:} $R$ heißt der Konvergenzradius der Potenzreihe.
+
+    \subsection{Hinweis}
+    Es gilt:
+    \begin{equation*}
+        \lim_{n \rightarrow \infty} \nthSqrt{n}{n} = 1
+    \end{equation*}
+
+    \subsection{Integration und Differentiation von Potenzreihen}
+    Sei $\sum_{k=0}^\infty a_k {(z - z_0)}^k$ mit Konvergenzradius $R$. Dann besitzen
+    auch die Potenzreihen
+    \begin{equation*}
+        \sum_{k=0}^\infty k\: a_k {(z - z_0)}^{k-1} \text{ und }
+        \sum_{k=0}^\infty \frac{a_k}{k+1} {(z-z_0)}^{k+1}
+    \end{equation*}
+    den Konvergenzradius R.
+
+    \subsection{Cauchy-Produkt für Potenzreihen}
+    Seien $\sum_{k=0}^\infty a_k {(z-z_0)}^k$ und
+    $\sum_{k=0}^\infty b_k {(z-z_0)}^k$ Potenzreihen, die den Konvergenzradius
+    $R_1$ bzw.\ $R_2$ besitzen. Dann besitzt
+    \begin{equation*}
+            \sum_{k=0}^\infty c_k {(z-z_0)}^k \text{ mit }
+            c_k = \sum_{l=0}^k a_l \cdot b_{k-l}
+    \end{equation*}
+    den Konvergenzradius $R = \min \{R_1, R_2\}$.
+
+    \subsection{Wichtige Potenzreihen}
+    \begin{enumerate}[label= (\alph*)]
+        \item Die Expontentialfunktion ist definiert durch:
+            \begin{equation*}
+                \exp: \C \rightarrow \C\quad z \mapsto \exp(z) :=
+                \sum_{k=0}^\infty \frac{z^k}{k!}
+            \end{equation*}
+        \item Die Trigonometrischen Funktionen sind definiert durch:
+            \begin{eqnarray*}
+                \sin: \C \rightarrow \C\quad z \mapsto \sin(z) &:=&
+                \sum_{k=0}^\infty \frac{{(-1)}^k}{(2k+1)!}z^{2k+1}\\
+                \cos: \C \rightarrow \C\quad z \mapsto \cos(z) &:=&
+                \sum_{k=0}^\infty \frac{{(-1)}^k}{(2k)!}z^{2k}
+            \end{eqnarray*}
+        \item Tangens und Cotangens sind dann definiert als:
+            \begin{eqnarray*}
+                \tan: \{z \in \C:\ \cos(z) \neq 0 \} \rightarrow \C\quad
+                z \mapsto \tan(z)&:=&\frac{\sin(z)}{\cos(z)}\\
+                \cot: \{z \in \C:\ \sin(z) \neq 0 \} \rightarrow \C\quad
+                z \mapsto \cot(z)&:=&\frac{\cos(z)}{\sin(z)}
+            \end{eqnarray*}
+    \end{enumerate}
+
+    \subsection{Alternative Definiton der Exponentialfunktion}
+    \begin{equation*}
+        \forall z \in \C \text{ gilt }
+        \lim_{n \rightarrow \infty} {\left(1 + \frac{1}{n}\right)}^n = \exp{(z)}
+    \end{equation*}
 
 
 \end{document}
