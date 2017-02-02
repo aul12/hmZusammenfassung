@@ -62,7 +62,7 @@
         a + b &= b + a &&\text{(Kommutativität bez.\ der Addition)}\\
         a \cdot (b \cdot c) &= (a \cdot b) \cdot c &&\text{(Assoziativität bez.\ der Multiplikation)}\\
         a \cdot 1 &= a &&\text{(Existenz einer 1)}\\
-        a \cdot a^-1 &= 1 &&\text{(Existenz eines Inversen bez.\ der Multiplikation)}\\
+        a \cdot a^-1 &= 1\quad \forall a \neq 0 &&\text{(Existenz eines Inversen bez.\ der Multiplikation)}\\
         a \cdot b &= b \cdot a &&\text{(Kommutativität bezüglich der Multiplikation)}
     \end{align*}
     außerdem gilt:
@@ -192,7 +192,7 @@
     \subsection{Konvergenz}
     Eine Folge $a_n$ heißt konvergent wenn gilt:
     \begin{equation*}
-        \forall \varepsilon>0\ \exists~n_0(\varepsilon):\ \abs{a_n - a} < \varepsilon\ \forall \varepsilon > n_0(\varepsilon)
+        \forall \varepsilon>0\ \exists~n_0(\varepsilon):\ \abs{a_n - a} < \varepsilon\ \forall n > n_0(\varepsilon)
     \end{equation*}
 
     \textbf{Bem.:}
@@ -223,11 +223,11 @@
     \subsubsection{Beschränktheit nach oben/unten}
     Eine Folge heißt nach oben (bzw.~unten) beschränkt wenn gilt:
     \begin{equation*}
-        a_n < n\ \forall n \in \mathbb{N} \text{ bzw. }a_n > c\ \forall n \in \mathbb{N}
+        a_n < c\ \forall n \in \mathbb{N} \text{ bzw. }a_n > c\ \forall n \in \mathbb{N}
     \end{equation*}
 
     \subsection{Zusammenhang Konvergenz --- Beschränktheit}
-    Jede Konvergente Folge ist beschränkt.
+    Jede konvergente Folge ist beschränkt.
 
     \subsection{Grenzwertrechenregeln}
     Seien $\an$, ${(b_n)}_{n=1}^\infty$, ${(c_n)}_{n=1}^\infty$ Folgen
@@ -270,8 +270,8 @@
     \begin{itemize}
         \item Monoton wachsend falls: $a_{n+1} \geq {a_n}\ \forall n \in \mathbb{N}$ (Schreibweise: $a_n \nearrow$)
         \item Monoton fallend falls: $a_{n+1} \leq {a_n}\ \forall n \in \mathbb{N}$ (Schreibweise: $a_n \searrow$)
-        \item Streng Monoton wachsend falls: $a_{n+1} > {a_n}\ \forall n \in \mathbb{N}$ (Schreibweise: $a_n \uparrow$)
-        \item Streng Monoton fallend falls: $a_{n+1} < {a_n}\ \forall n \in \mathbb{N}$ (Schreibweise: $a_n \downarrow$)
+        \item Streng monoton wachsend falls: $a_{n+1} > {a_n}\ \forall n \in \mathbb{N}$ (Schreibweise: $a_n \uparrow$)
+        \item Streng monoton fallend falls: $a_{n+1} < {a_n}\ \forall n \in \mathbb{N}$ (Schreibweise: $a_n \downarrow$)
     \end{itemize}
 
     \subsection{Zusammenhang Monotonie und Beschränktheit}
@@ -349,7 +349,7 @@
     \begin{equation*}
         \sum_{k=1}^\infty a_k \text{ konv.} \Leftrightarrow
         \forall \varepsilon > 0\ \exists n_0(\varepsilon):\
-        \abs{\sum_{k=m}^n} < \varepsilon\
+        \abs{\sum_{k=m}^n a_k} < \varepsilon\
         \forall n, m>n_0(\varepsilon)
     \end{equation*}
     und:
@@ -411,7 +411,7 @@
     \end{equation*}
     konvergiert.
 
-    \textbf{Bem.:} Jeded absolut konvergente Reihe ist auch konvergent.
+    \textbf{Bem.:} Jede absolut konvergente Reihe ist auch konvergent.
 
     \subsection{Majorantenkriterium}
     Seien $\sum_{k=1}^\infty a_k$ und $\sum_{k=1}^\infty b_k$ mit $b_k \geq 0$
