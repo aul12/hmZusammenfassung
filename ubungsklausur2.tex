@@ -446,7 +446,16 @@
                 \abs{\frac{a_{n+1}}{a_n}} < 1
             \end{equation*}
             gilt, dann konv. $\sum_{k=1}^\infty a_k$ absolut.
+
+            Wenn $a_n \neq 0\ \forall n$ und
+            \begin{equation*}
+                \varlimsup_{n \rightarrow \infty}
+                \abs{\frac{a_{n+1}}{a_n}} > 1
+            \end{equation*}
+            gilt, dann divergiert. $\sum_{k=1}^\infty a_k$.
     \end{enumerate}
+    \textbf{Bem.:} Wenn das Wurzelkriterium keine Aussage macht, kann das
+    Quotientenkriterium trotzdem eine Aussage machen.
 
     \subsection{Umordnung einer Reihe}
     Eine Reihe $\sum_{k=1}^\infty b_k$ heißt Umordnung der Reihe
@@ -549,13 +558,13 @@
     \subsection{Alternative Definiton der Exponentialfunktion}
     \begin{equation*}
         \forall z \in \C \text{ gilt }
-        \lim_{n \rightarrow \infty} {\left(1 + \frac{1}{n}\right)}^n = \exp{(z)}
+        \lim_{n \rightarrow \infty} {\left(1 + \frac{z}{n}\right)}^n = \exp{(z)}
     \end{equation*}
 
     \section{Funktionsgrenzwerte}
 
     \subsection{Bemerkung}
-    In diesem Intervall bezeichnet $I$ stehts ein offenes Intervall und
+    In diesem Intervall bezeichnet $I$ stets ein offenes Intervall und
     $\overline{I}$ dessen sog.\ Abschluss z.B.:
     \begin{enumerate}[label= (\alph*)]
         \item $I = (a, b)$ und $\overline{I} = [a, b]$
@@ -581,7 +590,7 @@
     Sei $f: I \rightarrow \R$ und $x_0 \in I$
     \begin{enumerate}[label= (\alph*)]
         \item $f$ konv.\ gegen ein $a\in \R$ für $x \rightarrow x_0$
-            (kurz: $\lim\limits_{x \rightarrow x_0}) f(x)=a$) wenn gilt
+            (kurz: $\lim\limits_{x \rightarrow x_0} f(x)=a$) wenn gilt
             \begin{equation*}
                 \forall \varepsilon > 0\ \exists \delta(\varepsilon):\
                 \abs{f(x) - a} < \varepsilon\ \forall x \text{ mit }
@@ -632,14 +641,14 @@
         \begin{cases}
             \text{Für eine beliebe Folge } {(x_n)}_{n=1}^\infty \text{ mit}\\
             \text{(i)} x_n \neq x_0 \forall n\\
-            \text{(ii)} \lim\limits_{x \rightarrow \infty} x_n = x_0\\
+            \text{(ii)} \lim\limits_{n \rightarrow \infty} x_n = x_0\\
             \text{gilt stets:}\\
             \lim\limits_{n \rightarrow \infty} f(x_n) = a
         \end{cases}
     \end{equation*}
 
     \subsection{Rechenregeln für Funktionsgrenzwerte}
-    Seien $f, g: I \rightarrow \R$ und $x_0 \ in I$ und gelte
+    Seien $f, g: I \rightarrow \R$ und $x_0 \in I$ und gelte
     \begin{equation*}
         \lim_{x \rightarrow x_0} f(x) = a \text{, }
         \lim_{x \rightarrow x_0} g(x) = b
