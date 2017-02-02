@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[10pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsfonts}
 \usepackage{amsmath}
@@ -16,6 +16,8 @@
 \newcommand{\sn}{{(s_n)}_{n=1}^\infty}
 \newcommand{\ReP}{\operatorname{Re}}
 \newcommand{\ImP}{\operatorname{Im}}
+\newcommand*{\nthSqrt}[2]{\sqrt[\leftroot{-2}\uproot{2}#1]{#2}}
+
 
 \setlength\parindent{0pt}
 
@@ -295,13 +297,13 @@
     Sei $\an$ eine reele Folge, dann heißt:
     \begin{equation*}
         \lim_{n \rightarrow \infty} \sup a_n :=
-        \varlimsup{n \rightarrow \infty} a_n :=
+        \varlimsup_{n \rightarrow \infty} a_n :=
         \sup \{ x \in \R, a_n > x\ \infty\text{-oft}\}
     \end{equation*}
     der Limes superior von $\an$ und
     \begin{equation*}
         \lim_{n \rightarrow \infty} \inf a_n :=
-        \varliminf{n \rightarrow \infty} a_n :=
+        \varliminf_{n \rightarrow \infty} a_n :=
         \inf \{ x \in \R, a_n < x\ \infty\text{-oft}\}
     \end{equation*}
     der Limes inferior von $\an$.
@@ -323,7 +325,7 @@
         \forall \varepsilon > 0\ \exists n_0(\varepsilon):\
         \abs{a_n - a_m} < \varepsilon\ \forall n,m > n_0(\varepsilon)
     \end{equation*}
-    \textbf{Bem:} Im Gegensatz zur Definition der Folgenkonvergenz muss der
+    \textbf{Bem.:} Im Gegensatz zur Definition der Folgenkonvergenz muss der
     Grenzwert nicht bekannt sein.
 
     \section{Unendliche Reihen}
@@ -394,5 +396,75 @@
     \end{equation*}
 
     \subsection{Leibniz-Kriterium}
+    Sei $\an$ eine monoton fallende, stetige Folge. Dann gilt falls
+    $\lim\limits_{n \rightarrow \infty} a_n = 0$ ist, konv. die sogennante
+    alternierende Reihe
+    \begin{equation*}
+        \sum_{k=1}^\infty {(-1)}^k a_k
+    \end{equation*}
+
+
+    \subsection{Absolute Konvergenz}
+    Eine Reihe $\sum_{k=1}^\infty a_k$ heißt absolut konvergent, wenn
+    \begin{equation*}
+        \sum_{k=1}^\infty \abs{a_k}
+    \end{equation*}
+    konvergiert.
+
+    \textbf{Bem.:} Jeded absolut konvergente Reihe ist auch konvergent.
+
+    \subsection{Majorantenkriterium}
+    Seien $\sum_{k=1}^\infty a_k$ und $\sum_{k=1}^\infty b_k$ mit $b_k \geq 0$
+    gegeben.
+
+    Wenn $\sum_{k=1}^\infty b_k$ konv.\ und ein $c>0$ ex.\ mit
+    $$\abs{a_k} \leq c \cdot \abs{b_k}$$ für fast alle k, dann konv.
+    $\sum_{k=1}^\infty a_k$ absolut.
+
+    \subsection{Minorantenkriterium}
+    Falls ein $c > 0$ ex.\ mit $a_k \geq c \cdot b_k > 0$ für fast alle k,
+    dann:
+    \begin{equation*}
+        \sum_{k=1}^\infty b_k \text{ div. }
+        \Rightarrow \sum_{k=1}^\infty a_k \text{ div.}
+    \end{equation*}
+
+    \subsection{Wurzel- und Quotientenkriterium}
+    Sei $\sum_{k=1}^\infty a_k$ gegeben. Dann gilt:
+    \begin{enumerate}[label= (\alph*)]
+        \item Wenn
+            \begin{equation*}
+                \varlimsup_{n \rightarrow \infty}
+                \nthSqrt{n}{\abs{a_n}} < 1
+            \end{equation*}
+            gilt, dann konv. $\sum_{k=1}^\infty a_k$ absolut.
+        \item Wenn $a_n \neq 0\ \forall n$ und
+            \begin{equation*}
+                \varlimsup_{n \rightarrow \infty}
+                \abs{\frac{a_{n+1}}{a_n}} < 1
+            \end{equation*}
+            gilt, dann konv. $\sum_{k=1}^\infty a_k$ absolut.
+    \end{enumerate}
+
+    \subsection{Umordnung einer Reihe}
+    Eine Reihe $\sum_{k=1}^\infty b_k$ heißt Umordnung der Reihe
+    $\sum_{k=1}^\infty a_k$,
+    wenn eine bij. Abb $\varphi: \N \rightarrow \N$ ex. mit $b_k = a_{\varphi(k)}$.
+
+    \textbf{Bem.:}
+    Die Reihe konvergiert nur gegen den selben Wert, wenn $\sum_{k=1}^\infty a_k$
+    absolut konvergent ist.
+
+    \subsection{Cauchy-Produkt}
+    Die Reihen  $\sum_{k=1}^\infty b_k$ und $\sum_{k=1}^\infty a_k$ seien absolut
+    konv.. Dann gilt:
+    \begin{equation*}
+        \left(\sum_{k=0}^\infty a_k\right) \cdot \left(\sum_{k=0}^\infty b_k\right) =
+        \sum_{k=0}^\infty \left(\sum_{j=0}^k a_j \cdot b_{k-j}\right) =
+        \sum_{k=0}^\infty c_k
+    \end{equation*}
+    und $\sum_{k=0}^\infty c_k$ konv.\ ebenfalls absolut.
+
+
 
 \end{document}
