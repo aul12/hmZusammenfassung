@@ -36,7 +36,7 @@
     \section{Gruppen und Körper}
     \subsection{Gruppen}
     Eine Gruppe ist definiert als ein Tuppel aus einer (nicht-leeren) Menge
-    und einer Gruppe.
+    und einer Verknüpfung.
     Eine Gruppe erfüllt die folgenden Axiome (seien $a,b,c \in \mathbb{G}$):
     \begin{align*}
         a \circ (b \circ c) &= (a \circ b) \circ c &&\text{(Assoziativität)}\\
@@ -59,7 +59,7 @@
     Körper, das heißt es gilt (seien $a,b,c \in \mathbb{K}$):
     \begin{align*}
         a + (b + c) &= (a + b) + c &&\text{(Assoziativität bez.\ der Addition)}\\
-        a + 0 &= a &&\text{(Existenz einer Null)}\\
+        a + 0 &= a &&\text{(Existenz einer 0)}\\
         a + (-a) &= 0 &&\text{(Existenz eines Inversen bez.\ der Addition)}\\
         a + b &= b + a &&\text{(Kommutativität bez.\ der Addition)}\\
         a \cdot (b \cdot c) &= (a \cdot b) \cdot c &&\text{(Assoziativität bez.\ der Multiplikation)}\\
@@ -113,7 +113,7 @@
 
     \subsubsection{Vollständig Angeordnete Körper}
     Ein Körper heißt Vollständig, falls jede nach oben beschränkte, nicht-leere
-    teilmenge ein Supremum besitzt.
+    Teilmenge ein Supremum besitzt.
 
     $\Rightarrow$ $\R$ ist der einzige Vollständig angeordnete Körper.
 
@@ -147,14 +147,14 @@
     Sei \K\ ein angeordenter Körper und $A \subset$ \K\ dann ist $s$ untere
     Schranke falls gilt:
     \begin{itemize}
-        \item $s \geq a\ \forall a \in A$
+        \item $s \leq a\ \forall a \in A$
     \end{itemize}
 
      Analog ist die obere Schranke definiert:
     Sei \K\ ein angeordenter Körper und $A \subset$ \K\ dann ist $s$ obere
     Schranke falls gilt:
     \begin{itemize}
-        \item $s \leq a\ \forall a \in A$
+        \item $s \geq a\ \forall a \in A$
     \end{itemize}
 
     \textbf{Bem.:} Hat eine Menge eine obere (bzw.\ untere) Schranke
@@ -318,7 +318,7 @@
     \end{equation*}
 
     \subsection{Satz von Bolzano-Weierstraß}
-    Jede beschränkte Folge in $\C$ besitzt eine konvergente Teilfolge
+    Jede beschränkte Folge in $\C$ besitzt eine konvergente Teilfolge.
 
     \subsection{Cauchy-Kriterium}
     Sei $\an$ eine Folge in $\C$, dann gilt
@@ -440,6 +440,13 @@
                 \nthSqrt{n}{\abs{a_n}} < 1
             \end{equation*}
             gilt, dann konv. $\sum_{k=1}^\infty a_k$ absolut.
+
+            Wenn
+            \begin{equation*}
+                \varlimsup_{n \rightarrow \infty}
+                \nthSqrt{n}{\abs{a_n}} > 1
+            \end{equation*}
+            gilt, dann div. $\sum_{k=1}^\infty a_k$.
         \item Wenn $a_n \neq 0\ \forall n$ und
             \begin{equation*}
                 \varlimsup_{n \rightarrow \infty}
@@ -475,6 +482,13 @@
         \sum_{k=0}^\infty c_k
     \end{equation*}
     und $\sum_{k=0}^\infty c_k$ konv.\ ebenfalls absolut.
+
+    \subsection{Cauchy-Verdichtungssatz}
+    \begin{equation*}
+        \sum_{n=1}^\infty a_n \text{ konv. } \Leftrightarrow
+        \sum_{k=1}^\infty 2^k a_{2^k} \text{ konv.}
+    \end{equation*}
+
 
     \section{Potenzreihen}
 
