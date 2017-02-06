@@ -688,6 +688,62 @@
             \end{equation*}
     \end{enumerate}
 
+    \subsection{Cauchy-Kriterium für Funktionsgrenzwerte}
+    Sei $f: I \rightarrow \R$ und $x_0 \in I$ dann ex.
+    $\lim\limits_{x \rightarrow x_0} f(x) \Leftrightarrow$
+    \begin{equation*}
+        \forall \varepsilon > 0\ \exists \delta(\varepsilon):\
+        \abs{f(x) - f(y)}<\varepsilon\ \forall x,y \in I \text{ mit }
+        0 < \abs{x-y} < \delta(\varepsilon)
+    \end{equation*}
+
+    \subsection{Bestimmte Divergenz}
+    Sei $f: I \rightarrow \R ,\ x_0 \in I$ dann definieren wir die bestimmte
+    Divergenz (uneigentliche Konvergenz) von ($f \rightarrow \infty$) durch
+    \begin{equation*}
+        \lim_{x \rightarrow x_0} f(x) = \infty \Leftrightarrow
+        \forall c>0\ \exists \delta(c): f(x) > c\ \forall x \text{ mit }
+        0 < \abs{x - x_0} < \delta(c)
+    \end{equation*}
+    Analog definieren man links- und rechtsseitig Divergenz gegen $\infty$ bzw.
+    $-\infty$.
+
+    \subsection{Monotone Funktionen}
+    Sei $f: I \rightarrow \R$ dann heißt (auf $I$)
+    \begin{enumerate}[label= (\alph*)]
+        \item monoton wachsend ($f \nearrow$), falls gilt
+            \begin{equation*}
+                x < y \Rightarrow f(x) \leq f(y)
+            \end{equation*}
+        \item streng monoton wachsend ($f \uparrow$), falls gilt
+            \begin{equation*}
+                x < y \Rightarrow f(x) < f(y)
+            \end{equation*}
+        \item monoton fallend ($f \searrow$), falls gilt
+            \begin{equation*}
+                x < y \Rightarrow f(x) \geq f(y)
+            \end{equation*}
+        \item streng monoton fallend ($f \downarrow$)
+            \begin{equation*}
+                x < y \Rightarrow f(x) > f(y)
+            \end{equation*}
+        \item monoton fallend falls $f$ monoton fallend oder monoton steigend ist
+        \item streng monoton falls $f$ streng monoton fallend oder streng monoton
+            steigend ist
+        \item Beschränkt falls gilt:
+            \begin{equation*}
+                \exists c:\ \abs{f(x)} < c\ \forall x \in I
+            \end{equation*}
+    \end{enumerate}
+
+    \subsection{Grenzwerte an Intervallgrenzen}
+    Sei $a \leq b$ und $f: (a, b) \rightarrow \R$ monoton und beschränkt, dann
+    ex.
+    \begin{equation*}
+        \lim_{x \rightarrow b^-} f(x) \text{ und } \lim_{x \rightarrow a^+} f(x)
+    \end{equation*}
+
+
     \pagebreak
     \part{Appendix}
     \section{Konvergenzkriterien}
