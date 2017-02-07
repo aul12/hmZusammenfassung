@@ -694,7 +694,8 @@
     \begin{equation*}
         \forall \varepsilon > 0\ \exists \delta(\varepsilon):\
         \abs{f(x) - f(y)}<\varepsilon\ \forall x,y \in I \text{ mit }
-        0 < \abs{x-y} < \delta(\varepsilon)
+        0 < \abs{x-x_o} < \delta(\varepsilon) \text{ und }
+        0 < \abs{y-x_0} < \delta(\varepsilon)
     \end{equation*}
 
     \subsection{Bestimmte Divergenz}
@@ -743,6 +744,83 @@
         \lim_{x \rightarrow b^-} f(x) \text{ und } \lim_{x \rightarrow a^+} f(x)
     \end{equation*}
 
+    \section{Stetigkeit}
+
+    \subsection{Anschaulich}
+    Graph einer Funktion kann ohne Absetzen gezeichnet werden $\Leftrightarrow$
+
+    Es gibt keine Sprünge $\Leftrightarrow$
+
+    $f: I \rightarrow \R$ an keiner Stelle $x_0 \in I$ ist ein Sprung $\Leftrightarrow$
+
+    $\forall x_0 \in I:\ \lim\limits_{x \rightarrow x_0} f(x) = f(x_0)$
+
+
+    \subsection{Stetigkeit: Delta-Epsilon-Kriterium}
+    Sei $f: I \rightarrow \R$ und $x_0 \in I$, dann ist $f$ in $x_0$ stetig
+    falls gilt:
+    \begin{equation*}
+        \forall \varepsilon > 0\ \exists \delta(\varepsilon):\
+        \abs{f(x)-f(x_0)}<\varepsilon\ \forall x \in I \text{ mit }
+        \abs{x-x_0}<\delta(\varepsilon)
+    \end{equation*}
+    Und f ist stetig (auf $I$), wenn $f$ in jedem $x_0 \in I$ stetig ist.
+
+    \subsection{Bemerkungen}
+    \begin{enumerate}[label= (\alph*)]
+        \item $f$ ist stetig in $x_0 \Leftrightarrow$
+            \begin{equation*}
+                \lim_{x \rightarrow x_0} f(x) = f(x_0)
+            \end{equation*}
+            gilt.
+        \item $f$ ist stetig in $x_0$ dann gilt:
+            \begin{equation*}
+                \lim_{n \rightarrow \infty} x_n = x_0 \Rightarrow
+                \lim_{n \rightarrow \infty} f(x_n) = f(x_0)
+            \end{equation*}
+    \end{enumerate}
+
+    \subsection{Rechenregeln für Stetigkeit}
+    Sind $f,g: I \rightarrow \R$ stetig, dann sind auch die Funktionen
+    \begin{enumerate}[label= (\alph*)]
+        \item $c \cdot f$ (für $c \in \R$)
+        \item $f + g$
+        \item $f \cdot g$
+        \item und falls $g(x) \neq 0 \forall x \in I \frac{f}{g}$
+    \end{enumerate}
+    stetig.
+
+    Ist $f: I \rightarrow J, g: I \rightarrow \R$ und beide stetig dann
+    ist auch $g \circ f$ stetig.
+
+    \subsection{Stetigkeit von Potenzreihen}
+    Sei $f(x) = \sum_{k=0}^\infty a_k {(x - x_0)}^k$ eine Potenzereihe mit
+    Konvergenzradius $R > 0$, dann gilt für $x_1 \in U_R(x_0)$, dass
+    $\lim\limits_{x \rightarrow x_1} f(x) = f(x_1)$ (d.h. Potenzreihen
+    sind innerhalb des Konvergenzradius stetig).
+
+    \subsection{Umgebung positiver Werte}
+    Sei $f: I \rightarrow \R$ stetig in $x_0$, dann gilt:
+    \begin{equation*}
+        f(x_0) > 0 \Rightarrow \exists \delta > 0:\ f(x)>0\
+        \forall x \in I \text{ mit } \abs{x - x_1} < \delta
+    \end{equation*}
+
+    \subsection{Zwischenwertsatz}
+    Sei $D = [a, b]$ (also abgeschlossen) und $f: D \rightarrow \R$ stetig dann
+    ex.\ zu jedem $y$ zwischen $f(a)$ und $f(b)$ ein $x \in [a,b]$ mit $f(x) =y$.
+
+    \textbf{Genauer:}
+    \begin{equation*}
+        \forall y \in [m, M]\ \exists x \in [a,b] \text{ mit } f(x)=y
+    \end{equation*}
+    Wobei $m = \min \{ f(a), f(b) \}$ und $M = \max \{ f(a), f(b) \}$.
+
+    \textbf{Bem.:}
+    Bei einer Funktion ist das Bild eines Intervals wieder ein Interval. D.h.
+    \begin{equation*}
+        f([a,b]) = [c, d]
+    \end{equation*}
 
     \pagebreak
     \part{Appendix}
@@ -802,10 +880,8 @@
                 Majorantenkrit.-Kriterium & Cauchy\\
                 Minorantenkrit. & Kontradiktion von Majorantenkrit.\\
                 Wurzelkriterium & Majorantenkrit: geom. Summe über $Q:=q+\varepsilon<1$, in $q$ das Wurzelkrit einsetzen, Char. LimSup\\
-                Quotientenkrit. & Majorantenkrit: setze in $q$ das Quotientenkrit ein u. arg. über LimSup
+                Quotientenkrit. & Majorantenkrit: setze in $q$ das Quotientenkrit ein u.\ arg. über LimSup \\
             \bottomrule
         \end{tabular}
     \end{center}
-
-
 \end{document}
