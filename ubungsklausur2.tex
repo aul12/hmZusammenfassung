@@ -6,6 +6,8 @@
 \usepackage[ngerman]{babel}
 \usepackage{enumitem}
 \usepackage{booktabs}
+\usepackage{longtable}
+
 
 
 \newcommand{\K}{$\mathbb{K}$}
@@ -853,10 +855,11 @@
         \end{tabular}
     \end{center}
 
+    \pagebreak
     \section{Beweis-Ansätze}
     Ansatz für die einzelnen Beweise.
     \begin{center}
-        \begin{tabular}{lp{5cm}}
+        \begin{longtable}{lp{5cm}}
             \toprule
                 Lemma / Satz & Beweisansatz\\
             \midrule
@@ -890,6 +893,7 @@
                 $1+x \leq e^x \forall x \in \R$ & Bernoulli\\
                 $x<y \Rightarrow e^x < e^y$ & nahrhafte 0\\
             \bottomrule
-        \end{tabular}
+        \end{longtable}
     \end{center}
+
 \end{document}
