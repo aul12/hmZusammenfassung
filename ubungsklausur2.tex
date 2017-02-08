@@ -1,4 +1,4 @@
-\documentclass[10pt]{article}
+\documentclass[10pt]{report}
 \usepackage[utf8]{inputenc}
 \usepackage{amsfonts}
 \usepackage{amsmath}
@@ -10,7 +10,7 @@
 
 
 
-\newcommand{\K}{$\mathbb{K}$}
+\newcommand{\K}{\mathbb{K}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -25,7 +25,7 @@
 
 \setlength\parindent{0pt}
 
-\title{Zusammenfassung HM I --- Übungsklausur 2}
+\title{Zusammenfassung Höhere Mathematik}
 \author{Paul Nykiel}
 
 \begin{document}
@@ -34,7 +34,9 @@
     \tableofcontents
     \pagebreak
 
-    \part{Grenzwerte}
+    \part{HM1}
+
+    \chapter{Grenzwerte}
     \section{Gruppen und Körper}
     \subsection{Gruppen}
     Eine Gruppe ist definiert als ein Tuppel aus einer (nicht-leeren) Menge
@@ -54,11 +56,11 @@
     Ein Körper ist definiert als eine Menge mit mindestens zwei Elementen
     (0 und 1) und zwei Verknüfungen.
     \begin{eqnarray*}
-        +: \mathbb{K} \times \mathbb{K} &\rightarrow& \mathbb{K}\\
-        \cdot: \mathbb{K} \times \mathbb{K} &\rightarrow& \mathbb{K}
+        +: \K \times \K &\rightarrow& \K\\
+        \cdot: \K \times \K &\rightarrow& \K
     \end{eqnarray*}
-    \K\ ist bezüglich der Addition und der Multiplikation (genauer: $\mathbb{K} \backslash \{0\}$) ein abelscher
-    Körper, das heißt es gilt (seien $a,b,c \in \mathbb{K}$):
+    $\K$ ist bezüglich der Addition und der Multiplikation (genauer: $\K \backslash \{0\}$) ein abelscher
+    Körper, das heißt es gilt (seien $a,b,c \in \K$):
     \begin{align*}
         a + (b + c) &= (a + b) + c &&\text{(Assoziativität bez.\ der Addition)}\\
         a + 0 &= a &&\text{(Existenz einer 0)}\\
@@ -81,7 +83,7 @@
 
     \subsection{Angeordnete Körper}
     Ein Körper heißt angeordent wenn folgende Axiome erfüllt sind
-    (seien $a,b,c \in \mathbb{K}$):
+    (seien $a,b,c \in \K$):
     \begin{eqnarray*}
         a<b\ \vee\ &b<a&\ \vee\ a=b\\
         a<b\ \wedge\ b<c\ &\Rightarrow&\ a<c\\
@@ -125,17 +127,17 @@
 
 
     \subsection{Minimum und Maximum}
-    Sei \K\ ein angeordnter Körper und $A \subset$ \K\ dann heißt
+    Sei $\K$ ein angeordnter Körper und $A \subset$ $\K$ dann heißt
     $m$ Minimum falls gilt:
     \begin{enumerate}
-        \item $m \in \mathbb{K}$
+        \item $m \in \K$
         \item $a \geq m\ \forall a \in A$
     \end{enumerate}
     Analog ist das Maximum definiert:
-    Sei \K\ ein angeordnter Körper und $A \subset$ \K\ dann heißt
+    Sei $\K$ ein angeordnter Körper und $A \subset$ $\K$ dann heißt
     $m$ Maximum falls gilt:
     \begin{enumerate}
-        \item $m \in \mathbb{K}$
+        \item $m \in \K$
         \item $a \leq m\ \forall a \in A$
     \end{enumerate}
     \textbf{Schreibweisen:}
@@ -146,14 +148,14 @@
     hat nicht 0 als Minimum da $0 \notin A$ und kein beliebiges $m$ da $\tilde{m} := \frac{m}{2} < m\ \forall m \in A$
 
     \subsection{Obere und untere Schranke}
-    Sei \K\ ein angeordenter Körper und $A \subset$ \K\ dann ist $s$ untere
+    Sei $\K$ ein angeordenter Körper und $A \subset$ $\K$ dann ist $s$ untere
     Schranke falls gilt:
     \begin{itemize}
         \item $s \leq a\ \forall a \in A$
     \end{itemize}
 
      Analog ist die obere Schranke definiert:
-    Sei \K\ ein angeordenter Körper und $A \subset$ \K\ dann ist $s$ obere
+    Sei $\K$ ein angeordenter Körper und $A \subset$ $\K$ dann ist $s$ obere
     Schranke falls gilt:
     \begin{itemize}
         \item $s \geq a\ \forall a \in A$
@@ -311,6 +313,29 @@
         \inf \{ x \in \R, a_n < x\ \infty\text{-oft}\}
     \end{equation*}
     der Limes inferior von $\an$.
+
+    \subsection{Charakterisierung limsup/liminf}
+    Sei $\an$ eine reelle Folge und $s \in \R$. Dann gilt:
+    \begin{enumerate}[label= (\alph*)]
+        \item
+            \begin{equation*}
+                s = \varlimsup_{n \rightarrow \infty} a_n \Leftrightarrow
+                \forall \varepsilon > 0 \text{ gilt: }
+            \end{equation*}
+            \begin{enumerate}[label=\roman*]
+                \item $a_n < s + \varepsilon$ für fast alle $n$
+                \item $a_n > s - \varepsilon$ für $\infty$-viele $n$
+            \end{enumerate}
+        \item
+            \begin{equation*}
+                s = \varliminf_{n \rightarrow \infty} a_n \Leftrightarrow
+                \forall \varepsilon > 0 \text{ gilt: }
+            \end{equation*}
+            \begin{enumerate}[label=\roman*]
+                \item $a_n > s - \varepsilon$ für fast alle $n$
+                \item $a_n < s + \varepsilon$ für $\infty$-viele $n$
+            \end{enumerate}
+    \end{enumerate}
 
     \subsection{Konvergenz und limsup/liminf}
     Eine beschränkte Folge $\an$ in $\R$ konvergiert $\Leftrightarrow$
@@ -832,7 +857,7 @@
     \end{equation*}
 
     \pagebreak
-    \part{Appendix}
+    \chapter{Appendix}
     \section{Konvergenzkriterien}
     Zusammenfassung verschiedener Konvergenzkriterien nach Wikipedia (Seite: Konvergenzkriterium):
     \begin{center}
@@ -895,17 +920,17 @@
                 Differenzieren / Integrieren von PR & Wurzelkriterium\\
                 Lemma zu sin, cos und exp & Cauchy-Produkt + Definitionen\\
                 $e^z \neq 0$ und $e^{-z} = \frac{1}{z}$ & Inverses Element der Multiplikation\\
-                Pythagoras & 3. binomische Formel\\
+                Pythagoras & 3.\ binomische Formel\\
                 $e^x > 0 \forall x \in \R$ & Betrachte $x \geq 0$, angeordneter Körper\\
                 $1+x \leq e^x \forall x \in \R$ & Bernoulli\\
                 $x<y \Rightarrow e^x < e^y$ & nahrhafte 0\\
-                Folgenkriterium & Hin: Def. Folgenkonv. und dann Def FunktionsGW einsetzen; \@Rück: Wähle versch. $\delta$ und zeige Widerspruch\\
+                Folgenkriterium & Hin: Def. Folgenkonv.\ und dann Def FunktionsGW einsetzen; \@Rück: Wähle versch. $\delta$ und zeige Widerspruch\\
                 Cauchy für Funktionen & Hin: Def. FunktionsGW + nahrhafte 0; \@Rück: Cauchy für Folgen\\
                 Grenzwerte an Intervallgrenzen & Argumentiere über Supremum / Infimum\\
                 Verknüpfungen von stetigen Funktionen sind stetig & Folgenkriterium\\
-                Potenzreihen sind innerhalb des KR stetig & Abschätzung: $\exists r>0 : abs{x-x_0 \text{bzw} x_1} \leq r$, dann einfach $abs{f(x)-f(x_1)}$ nach oben abschätzen\\
-                Umgebung pos. Funktionswerte & Wähle $\varepsilon = frac{f(x_0)}{2}$, Def. Stetigkeit\\
-                Zwischenwertsatz & Definiere $x_0 := sup{x \in [a,b] : f(x) \leq y}$ und zwei Hilfsfolgen, die gegen $x_0$ konvergieren\\
+                Potenzreihen sind innerhalb des KR stetig & Abschätzung: $\exists r>0 : \abs{x-x_0 \text{ bzw. } x_1} \leq r$, dann einfach $\abs{f(x)-f(x_1)}$ nach oben abschätzen\\
+                Umgebung pos. Funktionswerte & Wähle $\varepsilon = \frac{f(x_0)}{2}$, Def. Stetigkeit\\
+                Zwischenwertsatz & Definiere $x_0 := \sup \{x \in [a,b] : f(x) \leq y \}$ und zwei Hilfsfolgen, die gegen $x_0$ konvergieren\\
             \bottomrule
         \end{longtable}
     \end{center}
