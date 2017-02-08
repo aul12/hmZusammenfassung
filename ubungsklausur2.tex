@@ -505,7 +505,7 @@
     \textbf{Bem.:} Viele wichtige Funktionen können als Potenzreihen dargestellt
     werden.
 
-    \subsection{Hadamard}
+    \subsection{Hadamard (Konvergenzradius mit Wurzelkriterium)}
     Sei $\sum_{k=0}^\infty a_k {(z-z_o)}^k$ eine PR.\ Definiere
     \begin{equation*}
         R := \frac{1}{\varlimsup\limits_{n \rightarrow \infty} \nthSqrt{n}{\abs{a_n}}}
@@ -522,6 +522,13 @@
     \textbf{Bem. I:} Für $\abs{z - z_0} = R$ wird keine Aussage gemacht.
 
     \textbf{Bem. II:} $R$ heißt der Konvergenzradius der Potenzreihe.
+
+    \subsection{Konvergenzradius mit Quotientenkriterium}
+    Sei $\sum_{k=0}^\infty a_k {(z - z_0)}^k$ eine PR.\@ Der Potenzradius kann
+    ebenfalls berechnet werden durch:
+    \begin{equation*}
+        R = \varlimsup_{n \rightarrow \infty} \abs{\frac{a_n}{a_{n+1}}}
+    \end{equation*}
 
     \subsection{Hinweis}
     Es gilt:
