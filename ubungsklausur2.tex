@@ -6,6 +6,8 @@
 \usepackage[ngerman]{babel}
 \usepackage{enumitem}
 \usepackage{booktabs}
+\usepackage{longtable}
+
 
 
 \newcommand{\K}{$\mathbb{K}$}
@@ -503,7 +505,7 @@
     \textbf{Bem.:} Viele wichtige Funktionen können als Potenzreihen dargestellt
     werden.
 
-    \subsection{Hadamard}
+    \subsection{Hadamard (Konvergenzradius mit Wurzelkriterium)}
     Sei $\sum_{k=0}^\infty a_k {(z-z_o)}^k$ eine PR.\ Definiere
     \begin{equation*}
         R := \frac{1}{\varlimsup\limits_{n \rightarrow \infty} \nthSqrt{n}{\abs{a_n}}}
@@ -520,6 +522,13 @@
     \textbf{Bem. I:} Für $\abs{z - z_0} = R$ wird keine Aussage gemacht.
 
     \textbf{Bem. II:} $R$ heißt der Konvergenzradius der Potenzreihe.
+
+    \subsection{Konvergenzradius mit Quotientenkriterium}
+    Sei $\sum_{k=0}^\infty a_k {(z - z_0)}^k$ eine PR.\@ Der Potenzradius kann
+    ebenfalls berechnet werden durch:
+    \begin{equation*}
+        R = \varlimsup_{n \rightarrow \infty} \abs{\frac{a_n}{a_{n+1}}}
+    \end{equation*}
 
     \subsection{Hinweis}
     Es gilt:
@@ -799,11 +808,11 @@
     $\lim\limits_{x \rightarrow x_1} f(x) = f(x_1)$ (d.h. Potenzreihen
     sind innerhalb des Konvergenzradius stetig).
 
-    \subsection{Umgebung positiver Werte}
+    \subsection{Umgebung positiver Funktionswerte}
     Sei $f: I \rightarrow \R$ stetig in $x_0$, dann gilt:
     \begin{equation*}
         f(x_0) > 0 \Rightarrow \exists \delta > 0:\ f(x)>0\
-        \forall x \in I \text{ mit } \abs{x - x_1} < \delta
+        \forall x \in I \text{ mit } \abs{x - x_0} < \delta
     \end{equation*}
 
     \subsection{Zwischenwertsatz}
@@ -853,10 +862,11 @@
         \end{tabular}
     \end{center}
 
+    \pagebreak
     \section{Beweis-Ansätze}
     Ansatz für die einzelnen Beweise.
     \begin{center}
-        \begin{tabular}{lp{5cm}}
+        \begin{longtable}{lp{5cm}}
             \toprule
                 Lemma / Satz & Beweisansatz\\
             \midrule
@@ -897,6 +907,7 @@
                 Umgebung pos. Funktionswerte & Wähle $\varepsilon = frac{f(x_0)}{2}$, Def. Stetigkeit\\
                 Zwischenwertsatz & Definiere $x_0 := sup{x \in [a,b] : f(x) \leq y}$ und zwei Hilfsfolgen, die gegen $x_0$ konvergieren\\
             \bottomrule
-        \end{tabular}
+        \end{longtable}
     \end{center}
+
 \end{document}
