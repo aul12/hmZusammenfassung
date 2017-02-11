@@ -94,3 +94,145 @@ ab.
 \subsubsection{Bemerkung}
 Für den allg. Fall sagt man zu $A \Leftrightarrow B$: A ist äquivalent
 zu B. Das heißt aber nicht, dass $A=B$ ist.
+
+
+\section{Mengen}
+\subsection{Defintion: Mengen nach Cantor}
+Unter einer Menge versteht man eine Zusammenfassung
+bestimmter wohlunterscheidbarer Objekte unsere Anschauung oder unseres Denkens
+zu einem Ganzen.
+
+\subsection{Begrifflichkeiten und Schreibweise}
+Objekte einer Menge bezeichnet man als Elemente einer Menge.
+
+Schreibweise:
+\begin{enumerate}[label= (\alph*)]
+    \item $x \in M$ oder $x \notin M$
+    \item Mengen können durch Aufzählen der Elemente beschrieben werden:
+        $M= \{ a, b, c \}$
+    \item Mengen können durch Eigenschaften der Elemente beschrieben werden:
+        $M= \{x: x \text{ hat Eigenschaft\ldots} \}$
+\end{enumerate}
+
+\subsection{Leere Menge, Teilmengen}
+\begin{enumerate}[label= (\alph*)]
+    \item Die Menge, die kein Element enthält, heißt leere Menge.
+        Wir bezeichnen diese mit $\emptyset$.
+    \item Eine Menge $M_1$ heißt Teilmenge einer Menge $M_2$
+        (Schreibweise $M_1 \subseteq M_2$) falls jedes Element von $M_1$ auch
+        Element von $M_2$ ist. D.h.\ es gilt:
+        \begin{equation*}
+            x \in M_1 \Rightarrow x \in M_2
+        \end{equation*}
+    \item Zwei Mengen sind gleich wenn gilt:
+        \begin{equation*}
+            M_1 = M_2 \Leftrightarrow M_1 \subseteq M_2 \land M_2 \subseteq M_1
+        \end{equation*}
+    \item $M_1$ heißt echte Teilmenge von $M_2$ wenn gilt:
+        \begin{equation*}
+            M_1 \subseteq M_2 \land M_1 \neq M_2
+        \end{equation*}
+        Schreibweise: $M_1 \subset M_2$ oder $M_1 \subsetneq M_2$.
+\end{enumerate}
+
+\subsection{Transitivität u.a.}
+Für Mengen $M, M_1, M_2, M_3$ gilt stets:
+\begin{enumerate}[label= (\alph*)]
+    \item Aus $M_1 \subseteq M_2$ und $M_2 \subseteq M_3$ folgt stets:
+        $M_1 \subseteq M_3$
+    \item
+        $M_1 = M_2 \Leftrightarrow M_1 \subseteq M_2 \land M_2 \subseteq M_1$
+    \item $M \subseteq M$ und $\emptyset \subseteq M$
+\end{enumerate}
+
+\subsection{Verknüpfung von Mengen}
+Für Mengen $M_1$ und $M_2$ definiert man:
+\begin{enumerate}[label= (\alph*)]
+    \item Die Vereinigung von $M_1$ und $M_2$ durch:
+        \begin{equation*}
+            M_1 \cup M_2 := \{ x: x \in M_1 \lor x \in M_2 \}
+        \end{equation*}
+    \item Den Schnitt von $M_1$ und $M_2$ durch:
+        \begin{equation*}
+            M_1 \cap M_2 := \{ x: x \in M_1 \land x \in M_2 \}
+        \end{equation*}
+    \item Die Differenz von  $M_1$ und $M_2$ durch:
+        \begin{equation*}
+            M_1 \backslash M_2 := \{ x: x \in M_1 \land x \notin M_2 \}
+        \end{equation*}
+    \item Das Kartesische Produkt von  $M_1$ und $M_2$ durch:
+        \begin{equation*}
+            M_1 \times M_2 := \{(a, b): a \in M_1 \land b \in M_2 \}
+        \end{equation*}
+    \item Das Kartesische Produkt von $M_1$ und $M_1$ durch;
+        \begin{equation*}
+            {(M_1)}^2 := M_1 \times M_1
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Potenzmenge}
+Für eine Menge $M$ ist durch
+\begin{equation*}
+    P(M) := \{ A: A \subseteq M \}
+\end{equation*}
+die Potenzmenge definiert (Menge aller Teilmengen von M).
+
+\subsubsection{Bemerkung}
+Hier gilt $\emptyset \in P(M)$.
+
+\subsection{Rechenregeln für Mengen}
+Für bel. Mengen $M_1, M_2, M_3$ gilt:
+\begin{enumerate}[label= (\alph*)]
+    \item
+        \begin{equation*}
+            M_1 \cup M_2 = M_2 \cup M_1 \text{ und }
+            M_1 \cap M_2 = M_2 \cap M_2 \text{ (Kommutativität)}
+        \end{equation*}
+    \item
+        \begin{equation*}
+            (M_1 \cup M_2) \cup M_3 = M_1 \cup (M_2 \cup M_3) \text{ und }
+            (M_1 \cap M_2) \cap M_3 = M_1 \cap (M_2 \cap M_3)
+            \text{ (Assoziativität)}
+        \end{equation*}
+    \item
+        \begin{equation*}
+            M_1 \cap (M_2 \cup M_3) = (M_1 \cap M_2) \cup (M_1 \cap M_3)
+            \text{ und }
+            M_1 \cup (M_2 \cap M_3) = (M_1 \cup M_2) \cap (M_1 \cup M_3)
+            \text{ (Distributivgesetz)}
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Komplement}
+Ist $X$ eine feste Menge und $M \subseteq X$ beliebig, so heißt
+\begin{equation*}
+    M^c := X \backslash M
+\end{equation*}
+das Komplement von $X$ (bzgl, $X$).
+
+\subsection{Bemerkung}
+Die Schreibweise erfordert das $X$ aus dem Kontext bekannt sein muss.
+
+\subsection{Verknüpfungen über mehrere Elemente}
+Für Mengen $M_1, M_2, \ldots, M_n$ mit $n \in \N$ definieren wir die Notation:
+\begin{enumerate}[label= (\alph*)]
+    \item
+        \begin{equation*}
+            \setbigcup_{k=1}^n M_k = M_1 \cup M_2 \cup \ldots \cup M_n
+        \end{equation*}
+    \item
+        \begin{equation*}
+            \setbigcap_{k=1}^n M_k = M_1 \cap M_2 \cap \ldots \cap M_n
+        \end{equation*}
+    \item
+        \begin{equation*}
+            \setbigtimes_{k=1}^n M_k = M_1 \times M_2 \times \ldots \times M_n
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Wichtige Zusammenhänge}
+\begin{enumerate}[label= (\alph*)]
+    \item ${(M^c)}^c = M$
+    \item $M_1 \subseteq M_2 \Rightarrow {M_2}^c \subseteq {M_1}^c$
+    \item ${(M_1 \cup M_2)}^c = {M_1}^c \cap {M_2}^c$
+\end{enumerate}
