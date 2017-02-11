@@ -1,0 +1,96 @@
+\section{Aussagenlogik}
+\subsection{Definition Aussage}
+Eine Aussage ist ein Satz, der entweder wahr oder falsch ist.
+
+\subsubsection{Bemerkung}Wir beschäftigen uns mit der klassischen zweiwertigen
+Logik. Es gibt auch Logiken mit 3 bzw.\ 4 Werten.
+
+\subsection{Verknüpfungen}
+Formal kann eine Oder-Verknüfung mit dem $\lor$-Zeichen durch eine
+Wahrheitstabelle definiert werden:
+\begin{center}
+    \begin{tabular}{ccc}
+        \toprule
+        $A$ & $B$ & $A \lor B$ \\
+        \midrule
+        $1$ & $1$ & $1$ \\
+        $1$ & $0$ & $1$ \\
+        $0$ & $1$ & $1$ \\
+        $0$ & $0$ & $0$ \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+Analog kann eine Und-Verknüpfung mit dem $\land$-Zeichen durch eine
+Wahrheitstabelle definiert werden:
+\begin{center}
+    \begin{tabular}{ccc}
+        \toprule
+        $A$ & $B$ & $A \land B$ \\
+        \midrule
+        $1$ & $1$ & $1$ \\
+        $1$ & $0$ & $0$ \\
+        $0$ & $1$ & $0$ \\
+        $0$ & $0$ & $0$ \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+Und eine Negation wird definiert durch:
+\begin{center}
+    \begin{tabular}{cc}
+        \toprule
+        $A$ & $\lnot A$ \\
+        \midrule
+        $1$ & $0$ \\
+        $0$ & $1$ \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+Eine sog.\ Implikation wird durch das $\Rightarrow$-Zeichen dargestellt und
+ist definiert durch:
+\begin{center}
+    \begin{tabular}{ccc}
+        \toprule
+        $A$ & $B$ & $A \Rightarrow B$ \\
+        \midrule
+        $1$ & $1$ & $1$ \\
+        $1$ & $0$ & $0$ \\
+        $0$ & $1$ & $1$ \\
+        $0$ & $0$ & $1$ \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+\subsubsection{Bemerkung}
+Bei mehr als einer Verknüpfung muss klar sein welche Verknüpfung
+als erstes ausgewerted werden muss, hierfür werden Klammern verwendet.
+
+\subsection{Mehr zu Implikationen}
+Bei der Aussage $A \Rightarrow B$ bezeichnet man $A$ als hinreichende
+Bedingung und $B$ als notwendige Bedingung.
+
+Die Aussage $A \Rightarrow B$ ist äquivalent zu $\lnot B \Rightarrow \lnot A$.
+
+\subsection{Bezeichnung von Aussagen}
+Eine Aussageform heißt:
+\begin{enumerate}[label= (\alph*)]
+    \item Allgemeingültig (oder Tautologie), wenn sie als Wahrheitswert stets
+        den Wert wahr annimmt.
+    \item Erfüllbar, wenn die Wahrheitstabelle mindestens einmal den Wert
+        wahr enthält.
+    \item Unerfüllbar (oder Kontradiction), wenn die Wahrheitstabelle nur
+        falsch-Einträge enthält.
+\end{enumerate}
+
+\subsection{Satz der Identität}
+Mit $A \Leftrightarrow B$ kürzen wir die Aussage:
+\begin{equation*}
+    (A \Rightarrow B) \land (B \Rightarrow A)
+\end{equation*}
+ab.
+
+\subsubsection{Bemerkung}
+Für den allg. Fall sagt man zu $A \Leftrightarrow B$: A ist äquivalent
+zu B. Das heißt aber nicht, dass $A=B$ ist.
