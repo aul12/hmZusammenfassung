@@ -863,3 +863,31 @@ dann ex.:
 \begin{equation*}
     \min_{[a, b]} f \text{ und } \max_{[a, b]} f
 \end{equation*}
+
+\subsection{Zusammenhang Injektivität --- Stetigkeit}
+Sei $f: I \rightarrow \R$ stetig auf einem Intervall $I \subseteq \R$. Dann
+gilt:
+\begin{equation*}
+    f \text{ inj.\ auf }I \Leftrightarrow
+    f \text{ ist streng monoton}
+\end{equation*}
+
+\subsection{Existenz und Monotonie der Umkehrfunktion}
+Sei $f: I \rightarrow \R$ stetig und streng monoton auf einem Intervall $I$.
+Dann ex.\ auf $J := f(I)$ die Umkehrfunktion $f^{-1}: J \rightarrow I$
+und diese ist  im gleichen Sinn wie $f$ streng Monoton und stetig.
+
+\subsection{Gleichmäßige Stetigkeit}
+Eine Funktion $f: I \rightarrow \R$ heißt gleichmäßig stetig auf $I$, wenn gilt:
+\begin{equation*}
+    \forall \varepsilon > 0\ \exists \delta(\varepsilon)\
+    \abs{f(x_1) - f(x_2)} < \varepsilon\ \forall x_1, x_2 \in I \text{ mit }
+    \abs{x_1 - x_2} < \delta(\varepsilon)
+\end{equation*}
+
+\subsubsection{Bemerkung}
+Im Gegensatz zur normalen Stetigkeit wird bei der gleichmäßigen Stetigkeit eine
+Funktion $\delta(\varepsilon)$ für die ganze Funktion bestimmt und nicht nur
+für jeden Punkt einzeln (also $\delta(x_0, \varepsilon$)). Es wird also
+zwischen Stetigkeit in einem Punkt und Stetigkeit auf einem Intervall
+unterschieden.
