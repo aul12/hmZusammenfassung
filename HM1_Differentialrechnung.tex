@@ -96,3 +96,44 @@ Sei $f: D \rightarrow \R$ differentierbar in $x_0 \in D$ und $x_0$ sei kein
 Randpunkt, dann gilt:
 
 Liegt bei $x_0$ ein lokales Maximum/Minimum $\Rightarrow f'(x_0)=0$.
+
+\subsection{2. Mittelwertsatz}
+Seien $f,g: [a,b] \rightarrow \R$ stetig und auf $(a,b)$ differentierbar
+dann existiert ein $x_0 \in (a,b)$ mit
+\begin{equation*}
+    f'(x_0) \cdot (g(b) - g(a)) = g'(x_0) \cdot (f(b)-f(a))
+\end{equation*}
+Bzw.\ falls nicht durch Null geteilt wird:
+\begin{equation*}
+ \frac{f'(x_0)}{g'(x_0)} = \frac{f(b)-f(a)}{g(b)-g(a)}
+\end{equation*}
+
+\subsection{1. Mittelwertsatz (Folgerung aus 2. Mittelwertsatz)}
+Sei $f: [a,b] \rightarrow \R$ stetig und auf $(a,b)$ differentierbar
+\begin{equation*}
+    \Rightarrow \exists x_0 \in (a,b) \text{ mit } f'(x_0)=\frac{f(b)-f(a)}{b-a}
+\end{equation*}
+
+\subsection{L'Hospital}
+Seien $f,g: [a,b) \rightarrow \R (a < b, b \in (\R \cup {\infty}))$
+differentierbar auf $(a,b)$ mit $g'(x) \neq 0\ \forall x \in (a,b)$. Falls
+der Grenzwert $\alpha = \lim\limits_{n \rightarrow b^-} \dfrac{f'(x)}{g'(x)}$
+ex.\ und:
+\begin{enumerate}[label= (\alph*)]
+    \item $\lim\limits_{n \rightarrow b^-} f(x) =
+        \lim\limits_{n \rightarrow b^-} = 0$ oder
+    \item $\lim\limits_{x \rightarrow b^-} g(x) = \infty$
+\end{enumerate}
+dann gilt:
+\begin{equation*}
+    \lim_{x \rightarrow b^-} \frac{f(x)}{g(x)} =
+    \lim_{x \rightarrow b^-} \frac{f'(x)}{g'(x)}
+\end{equation*}
+
+\subsection{Satz von Taylor}
+Sei $f: [a,b] \rightarrow \R$ $n+1$ mal differentierbar auf $(a,b)$ und
+$x_0 \in (a,b)$. Dann gilt für ein $\xi \in (x_0, x)$:
+\begin{equation*}
+    f(x) = \sum_{k=0}^n \frac{f^(k)(x_0)}{k!} \cdot {(x-x_0)}^k +
+    \frac{f^{(n+1)}(\xi)}{(n+1)!} \cdot {(x-x_0)}^{n+1}
+\end{equation*}
