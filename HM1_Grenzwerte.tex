@@ -29,7 +29,7 @@ Körper, das heißt es gilt (seien $a,b,c \in \K$):
     a + b &= b + a &&\text{(Kommutativität bez.\ der Addition)}\\
     a \cdot (b \cdot c) &= (a \cdot b) \cdot c &&\text{(Assoziativität bez.\ der Multiplikation)}\\
     a \cdot 1 &= a &&\text{(Existenz einer 1)}\\
-    a \cdot a^-1 &= 1\quad \forall a \neq 0 &&\text{(Existenz eines Inversen bez.\ der Multiplikation)}\\
+    a \cdot a^{-1} &= 1\quad \forall a \neq 0 &&\text{(Existenz eines Inversen bez.\ der Multiplikation)}\\
     a \cdot b &= b \cdot a &&\text{(Kommutativität bezüglich der Multiplikation)}
 \end{align*}
 außerdem gilt:
@@ -46,10 +46,10 @@ kein multiplikativ inverses bei beiden).
 Ein Körper heißt angeordent wenn folgende Axiome erfüllt sind
 (seien $a,b,c \in \K$):
 \begin{eqnarray*}
-    a<b\ \vee\ &b<a&\ \vee\ a=b\\
-    a<b\ \wedge\ b<c\ &\Rightarrow&\ a<c\\
+    a<b\ \lor\ &b<a&\ \lor\ a=b\\
+    a<b\ \land\ b<c\ &\Rightarrow&\ a<c\\
     a<b &\Rightarrow& a+c<b+c\\
-    a<b \wedge c>0 &\Rightarrow& a*c<b*c
+    a<b \land c>0 &\Rightarrow& a*c<b*c
 \end{eqnarray*}
 \subsubsection{Bemerkung}
 $\Q$ und $\R$ sind angeordnete Körper. Für $\C$
@@ -57,7 +57,7 @@ kann keine Ordnungsrelation definiert werden so das alle Axiome erfüllt
 sind.
 
 \subsubsection{Gebräuchliche Definition zu angeordenten Körpern}
-Für gewöhnlich gilt $0<1$.
+Es gilt $0<1$, sonst Widerspruch in (O3).
 
  Die Ordnungsrelation wird dann definiert durch:
 \begin{eqnarray*}
@@ -69,8 +69,8 @@ Für gewöhnlich gilt $0<1$.
 
  Die Natürlichen Zahlen werden Induktiv definiert:
 \begin{enumerate}
-    \item $1 \in \mathbb{N}$
-    \item $n \in \mathbb{N} \Rightarrow (n+1)\in\mathbb{N}$
+    \item $1 \in \N$
+    \item $n \in \N \Rightarrow (n+1)\in\N$
 \end{enumerate}
 
 \subsubsection{Bemerkung}
@@ -83,8 +83,8 @@ Teilmenge ein Supremum besitzt.
 $\Rightarrow$ $\R$ ist der einzige Vollständig angeordnete Körper.
 
 \subsubsection{Bemerkung} $\Q$ ist nicht vollständig angeordnet, da
-$A := \{x | x^2 \leq 2\} \subset \mathbb{Q}$ kein obere Schrank besitzt
-(obere Schranke ist $\sqrt{2} \notin \mathbb{Q}$).
+$A := \{x | x^2 \leq 2\} \subset \Q$ kein Supremum besitzt
+(Supremum ist $\sqrt{2} \notin \Q$).
 
 
 \subsection{Minimum und Maximum}
@@ -141,13 +141,12 @@ $s$ heißt Infimum (größte untere Schranke) falls gilt:
     $s\leq\tilde{s}$
 \end{itemize}
 
-\subsubsection{Bemerkung}
-Wenn Minimum (bzw. Maximum) existieren sind diese gleich dem
-Infimum (bzw. Supremum).
-
 \textbf{Schreibweise:}
 $s = \inf{(A)}$ bzw. $s = \sup{(A)}$
 
+\subsubsection{Bemerkung}
+Wenn Minimum (bzw. Maximum) existieren sind diese gleich dem
+Infimum (bzw. Supremum).
 
 \section{Folgen}
 Eine Folge $a_n$ ist definiert als eine Funktion:
@@ -386,7 +385,7 @@ Es sei $\an$ eine Folge mit $\an \in \left[0, \infty\right)$ dann gilt:
 \end{equation*}
 
 \subsection{Leibniz-Kriterium}
-Sei $\an$ eine monoton fallende, stetige Folge. Dann gilt falls
+Sei $\an$ eine monoton fallende, reele Folge. Dann gilt falls
 $\lim\limits_{n \rightarrow \infty} a_n = 0$ ist, konv.\ die sogennante
 alternierende Reihe
 \begin{equation*}
@@ -723,7 +722,7 @@ Sei $f: I \rightarrow \R$ dann heißt (auf $I$)
         \begin{equation*}
             x < y \Rightarrow f(x) > f(y)
         \end{equation*}
-    \item monoton fallend falls $f$ monoton fallend oder monoton steigend ist
+    \item monoton falls $f$ monoton fallend oder monoton steigend ist
     \item streng monoton falls $f$ streng monoton fallend oder streng monoton
         steigend ist
     \item Beschränkt falls gilt:
@@ -855,7 +854,7 @@ Existenz:
 \subsection{Beschränktheit einer stetigen Funktion}
 Seien $a, b \in \R$ mit $a < b$ und eine stetige Funktion
 $f: [a, b] \rightarrow \R$ gegeben, dann ist $f$ beschränkt.
-(d.h. $\sup\limits_{[a, b]} f < \infty$ und $\inf\limits_{[a, b]} > \infty$).
+(d.h. $\sup\limits_{[a, b]} (f) < \infty$ und $\inf\limits_{[a, b]}  (f)> \infty$).
 
 \subsection{Weierstraß: Existenz von Min und Max}
 Seien $a, b \in \R$ mit $a < b$ und $f: [a, b] \rightarrow \R$ stetig,

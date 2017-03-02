@@ -1,6 +1,6 @@
 \section{Ableitung}
 
-\subsection{Definition Differnzen-Quotient}
+\subsection{Definition Differenzen-Quotient}
 Sei $f: D \subseteq \R \rightarrow \R $. Dann heißt $f$ in
 $x_0 \in D$ differentierbar, falls
 \begin{equation*}
@@ -10,7 +10,7 @@ $x_0 \in D$ differentierbar, falls
 für alle $x_0 \in D$ existiert.
 
 \subsection{Rechtsseitige und linksseitige Ableitung}
-Im Fall der existenz heißen
+Im Fall der Existenz heißen
 \begin{eqnarray*}
     f'(x_0^+) &:=& \lim_{x \rightarrow x_0^+}
         \frac{f(x) - f(x_0)}{x-x_0} \text{ bzw.}\\
@@ -45,7 +45,7 @@ f differenzierbar in $x_0 \Leftrightarrow$
     f(x) = f(x_0) + A \cdot (x - x_0)  + r(x) \cdot (x-x_0)
 \end{equation*}
 
-\subsection{Zusammenhang Differntierbarkeit --- Stetigkeit}
+\subsection{Zusammenhang Differentierbarkeit --- Stetigkeit}
 Ist $f: D \rightarrow \R$ differentierbar in $x_0 \in D \Rightarrow$
 $f$ stetig in $x_0$
 
@@ -57,7 +57,7 @@ ist $f$ für $x$ mit $\abs{x-x_0}<R$ differentierbar, und es gilt:
 \end{equation*}
 
 \subsubsection{Bemerkung}
-Der Konvergenzradius von $f'(x)$ ebenfalls $R$ ist.
+Der Konvergenzradius von $f'(x)$ ist ebenfalls $R$.
 
 \subsection{Ableitung der Umkehrfunktion}
 Seien $I, J \subseteq \R$ Intervalle und $f: I \rightarrow J$ sei differentiarbar
@@ -121,7 +121,7 @@ der Grenzwert $\alpha = \lim\limits_{n \rightarrow b^-} \dfrac{f'(x)}{g'(x)}$
 ex.\ und:
 \begin{enumerate}[label= (\alph*)]
     \item $\lim\limits_{n \rightarrow b^-} f(x) =
-        \lim\limits_{n \rightarrow b^-} = 0$ oder
+        \lim\limits_{n \rightarrow b^-} g(x) = 0$ oder
     \item $\lim\limits_{x \rightarrow b^-} g(x) = \infty$
 \end{enumerate}
 dann gilt:
@@ -134,6 +134,6 @@ dann gilt:
 Sei $f: [a,b] \rightarrow \R$ $n+1$ mal differentierbar auf $(a,b)$ und
 $x_0 \in (a,b)$. Dann gilt für ein $\xi \in (x_0, x)$:
 \begin{equation*}
-    f(x) = \sum_{k=0}^n \frac{f^(k)(x_0)}{k!} \cdot {(x-x_0)}^k +
+    f(x) = \sum_{k=0}^n \frac{f^{(k)}(x_0)}{k!} \cdot {(x-x_0)}^k +
     \frac{f^{(n+1)}(\xi)}{(n+1)!} \cdot {(x-x_0)}^{n+1}
 \end{equation*}
