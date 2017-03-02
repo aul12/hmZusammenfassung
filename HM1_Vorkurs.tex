@@ -224,7 +224,7 @@ Für Mengen $M_1, M_2, \ldots, M_n$ mit $n \in \N$ definieren wir die Notation:
         \end{equation*}
     \item
         \begin{equation*}
-            \setbigtimes_{k=1}^n M_k = M_1 \times M_2 \times \ldots \times M_n
+            \setbigtimes_{k=1}^n M_k = M_1 \times M_2 \times \cdots \times M_n
         \end{equation*}
 \end{enumerate}
 
@@ -233,4 +233,161 @@ Für Mengen $M_1, M_2, \ldots, M_n$ mit $n \in \N$ definieren wir die Notation:
     \item ${(M^c)}^c = M$
     \item $M_1 \subseteq M_2 \Rightarrow {M_2}^c \subseteq {M_1}^c$
     \item ${(M_1 \cup M_2)}^c = {M_1}^c \cap {M_2}^c$
+\end{enumerate}
+
+\section{Vollständige Induktion}
+
+\subsection{Summen und Produktzeichen}
+Für $m, n \in \Z, m \leq n$ und $a_m, a_{m+1}, \ldots a_n \in \R$ definieren
+wir:
+
+\begin{equation*}
+    \sum_{k=n}^n a_k := a_m + a_{m+1} + \ldots + a_n
+\end{equation*}
+und
+\begin{equation*}
+    \prod_{k=m}^n a_k := a_m \cdot a_{m+1} \cdot \ldots \cdot a_n
+\end{equation*}
+Falls $m>n$ ist definieren wir $\sum_{k=m}^n a_k := 0$ und
+$\prod_{k=m}^n a_k := 1$
+
+\subsection{Prinzip der Vollständigen Induktion}
+Gegen seien Aussagen $A(n)$ für $n \geq n_0$ mit $n_0, n \in \Z$
+($n_0$ beliebig aber fest). Und es gelte:
+\begin{enumerate}[label= (\alph*)]
+    \item $A(n_0)$ ist wahr
+    \item Für alle $n \geq n_0$ gilt: $A(n) \Rightarrow A(n+1)$
+\end{enumerate}
+
+\subsubsection{Bemerkung}
+\begin{enumerate}[label= (\alph*)]
+    \item $n_0$ wird als Induktionsanfang, $n$ als Induktionsschritt bezeichnet
+    \item Nachteil: wir wissen nicht wieso etwas gilt, nur dass es gilt
+\end{enumerate}
+
+\subsection{Rechenregeln für Summen}
+Für $m,n \in \Z$ und $a_k, b_k, c \in \R$ gilt:
+\begin{enumerate}[label= (\alph*)]
+    \item Indexverschiebung:
+        \begin{equation*}
+            \sum_{k=m}^n a_k = \sum_{k=m+l}^{n+l} a_{k-l}
+        \end{equation*}
+        für beliebiges $l \in \Z$
+    \item Trennen von Summen:
+        \begin{equation*}
+            \sum_{k=m}^n (a_k + b_k) = \sum_{k=m}^n a_k + \sum_{k=m}^n b_k
+        \end{equation*}
+    \item Konstante Faktoren können aus der Summe ``gezogen'' werden:
+        \begin{equation*}
+            \sum_{k=m}^n c \cdot a_k = c \cdot \sum_{k=m}^n a_k
+        \end{equation*}
+    \item ``Teleskopsummen'':
+        \begin{equation*}
+            \sum_{k=m}^n (a_k - a_{k+1}) = a_m - a_{n+1}
+        \end{equation*}
+    \item Summe über Konstanten:
+        \begin{equation*}
+            \sum_{k=m}^n c = c \cdot (n-m+1)
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Doppelsummen}
+Für $n \in \N$ und $a_{ij} \in \R$, $1 \leq i \leq j \leq n$ gilt:
+\begin{equation*}
+    \sum_{i=1}^n \sum_{j=i}^n a_{ij} = \sum_{j=1}^n \sum_{i=1}^j a_{ij}
+\end{equation*}
+
+\subsection{Fakultät und Binomialkoeffizient}
+Für $n \in \N_0$ und ein $\alpha \in \R$ heißt
+\begin{enumerate}[label= (\alph*)]
+    \item die Fakultät von $n$
+        \begin{equation*}
+            n! := \begin{cases}
+                n \cdot (n-1)!&;n \neq 0\\
+                1&;n=0
+            \end{cases}
+        \end{equation*}
+    \item den Binomielkoeffizienten
+        \begin{equation*}
+            {\alpha \choose n} := \frac{\prod\limits_{k=1}^n (\alpha-k+1)}{n!}
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Rechenregeln für den Binomialkoeffizienten}
+Für $n, m \in \N_0$ mit $m \geq n$ und $\alpha \in \R$ gilt:
+\begin{enumerate}[label= (\alph*)]
+    \item
+        \begin{equation*}
+            {\alpha \choose n} + {\alpha \choose n+1} =
+            {\alpha + 1 \choose n +1}
+        \end{equation*}
+     \item
+        \begin{equation*}
+            {m \choose n} = \frac{m!}{n!(m-n)!}
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Binomischer Lehrsatz}
+Für $a, b \in \R$ und $n \in \N_0$ gilt:
+\begin{equation*}
+    {(a+b)}^n = \sum_{k=0}^n {n \choose k} a^k b^{n-k}
+\end{equation*}
+
+\subsection{Definition Betrag}
+Für $x \in \R$ heißt
+\begin{equation*}
+    \abs{x} :=
+        \begin{cases}
+            x &,x\geq0\\
+            -x &,x<0
+        \end{cases}
+\end{equation*}
+der Betrag von $x$
+
+\subsubsection{Bemerkung}
+Es gilt:
+\begin{enumerate}[label= (\alph*)]
+    \item $\abs{x} \geq 0\ \forall x \in \R$
+    \item $\abs{x \cdot y} = \abs{x} \cdot \abs{y}\ \forall x,y \in \R$
+    \item $\abs{x-a} < \varepsilon \Leftrightarrow a-\varepsilon < x < a+\varepsilon$
+    \item $\abs{x} = \max{\{x, -x\}}\ \forall x \in \R$
+\end{enumerate}
+
+\subsection{Dreiecksungleichung}
+Für alle $x, y \in \R$ gilt:
+\begin{enumerate}[label= (\alph*)]
+    \item $\abs{x+y} \leq \abs{x} + \abs{y}$ (obere Dreiecksungleichung)
+    \item $\abs{x+y} \geq \abs{\abs{x}-\abs{y}}$ (untere Dreiecksungleichung)
+\end{enumerate}
+
+\subsubsection{Bemerkung}
+Es gilt $x \leq \abs{x}\ \forall x \in \R$.
+
+\section{Funktion und Differentiation}
+Eine Funktion (bzw. Abbildung, Operator) $f$ von $X$ nach $Y$ ist eine
+Vorschrift, die jedem $x \in X$ ein eindeutig bestimmtes $y \in Y$ zuordnet.
+Das $x \in X$ zugeordnete Element aus $Y$ wird mit $f(x)$ bezeichnet.
+
+\subsubsection{Schreibweise}
+\begin{equation*}
+    f: X \rightarrow Y,\quad x \mapsto f(x)
+\end{equation*}
+
+
+\subsubsection{Bemerkung}
+$X$ heißt Definitionsbereich, $Y := \{y \in Y: \exists x \in X \text{ mit }
+y=f(x)\}$ die Zielmenge.
+
+\subsection{Injektivität, Surjektivität, Bijektivität}
+\begin{enumerate}[label= (\alph*)]
+    \item Eine Funktion heißt injektiv, falls gilt:
+        \begin{equation*}
+            x \neq y \Rightarrow f(x) \neq f(y)\ forall x,y\in X
+        \end{equation*}
+    \item Eine Funktion heißt surjektiv, falls gilt:
+         \begin{equation*}
+            \forall y \in Y\ \exists x \in X: y=f(x)
+         \end{equation*}
+     \item Eine Funktion heißt bijektiv, wenn sie injektiv und
+        surjektiv ist.
 \end{enumerate}
