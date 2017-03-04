@@ -391,3 +391,142 @@ y=f(x)\}$ die Zielmenge.
      \item Eine Funktion heißt bijektiv, wenn sie injektiv und
         surjektiv ist.
 \end{enumerate}
+
+\subsection{Verknüpfung von Funktionen}
+Gegeben seien $f,g: X \rightarrow Y$ und $c \in \R$. Dann definieren wir
+die Funktionen
+\begin{eqnarray*}
+    c \cdot f: &X \rightarrow Y, &x \mapsto (cf)(x):=c \cdot f(x)\\
+    f+g: &X \rightarrow Y, &x \mapsto (f+g)(x) := f(x) + g(x)\\
+    f \cdot g: &X \rightarrow Y, &x \mapsto (fg)(x) := f(x) \cdot g(x)\\
+    \frac{f}{g}: &X \rightarrow Y, &x \mapsto (\frac{f}{g})(x) :=
+    \frac{f(x)}{g(x)} \text{ für } x \text{ mit } g(x) \neq 0
+\end{eqnarray*}
+
+\subsection{Verkettung von Funktionen}
+Seien $f: X \rightarrow Y$ und $g: Y \rightarrow Z$ gegeben, dann heißt
+die Funktion
+\begin{equation*}
+    g \circ f: X \rightarrow Z, x \mapsto (g \circ f)(x):=g(f(x))
+\end{equation*}
+die Verkettung von $g$ mitt $f$ oder das Kompositum von $g$ mit $f$
+
+\subsection{Stetigkeit und Differenzierbarkeit}
+Sei $I \subseteq \R$ ein Intervall und $f: I \rightarrow \R$
+\begin{enumerate}[label= (\alph*)]
+    \item $f$ heißt stetig in $x_0$, wenn
+        $\lim\limits_{x \rightarrow x_0} f(x) = f(x_0)$ gilt
+    \item $f$ heißt stetig auf $I$, wenn $f$ in jedem $x_0 \in I$ stetig ist.
+    \item $f$ heißt differenzierbar in $x_0$, wenn der Grenzwert
+        $\lim\limits_{x \rightarrow x_o}\dfrac{f(x)-f(x_0)}{x-x_0}$
+        existiert.
+\end{enumerate}
+
+\subsubsection{Bemerkung}
+Im Fall der Differenzierbarkeit bezeichnen wir den Grenzwert mit
+$f'(x_0)$ (Newton Notation) oder $\ddx f(x_0)$
+(Leibniz Notation).
+
+\subsection{Zusammenhang Differentierbarkeit --- Stetigkeit}
+Eine differentierbare Funktion ist stets stetig.
+\subsubsection{Bemerkung}
+Die Ableitung einer differentierbaren Funktion muss hingegen nicht
+stetig sein.
+
+\subsection{Verkettung differentierbarer Funktionen}
+Seien $g,f:I \rightarrow \R$ differentierbar, dann sind $cf$, $f+g$,
+$f \cdot g$ und im Fall $g(x) \neq 0 \forall x \in I$ auch $\dfrac{f}{g}$
+differntierbare Funktionen, und es gilt:
+\begin{eqnarray*}
+    \ddx (c \cdot f)(x) = &(c \cdot f)'(x) = &c \cdot f'(x)\\
+    \ddx (f + g)(x) = &(f+g)'(x) = &f'(x) + g'(x)\\
+    \ddx (f \cdot g)(x) = &(f \cdot g)'(x) =
+        &f'(x)\cdot g(x) + f(x) \cdot g'(x)\\
+    \ddx \left(\dfrac{f}{g}\right)(x) = &\left(\dfrac{f}{g}\right)'(x) =
+    & \frac{f'(x)g(x)-g'(x)f(x)}{{(g(x))}^2}
+\end{eqnarray*}
+
+\subsection{Differentiation von Monomen}
+Es sei $f: \R \rightarrow \R$ mit $x \mapsto x^n = f(x)$ und $n \in \Z$.
+Dann ist $f$ differentierbar mit $f'(x) = n \cdot x^{n-1}$.
+
+\subsection{Kettenregel}
+Gegeben seien Intervalle $I, J \subseteq \R$ und differentierbare
+Funktionen $f: I \rightarrow J, g: J \rightarrow \R$. Dann ist auch
+$g \circ f$ differentierbar und es gilt:
+\begin{equation*}
+    \ddx(g \circ f)(x) = \ddx g(f(x)) = (g \circ f)'(x)= g'(f(x)) \cdot f'(x)
+\end{equation*}
+
+\subsection{Ableitung der Umkehrfunktion}
+Sei $f: I \rightarrow J$ bijektiv und differentierbar dann ist die
+Umkehrfunktion $f^{-1}: J \rightarrow I$ ebenfalls differentierbar und
+es gilt:
+\begin{equation*}
+    \ddx f^{-1}(x) = \dfrac{1}{f'(f^{-1}(x))}
+\end{equation*}
+
+\section{Elementare Funktionen}%TODO #############################
+\section{Integralrechnung}%TODO ##################################
+\section{Komplexe Zahlen}%TODO ###################################
+
+\section{Elementare Differentialgleichungen}
+\subsection{Definition Rechteck}
+\begin{enumerate}[label= (\alph*)]
+    \item $I_1, I_2, \ldots, I_n \subseteq \R^n$ seien nicht leeren Intervalle.
+        Dann heißt die Menge $M = I_1 \times I_2 \times \ldots \times I_n$
+        ein (n-Dimensionales) Rechteck.
+    \item Sei $M \subseteq \R^n$ ein Rechteck und $\varphi: M \rightarrow R$ stetig.
+        Dann heißt eine Funktion $y: I \rightarrow \R$ die Lösung
+        der Differentialgleichung (1. Ordnung)
+        \begin{equation*}
+            y' = \varphi(t;y)
+        \end{equation*}
+        wenn gilt:
+        \begin{enumerate}[label=\roman*]
+            \item $y$ ist stetig differentierbar
+            \item $(t,y(t)) \in M \forall t \in I$
+            \item $y'(t) = \varphi(t, y(t)) \forall t \in I$
+        \end{enumerate}
+    \item Sei $M \subseteq \R^2$ ein Rechteck, $\varphi: M \rightarrow \R$
+        stetig und $(t_0, y_0) \in M$. Dann heißt $\varphi: I \rightarrow \R$
+        eine Lösung des Anfangswertproblems (AWP)
+        \begin{equation*}
+            y' = \varphi(t,y);\ y(t_0)=y_0
+        \end{equation*}
+        wenn $y$ eine Lösung von $y'=f(t,y)$ ist und $y(t_0)=y_0$ gilt.
+\end{enumerate}
+
+\subsubsection{Bemerkung}
+Eine DGL $n$-ter Ordnung mit $n \geq 2$ ist nicht direkt durch die
+Definition beschrieben.
+
+Wenn wir aber eine Funktion $\vec{y}: I \subseteq \R \rightarrow \R^2$ definiert
+mit:
+\begin{eqnarray*}
+    y(t) &=& \left( \begin{array}{c}y_1(t)\\y_2(t)\end{array} \right)\\
+    y_1(t) &=& x(t)\\
+    y_2(t) &=& \dot{y}_1(t) - \dot{x}(t)\\
+    \dot{y}_2(t) &=& \ddot{x}(t) = -\frac{a_1}{a_2}\dot{x}(t)-
+        \dfrac{a_0}{a_2}x(t) = -\frac{a_1}{a_2}y_2(t)-
+        \dfrac{a_0}{a_2}y_1(t)
+\end{eqnarray*}
+
+\subsection{Lineare DGL 1. Ordnung}
+Sei $I \subseteq R$ ein Interval und $t_0$ ein Punkt in $I$ mit $t_0 - \delta;
+t_0+\delta) \subseteq I$ (d.h. nicht auf dem Rand von $I$). Weiter seien
+$f,g: I \rightarrow \R$ stetig.
+
+Definiere
+\begin{eqnarray*}
+    y_0&:& I \rightarrow \R\\
+    y_0(t) &=& \exp{\left(\int_{t_0}^t f(u) \text{d}u \right)}\\
+    y&:&I \rightarrow \R\\
+    y(t)&=&\left(y_0 \cdot \int_{t_0}^t \dfrac{g(u)}{y_0(u)} \text{d}u\right) \cdot
+        y_0(t)
+\end{eqnarray*}
+Dann ist:
+\begin{enumerate}[label= (\alph*)]
+    \item $y_0$ eine Lösung von $y' = f(t)y;\ y(t_0)=1$
+    \item $y$ eine Lösung von $y' = f(t)y + g(t);\ y(t_0)=y_0$
+\end{enumerate}
