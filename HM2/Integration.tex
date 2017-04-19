@@ -1,0 +1,109 @@
+\section{Integration}
+
+\subsection{Definition Zerlegung, Zwischenwerte}
+Eine Teilmenge $T$ von $[a,b]$ mit $a, b \in T$ nennt man eine
+Unterteilung, Zerlegung oder Partitionierung von $[a, b]$ wenn
+gilt:
+\begin{eqnarray*}
+    T = \{ x_0, x_1, \ldots , x_n\} \text{ mit}\\
+    a = x_0 < x_1 < \ldots < x_n = b
+\end{eqnarray*}
+
+Schreibweise für diese Menge $T$ sei:
+\begin{equation*}
+    T: a = x_0 < x_1 < \ldots < x_n = b
+\end{equation*}
+
+Ist T eine Zerlegung, dann heißt:
+\begin{enumerate}[label= (\alph*)]
+    \item Die Zahl $\mu(T) :=
+        \max{ \{\ \abs{x_k - x_{k+1}}, k = 1, \ldots, n \} }$
+        das Feinheitsmaß von $T$.
+    \item Ein Vektor $\xi = (\xi_1, \ldots, \xi_n) \in \R^n$ heißt
+        ein Zwischenwertvektor zu $T$, wenn gilt
+        \begin{equation*}
+            x_{k-1} \leq \xi_k \leq x_k \text{ für } k = 1, \ldots, n
+        \end{equation*}
+        Dann heißt die Komponente $\xi_k$ ein Zwischenwert von
+        $x_{k-1}$ und $x_k$.
+\end{enumerate}
+
+\subsection{Definition Riemannsumme}
+Ist $f: [a,b] \rightarrow \R$ eine Funktion, $T: a=x_0<\ldots<x_n=b$
+eine Zerlegung von $[a, b]$ und $\xi = (\xi_1, \ldots, \xi_n)$ ein
+Zwischenwertevektor zu $T$, dann nennen wir die Summe
+\begin{equation*}
+    S(f; T, \xi) = S_f(T, \xi) = \sum_{k=1}^n f(\xi_k)(x_k - x_{k-1})
+\end{equation*}
+die Riemansumme von $f$ bezüglich $T$ und $\xi$.
+
+\subsection{Definition Riemann-Integral}
+Eine Funktion $f: [a, b] \rightarrow \R$ heißt Riemann-Integrierbar
+unter $[a, b]$ wenn für jede Folge ${(T_N)}_{N=1}^\infty$ von Zerlegungen
+von $[a,b]$ mit $\mu(T_N) \rightarrow 0$ für $N \rightarrow \infty$
+und jede Folge ${(\xi_N)}_{N=1}^\infty$ von Zwischenpunktvektoren
+der Grenzwert
+\begin{equation*}
+    \lim_{N \rightarrow \infty} S(f; T_N, \xi_N) \text{ existiert.}
+\end{equation*}
+
+\subsubsection{Behauptung}
+Der Grenzwert ist im Fall der Existenz für jede Folge identisch.
+
+\subsubsection{Bemerkung}
+\begin{enumerate}[label= (\alph*)]
+    \item Zu ${(T_N)}_{N=1}^\infty$, also $T_1, T_2, T_3, \ldots$:
+        \begin{eqnarray*}
+            &T_1:& a = x_0^{(1)} < \ldots < x_n^{(1)} = b\\
+            &T_2:& a = x_0^{(2)} < \ldots < x_n^{(2)} = b\\
+            &T_3:& a = x_0^{(3)} < \ldots < x_n^{(3)} = b\\
+            &\vdots&\\
+            &T_l:& a = x_0^{(l)} < \ldots < x_n^{(l)} = b
+        \end{eqnarray*}
+    \item Zu ${(\xi_N)}_{N=1}^\infty$, also $\xi_1, \xi_2, \xi_3, \ldots$:
+        \begin{eqnarray*}
+            &\xi_1& = (\xi_1^{(1)}, \ldots, \xi_n^{(1)})
+            \text{ mit } x_{k-1}^{(1)} \leq \xi_k^{(2)} \leq x_k^{(1)}
+            \text{ mit } 1 \leq k \leq n_1\\
+            &\xi_2& = (\xi_1^{(2)}, \ldots, \xi_n^{(2)})
+            \text{ mit } x_{k-1}^{(2)} \leq \xi_k^{(2)} \leq x_k^{(2)}
+            \text{ mit } 1 \leq k \leq n_2\\
+            &\xi_3& = (\xi_1^{(3)}, \ldots, \xi_n^{(3)})
+            \text{ mit } x_{k-1}^{(3)} \leq \xi_k^{3} \leq x_k^{(3)}
+            \text{ mit } 1 \leq k \leq n_3\\
+            &\vdots&\\
+            &\xi_l& = (\xi_1^{(l)}, \ldots, \xi_n^{(l)})
+            \text{ mit } x_{k-1}^{(l)} \leq \xi_k^{l} \leq x_k^{(l)}
+            \text{ mit } 1 \leq k \leq n_l\\
+        \end{eqnarray*}
+    \item Sei $f$ integrierbar und ${(T_N)}_{N=1}^\infty$ und
+        ${(\xi_N)}_{N=1}^\infty$ sowie ${(\tilde{T}_N)}_{N=1}^\infty$ und
+            ${(\tilde{\xi}_N)}_{N=1}^\infty$ entsprechende Folgen,
+            d.h. $\mu(T_N) \rightarrow 0, \mu(\tilde{T}_N) \rightarrow 0$
+            für $N \rightarrow \infty$. Dann gilt gilt für ${(\hat{T}_N)}_{N=1}^\infty$
+            und ${(\hat{\xi}_N)}_{N=1}^\infty$ mit
+            \begin{equation*}
+                \hat{T}_N :=
+                \begin{cases}
+                    T_N \text{ für } N \text{ gerade}\\
+                    \tilde{T}_N \text{ für } N \text{ ungerade}
+                \end{cases}
+            \end{equation*}
+            und
+            \begin{equation*}
+                \hat{\xi}_N :=
+                \begin{cases}
+                    \xi_N \text{ für } N \text{ gerade}\\
+                    \tilde{\xi}_N \text{ für } N \text{ ungerade}
+                \end{cases}
+            \end{equation*}
+            dass
+            \begin{equation*}
+                \lim_{N \rightarrow \infty} S(f; \hat{T}_N, \hat{S}_N)
+            \end{equation*}
+            existiert, da $f$ integrierbar ist.
+
+            Dann stimmt der Grenzwert von
+            $\lim_{N \rightarrow \infty} S(f; \tilde{T}_N, \tilde{S}_N)$ und
+            $\lim_{N \rightarrow \infty} S(f; T_N, S_N)$ überein.
+\end{enumerate}
