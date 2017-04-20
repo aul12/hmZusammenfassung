@@ -52,6 +52,10 @@ Der Grenzwert ist im Fall der Existenz für jede Folge identisch.
 
 \subsubsection{Bemerkung}
 \begin{enumerate}[label= (\alph*)]
+    \item Im Fall der Existenz bezeichnet man den Grenzwert durch:
+        \begin{equation*}
+            \int_{a}^b f(x) \dx = \lim_{N \rightarrow \infty} S(f; T_N, \xi_N)
+        \end{equation*}
     \item Zu ${(T_N)}_{N=1}^\infty$, also $T_1, T_2, T_3, \ldots$:
         \begin{eqnarray*}
             &T_1:& a = x_0^{(1)} < \ldots < x_n^{(1)} = b\\
@@ -85,16 +89,16 @@ Der Grenzwert ist im Fall der Existenz für jede Folge identisch.
             \begin{equation*}
                 \hat{T}_N :=
                 \begin{cases}
-                    T_N \text{ für } N \text{ gerade}\\
-                    \tilde{T}_N \text{ für } N \text{ ungerade}
+                    T_N &\text{ für } N \text{ gerade}\\
+                    \tilde{T}_N &\text{ für } N \text{ ungerade}
                 \end{cases}
             \end{equation*}
             und
             \begin{equation*}
                 \hat{\xi}_N :=
                 \begin{cases}
-                    \xi_N \text{ für } N \text{ gerade}\\
-                    \tilde{\xi}_N \text{ für } N \text{ ungerade}
+                    \xi_N &\text{ für } N \text{ gerade}\\
+                    \tilde{\xi}_N &\text{ für } N \text{ ungerade}
                 \end{cases}
             \end{equation*}
             dass
@@ -107,3 +111,78 @@ Der Grenzwert ist im Fall der Existenz für jede Folge identisch.
             $\lim_{N \rightarrow \infty} S(f; \tilde{T}_N, \tilde{S}_N)$ und
             $\lim_{N \rightarrow \infty} S(f; T_N, S_N)$ überein.
 \end{enumerate}
+
+\subsection{Menge der Riemann-Integrierbaren Funktionen}
+Mit $R [a, b]$ oder $R ([a, b])$ bezeichnen wir die Menge von Funktionen
+$f: [a, b] \rightarrow \R$ die auf $[a, b]$ Riemann integrierbar sind.
+
+\subsection{Kriterien für Riemann-Integrierbarkeit}
+\begin{enumerate}[label= (\alph*)]
+    \item
+        \begin{equation*}
+            f \in R[a, b] \Rightarrow f \text{ ist auf } [a,b] \text{beschränkt}
+        \end{equation*}
+    \item Ist $f, g \in R [a, b]$ und $c \in \R$ dann sind auch die Funktionen
+        \begin{eqnarray*}
+            f&+&g\\
+            f&-&g\\
+            c &\cdot& f
+        \end{eqnarray*}
+        Riemann integrierbar auf $[a, b]$.
+    \item Ist $f, g \in R[a, b]$, dann ist auch
+        \begin{equation*}
+            f \cdot g \in R[a, b]
+        \end{equation*}
+    \item Ist $f, g \in R[a, b]$ und falls
+        $\abs{g(x)} > \delta > 0\ \forall x \in [a, b]$ dann ist auch
+        \begin{equation*}
+            \frac{f}{g} \in R[a, b]
+        \end{equation*}
+    \item Für beliebiges $c \in [a, b]$  gilt:
+        \begin{equation*}
+            f \in R[a, b] \Leftrightarrow f \in R[a, c] \land f \in R[c, b]
+        \end{equation*}
+        und weiter gilt:
+        \begin{equation*}
+            \int_a^b f(x) \dx = \int_a^c f(x) \dx + \int_c^b f(x) \dx
+        \end{equation*}
+    \item
+        \begin{equation*}
+        f \in R[a, b] \Rightarrow \abs{f} \in R[a, bv]
+        \end{equation*}
+        und
+        \begin{equation*}
+            \abs{\int_a^b f(x)\dx} \leq \int_a^b \abs{f(x)} \dx
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Änderung von Funktionen}
+Wenn $f \in R[a, b]$ ist und durch endlich viele Änderungen daraus
+$g: [a,b] \rightarrow \R$ konstruiert werden kann, d.h.
+\begin{equation*}
+    g(x) =
+    \begin{cases}
+        f(x) &\text{ falls } x \notin \{x_1, \ldots, x_n \} \\
+        y_1 &\text{ falls} x=x_1\\
+        \vdots
+    \end{cases}
+\end{equation*}
+dann gilt $g \in R[a, b]$ und
+\begin{equation*}
+    \int_a^b f(x) \dx = \int_a^b g(x) \dx
+\end{equation*}
+
+\subsection{Zusammenhang Stetigkeit und Integrierbarkeit}
+Es gilt:
+\begin{equation*}
+    f \in C[a, b] \Rightarrow f \in R[a, b]
+\end{equation*}
+
+\subsection{Stückweise Integration}
+Falls $f: [a, b] \rightarrow \R$ stückweise stetig ist, d.h.\ es existieren
+endlich viele Intervall-Stücke auf denen $f$ stetig ist, dann ist
+$f \in R[a,b]$ und es gilt:
+\begin{equation*}
+    \int_a^b f(x) \dx = \int_{x_0}^{x_1} f(x) \dx + \int_{x_1}^{x_2} f(x)
+    + \ldots + \int_{x_{n-1}}^{x_n} f(x)
+\end{equation*}
