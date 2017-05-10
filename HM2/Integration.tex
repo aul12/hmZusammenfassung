@@ -238,3 +238,18 @@ Sei $f: [a,b] \rightarrow \R$ gegeben dann gilt:
             F(x) := \int_c^x f(t) dt
         \end{equation*}
 \end{enumerate}
+
+\subsubsection{Bemerkung}
+Aus dem Hauptsatz folgen Integrationstechniken wie partielles Integrieren oder
+die Subsitutionsregel.
+
+\subsection{Zusammenhang Monotonie und Riemann-Integrierbarkeit}
+Ist $f: [a, b] \rightarrow \R$ auf $[a,b]$ monoton, dann ist $f \in R[a,b]$.
+
+\subsection{Zweiter Mittelwertsatz der Integralrechnung}
+Ist $f$ monoton auf $[a,b]$, $g$ integrierbar auf $[a,b]$, dann exisitiert ein
+$\xi \in [a,b]$ mit:
+\begin{equation*}
+    \int_a^b f(x)g(x) \dx = f(a) \int_a^\xi g(x) \dx +
+        \int_\xi^b g(x) \dx
+\end{equation*}

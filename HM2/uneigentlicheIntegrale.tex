@@ -1,0 +1,43 @@
+\section{Definition uneigentliches Integral}
+Eine Funktion $f: [a, b) \rightarrow \R$ mit $a < b \leq \infty$ heißt über
+$[a,b)$ uneigentlich Riemann integrierbar, wenn gilt:
+\begin{enumerate}[label= (\alph*)]
+    \item $\forall c$ mit $a \leq c < b$ ist $f \in R[a, c]$
+    \item Der Grenzwert
+        \begin{equation*}
+            \alpha = \lim_{c \rightarrow \infty} \int_a^c f(x) \dx
+        \end{equation*}
+        existiert. In dem Fall schreiben wir
+        \begin{equation*}
+            \alpha = \int_a^b f(x) \dx
+        \end{equation*}
+        und sagen das uneigentliche Integral
+        \begin{equation*}
+            \int_a^b f(x) \dx
+        \end{equation*}
+        konvergiert gegen $\alpha$ oder hat den Wert $\alpha$.
+\end{enumerate}
+
+Andernfalls divergiert das uneigentliche Integral.
+Analog geht man für Funktionen
+\begin{itemize}
+    \item $f: (a, b] \rightarrow \R$ mit $-\infty \leq a < b$ und
+    \item $f: (a, b) \rightarrow \R$ mit $-\infty \leq a < b \leq \infty$
+\end{itemize}
+vor.
+
+\subsection{Cauchy-Kriterium}
+Sei $f \in R[a,b]\ \forall c \in (a,b), a < c \leq \infty$ Dann konv.
+\begin{equation*}
+    \int_a^b f(x) \dx
+\end{equation*}
+\begin{enumerate}[label= (\alph*)]
+    \item Im Fall $b<\infty$ genau dann, wenn gilt:
+        \begin{equation*}
+            \forall \varepsilon > 0\ \exists \delta > 0: \abs{\int_{T_1}^{T_2} f(x) \dx} < \varepsilon\ \forall~T_1, T_2 \in [b - \delta, b)
+        \end{equation*}
+    \item Im Fall $b = \infty$, wenn gilt:
+        \begin{equation*}
+                \forall \varepsilon > 0\ \exists K \geq a: \abs{\int_{T_1}^{T_2} f(x) \dx} < \varepsilon\ \forall~T_1, T_2 \geq K
+        \end{equation*}
+\end{enumerate}
