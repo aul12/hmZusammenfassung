@@ -1,0 +1,108 @@
+\section{Gleichmäßige Konvergenz}
+\subsection{Definition Funktionenfolge und Funktionenreihe}
+Sei $M$ eine Menge und $m \in \Z$. Ist jedem $n \in \{m, m+1, \ldots\}$ eine
+Funktion $f_n: M \rightarrow \R$ zugeordnet, so nennt man:
+\begin{enumerate}[label= (\alph*)]
+    \item Die Folge ${(f_n)}_{n=m}^\infty$ eine Funktionenfolge auf $M$
+    \item Die Reihe $\sum_{n=m}^\infty$ eine Funktionenreihe auf $M$
+\end{enumerate}
+
+konvergiert ${(f_n)}_{n \geq m}$ (bzw. $\sum_{n=m}^\infty f_n(x)$) für alle
+$x \in \tilde{M} \subseteq M$ so heißt die durch $f(x) = \lim\limits_{n \rightarrow \infty}
+f_n(x)$ (bzw. $f(x) = \sum_{n=m}^\infty f_n(x)$) definierte Funktion $f:
+\tilde{M} \rightarrow \R$ die Grenzfunktion von ${(f_n)}_{n=m}^\infty$
+(bzw. $\sum_{n=m}^\infty f_n$).
+
+\subsection{Gleichmäßige Konvergenz}
+Sei $M$ eine Menge und sei $f: M \rightarrow \R$ eine Funktion.
+\begin{enumerate}[label= (\alph*)]
+    \item Eine Funktionenfolge ${(f_n)}_{n=1}^\infty$ heißt auf $M$ gleichmäßig
+        konvergent gegen $f$ wenn gilt:
+        \begin{equation*}
+            \forall \varepsilon > 0\  \exists\ n_0(\varepsilon):
+                \abs{f_n(x) - f(x)} < \varepsilon\
+                \forall x \in M \text{ und } n \geq n_0(\varepsilon)
+        \end{equation*}
+    \item Eine Funktionenfolge $\sum_{n=m}^\infty f_n$ konvergiert gleichmäßig
+        auf $M$ wenn gilt:
+            \begin{equation*}
+                \forall \varepsilon > 0\ \exists\ n_0(\varepsilon): \abs{\sum_{k=m}^n f_k(x) - f(x)}
+                    < \varepsilon\ \forall x \in M \text{ und } n \geq n_0(\varepsilon)
+            \end{equation*}
+\end{enumerate}
+
+\subsubsection{Bemerkung}
+Offensichtlich gilt:
+\begin{equation*}
+    \text{Gleichmäßig konvergent} \Rightarrow \text{Punktweise Konvergent}
+\end{equation*}
+
+
+\subsection{Stetigkeit der Grenzfunktion}
+Sei ${(f_n)}_{n=1}^\infty$ (bzw. $\sum_{n=1}^\infty$) gleichmäßig konvergent gegen
+$f$ auf einem Intervall $I$ und alle $f_n$ stetig auf $I$. Dann ist auch die
+Grenzfunktion $f$ stetig.
+
+\subsection{Integration der Grenzfunktion}
+Sei ${(f_n)}_{n=1}^\infty$ eine Folge von integrierbaren Funktionen auf $[a,b]$
+\begin{enumerate}[label= (\alph*)]
+    \item Falls ${(f_n)}_{n=1}^\infty$ gleichmäßig gegn $f$ konvergiert, dann ist
+    auch $f$ auf $[a,b]$ integrierbar und es gilt:
+        \begin{equation*}
+            \lim_{n \rightarrow \infty} \int_a^b f_n(x) \dx =
+            \int_a^b \lim_{n \rightarrow \infty} f_n(x) \dx
+        \end{equation*}
+    \item Analog für Funktionenreihen
+\end{enumerate}
+
+\subsection{Cauchy Kriterium für gleichmäßige Konvergenz}
+\begin{enumerate}[label= (\alph*)]
+    \item Eine Funktionenfolge ${(f_n)}_{n=1}^\infty$ konvergiert genau dann
+        gleichmäßig auf einer Menge $M$ ($\subseteq$ Definitionsbereich), wenn
+        gilt:
+        \begin{equation*}
+            \forall \varepsilon > 0\ \exists n(\varepsilon):
+            \abs{f_n(x) - f_m(x)} < \varepsilon \forall n \geq n(\varepsilon) \forall x \in M
+        \end{equation*}
+    \item Analog für Funktionenreihen
+\end{enumerate}
+
+\subsection{Differentiation der Grenzfunktion}
+Sei ${(f_n)}_{n=1}^\infty$ eine auf dem Intervall $I$ differentierbare Folge von
+Funktionen.
+\begin{enumerate}[label= (\alph*)]
+    \item Konvergiert die Folge ${(f_n')}_{n=1}^\infty$ gleichmäßig auf $I$ und konvergiert
+    für ein beliebiges, festes $x_0 \in I$ die reele Folge ${(f_n(x_0))}_{n=1}^\infty$
+    dann ist auch die Grenzfunktion $f$ von ${(f_n)}_{n=1}^\infty$ differentierbar
+    und es gilt:
+    \begin{equation*}
+        \lim_{n \rightarrow \infty} \ddx f_n(x) = \ddx \lim_{n \rightarrow \infty} f_n(x)
+    \end{equation*}
+    \item Analog für Funktionenreihen
+\end{enumerate}
+
+\subsubsection{Bemerkung}
+Außerdem gilt dass ${(f_n)}_{n=1}^\infty$ (bzw. $\sum_{n=1}^\infty f_n$) auf jedem
+beschränkten Teilintervall von $I$ gleichmäßig konvergiert.
+
+\subsection{Majorantenkriterium auf Potenzreihen anwenden}
+Für eine reele Potenzreihe $f(x) = \sum_{k=0}^\infty a_k {(x-x_0)}^k$ mit
+Konvergenzradius $R > 0$ gilt:
+\begin{enumerate}[label= (\alph*)]
+    \item $f$ ist stetig auf $(x_0 - R, x_0 + R) =: I$
+    \item $f$ ist differentierbar auf $I$ und
+        \begin{equation*}
+            f'(x) = \sum_{k=0}^\infty a_k \cdot k \cdot {(x-x_0)}^{k-1}
+        \end{equation*}
+    \item $f$ ist integrierbar auf $I$ und hat die Stammfunktion
+        \begin{equation*}
+            F(x) = \sum_{k=0}^\infty \frac{a_k}{k+1} {(x-x_0)}^{k+1}
+        \end{equation*}
+\end{enumerate}
+
+\subsubsection{Bemerkung}
+Wurde alles schon in HM1 gezeigtm aber mühsam.
+
+\subsection{Majorantenkriterium für Funktionenreihen}
+Falls $\abs{f_n(x)} \leq a_n$ und $\sum_{n=1}^\infty$ konvergiert
+$\Rightarrow \sum_{n=1}^\infty f_n(x)$ ist gleichmäßig konvergent.
