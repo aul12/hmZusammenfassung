@@ -75,5 +75,74 @@ Sind $n, m \in \N$, so gelten folgende Bezeichungen:
     \item In $\R^n$ sei stets $A^c := \R^n \ A$ für eine Menge $A \subseteq \R^n$
     \item Mit $\norm{\cdot}$ bezeichnen wir die euklidische Norm $\norm{\cdot}_2$.
     Außer es wird explizit gesagt, dass $\norm{\cdot}$ eine allgemeine Norm ist
-    (z.B. \glqq{} Sei $\norm{\cdot}$ eine Norm auf $\R^n$)
+    (z.B. \glqq{} Sei $\norm{\cdot}$ eine Norm   auf $\R^n$)
 \end{enumerate}
+
+\subsection{Definition Epsilon-Umgebung}
+Sei $a \in \R^n, \varepsilon > 0$ dann heißt
+\begin{eqnarray*}
+    U_\varepsilon(a) &:=& \{ x \in \R^n |\ \norm{x-a} < \varepsilon \} \text{ die }
+    \varepsilon \text{-Umgebung von }a\\
+    \dot{U}_\varepsilon(a) &:=& U_\varepsilon(a) \backslash \{a \}
+    ( =\{ x \in \R^n |\ 0<\norm{x-a}<\varepsilon \} ) \text{ die punktierte }
+    \varepsilon \text{-Umgebung von }a
+\end{eqnarray*}
+
+\subsection{Definition Topologische Begriffe}
+Sei $A \subseteq \R^n$. Ein Punkt $a \in \R^n$ heißt:
+\begin{enumerate}[label= (\alph*)]
+    \item Innerer Punt von $A$, falls ein $\varepsilon > 0$ existiert, sodass
+        $U_\varepsilon(a) \subseteq A$
+        Kurz:
+        \begin{equation*}
+            a \text{ innerer Punkt von }A :\Leftrightarrow \exists \varepsilon>0
+            : U_\varepsilon(a) \subseteq A
+        \end{equation*}
+
+        Die Menge $\overset{\circ}{A}$ ist die Menge aller innerer Punkte von $A$
+        \begin{equation*}
+            \overset{\circ}{A} := \{ a \in \R^n | \exists \varepsilon > 0 \text{ mit }
+            U_\varepsilon(a) \subseteq A \}
+        \end{equation*}
+    \item Berührungspunkt von $A$, wenn jede $\varepsilon$-Umgebung von $a$ mindestens
+        einen Punkt aus $A$ enthält.
+        Kurz:
+        \begin{equation*}
+            a \in \R^n \text{ ist Berührpunkt von } A :\Leftrightarrow
+            \forall \varepsilon>0: U_\varepsilon(a) \cap A \neq \emptyset
+        \end{equation*}
+
+        Die Menge aller Berührpunkte von
+        \begin{equation*}
+            \bar{A} := \{ x \in \R^n | \forall \varepsilon > 0 \text{ ist }
+            U_\varepsilon(a) \cap A \neq \emptyset \}
+        \end{equation*}
+        heißt der Abschluss oder abgeschlossene Hülle von $A$.
+    \item Häufungspunkt von $A$, wenn jede punktierte $\varepsilon$-Umgebung von
+        $a$ ein Element von $A$ enthält.
+        Kurz:
+        \begin{equation*}
+            a \in \R^n \text{ ist Häufungspunkt } :\Leftrightarrow
+            \forall\ \varepsilon > 0 \dot{U}_\varepsilon(a) \cap A \neq \emptyset
+        \end{equation*}
+    \item Randpunkt von $A$, wenn jede $\varepsilon$-Umgebung Elemente aus $A$
+        und $A^c$ enthält.
+        Kurz:
+        \begin{equation*}
+            a \in \R^n \text{ ist Randpunkt von }A :\Leftrightarrow
+            \forall \varepsilon > 0\
+            (U_\varepsilon(a) \hat A \neq \emptyset) \land
+            (U_\varepsilon(a) \hat A^c \neq \emptyset)
+        \end{equation*}
+        Die Menge
+        \begin{equation*}
+            \partial A := \{ a \in \R^n | a \text{ ist Randpunkt von }A \}
+        \end{equation*}
+        heißt der Rand von $A$.
+\end{enumerate}
+
+\subsubsection{Bemerkung}
+Man kann zeigen:
+\begin{equation*}
+    \bar{A} = A \cup \partial A =  \overset{\circ}{A} \cup \partial A
+\end{equation*}
