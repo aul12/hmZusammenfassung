@@ -1,4 +1,6 @@
 \section{Der n-dimensionale Euklidische Raum}
+
+\subsection{Definitionen}
 Sind $n, m \in \N$, so gelten folgende Bezeichungen:
 \begin{eqnarray*}
     \R^n &:=& \Bigg\{
@@ -20,6 +22,58 @@ Sind $n, m \in \N$, so gelten folgende Bezeichungen:
         a_{ij} \in \R, 1 \leq i \leq m, 1 \leq j \leq n
     \Bigg\}\\
     <x, y> &:=& x \cdot y := x^T y := \sum_{k=1}^n x_k y_k \text{ (Skalarprodukt)}\\
-    \Vert x \Vert &:=& {\Vert x \Vert}_2 := \abs{x} := \sqrt{\sum_{k=1}^n x_k^2}
+    \norm{x} &:=& {\Vert x \Vert}_2 := \abs{x} := \sqrt{\sum_{k=1}^n x_k^2}
     \text{ euklidische Norm des }\R^n\text{ /Betrag in }\R^n
 \end{eqnarray*}
+
+\subsection{Folgerungen}
+\begin{enumerate}
+    \item
+        \begin{equation*}
+            \norm{x}_\infty = \max_{k=1\ldots n} \abs{x_k}
+            \leq \norm{x}_2 \leq \sqrt{n} \max_{k=1 \ldots n} \abs{x_k}
+            \ \forall x \in \R^n
+        \end{equation*}
+    \item
+        \begin{equation*}
+            \norm{x}_1 = \sum_{k=1}^n \abs{x_k}
+        \end{equation*}
+        und
+        \begin{equation*}
+            \norm{x}_2 \leq \norm{x}_1
+        \end{equation*}
+    \item $\norm{x}_1$, $\norm{x}_2$, $\norm{x}_\infty$ sind drei mögliche Festlegungen
+        für Vektornormen. Allgemein hat eine Norm $\norm{\cdot}_2$
+        ($\norm{\cdot}_2: \R^2 \rightarrow \R$) folgende Eigenschaften:
+        \begin{eqnarray*}
+            &\norm{x} \geq 0&\ \forall x \in \R^n \land \norm{x}=0 \Leftrightarrow
+            x = \begin{pmatrix}
+            0 \\ 0
+            \end{pmatrix}
+            = \vec{0} \\
+            &\norm{\alpha \cdot x} = \abs{\alpha} \cdot \norm{x}&\ \forall \alpha
+            \in \R\land \forall x \in \R^n \\
+            &\norm{x + y} \leq \norm{x} + \norm{y}&\ \forall x, y \in \R^n
+        \end{eqnarray*}
+    \item Der Einheitskreis ist bezüglich verschiedener Normen nicht immer ein Kreis
+    \item p-Norm:
+        \begin{equation*}
+            \norm{x}_p = \nthSqrt{p}{\sum_{k=1}^n \abs{x_k}^p}
+        \end{equation*}
+     \item $x \cdot y$ im $\R^2$ hat die anschauliche Bedeutung
+        \begin{equation*}
+            <x,y> = x \cdot y = \norm{x}_2 \cdot \norm{y}_2 \cdot \cos(\alpha)
+        \end{equation*}
+        Daraus folgt die Cauchy-Schwarzsche-Ungleichung (CSU)
+        \begin{equation*}
+            <x,y> \leq \norm{x}_2 \cdot \norm{y}_2
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Konventionen}
+\begin{enumerate}[label= (\alph*)]
+    \item In $\R^n$ sei stets $A^c := \R^n \ A$ für eine Menge $A \subseteq \R^n$
+    \item Mit $\norm{\cdot}$ bezeichnen wir die euklidische Norm $\norm{\cdot}_2$.
+    Außer es wird explizit gesagt, dass $\norm{\cdot}$ eine allgemeine Norm ist
+    (z.B. \glqq{} Sei $\norm{\cdot}$ eine Norm auf $\R^n$)
+\end{enumerate}
