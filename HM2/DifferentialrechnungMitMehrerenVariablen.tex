@@ -296,4 +296,42 @@ Sei $f: A \subseteq \R^n \rightarrow \R^m$, $a \in \bar{A}$ und $b \in \R^m$
             \norm{f(x) -f(y)}<\varepsilon\ \forall x,y \in
             \circ{U}_{\delta{\varepsilon}}(a) \cap A
         \end{equation*}
+    \item Grenzwertrechenregeln gelten analog zu HM 1
+    \item Sei $B \subseteq A$ mit $a \in \bar{B}$ dann gilt:
+        \begin{equation*}
+            \lim_{x \rightarrow a \text{ mit } x \in B} f(x) = b \Leftrightarrow
+            \lim_{x \rightarrow a \text{ mit } x \in A} f(x) = b
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Definition Stetigkeit}
+Sei $f: A \subseteq \R^n \rightarrow \R^m$ und $a \in A$, dann ist $f$ in $a$
+stetig wenn gilt $\lim\limits_{x \rightarrow a} f(x) = f(a)$. Das heißt:
+\begin{equation*}
+    \forall\varepsilon\ \exists \delta(\varepsilon):
+    \norm{f(x) - f(a)} < \varepsilon\ \forall x \in U_{\delta(\varepsilon)}(a)
+    \cap A
+\end{equation*}
+
+\subsection{Grenzwerte von verketteten Funktionen}
+Sei $A \subseteq \R^n, B \subseteq \R^m, a \in \bar{A}$ und $f: A \rightarrow B,
+g: B \rightarrow \R^l$. Existiert $\lim\limits_{x \rightarrow a} f(x) = b$ so
+gilt $b \in \bar{B}$ und es gilt:
+\begin{equation*}
+    \lim_{x \rightarrow a} g(f(x)) = \lim_{y \rightarrow b} g(y)
+\end{equation*}
+sofern der Grenzwert $\lim\limits_{y \rightarrow b} g(y)$ existiert.
+
+\subsection{Grenzwertrechenregeln}
+Für $f, g: A \rightarrow \R^n$ gilt: Falls $\lim\limits_{x \rightarrow a} f(x)
+= \alpha$ und $\lim\limits_{x \rightarrow a} g(x) = \beta$ existiert, dann gilt:
+\begin{enumerate}[label= (\alph*)]
+    \item
+        \begin{equation*}
+            \lim_{x \rightarrow a} f(x) + g(x) = \alpha + \beta
+        \end{equation*}
+    \item
+        \begin{equation*}
+            \lim_{x \rightarrow a} {f(x)}^T g(x) = \alpha^T \beta
+        \end{equation*}
 \end{enumerate}
