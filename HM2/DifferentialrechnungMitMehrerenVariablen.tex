@@ -15,8 +15,8 @@ Sind $n, m \in \N$, so gelten folgende Bezeichungen:
     \R^{m \times n} &:=& \Bigg\{
         \begin{pmatrix}
             a_{11} & \cdots & a_{1n}\\
-            \vdots & \ddots\\
-            a_{m1} & \ldots & a_{mn}
+            \vdots & \ddots \\
+            a_{m1} & \cdots & a_{mn}
         \end{pmatrix}
         \text{ für }
         a_{ij} \in \R, 1 \leq i \leq m, 1 \leq j \leq n
@@ -146,3 +146,154 @@ Man kann zeigen:
 \begin{equation*}
     \bar{A} = A \cup \partial A =  \overset{\circ}{A} \cup \partial A
 \end{equation*}
+
+\subsection{Definition offene und abgeschlossene Menge}
+Eine Menge $A \subseteq \R^n$ heißt:
+\begin{enumerate}[label= (\alph*)]
+    \item offen, wenn $A = \overset{\circ}{A}$ gilt (also $A$ besteht nur aus
+        innerern Punkten)
+    \item abgeschlossen, wenn $\partial A \subseteq A$ (Rand gehört zu $A$)
+\end{enumerate}
+
+\section{Folgen}
+\subsection{Definition}
+Eine Folge
+\begin{equation*}
+    a_k =
+    \begin{pmatrix}
+        a_1^{(k)} \\
+        \vdots \\
+        a_n^{(k)}
+    \end{pmatrix}
+\end{equation*}
+in $\R^n$ heißt:
+\begin{enumerate}[label= (\alph*)]
+    \item Konvegent gegen einen Grenzwert $a$, wenn gilt:
+        \begin{equation*}
+            \forall \varepsilon > 0\ \exists n(\varepsilon): \norm{a_k - a}<\varepsilon
+            \ \forall k \geq n(\varepsilon)
+        \end{equation*}
+        Schreibweise:
+        \begin{equation*}
+            \lim_{k \rightarrow \infty} a_k = a \text{ oder }
+            a_k \rightarrow a\ (k \rightarrow \infty)
+        \end{equation*}
+    \item Beschränkt, wenn gilt:
+        \begin{equation*}
+            \exists c > 0:\ \norm{a_k} < c\ \forall k \in \N
+        \end{equation*}
+\end{enumerate}
+
+\subsubsection{Bemerkung}
+\begin{enumerate}[label= (\alph*)]
+    \item Die Norm $\norm{\cdot}$ sei hier die euklidische Norm $\norm{\cdot}_2$. Wir
+        werden aber sehen: Jede Norm auf $\R^n$ wäre ok.
+    \item
+        \begin{equation*}
+            a_k \rightarrow a\ (k \rightarrow \infty) \Rightarrow
+            \text{ Jede Komponente von }a_k\text{ konvergiert gegen entsprechende
+            Komponente von }a
+        \end{equation*}
+    \item Cauchy-Kriterium:
+        \begin{equation*}
+            {(a_k)}_{k=1}^\infty \text{ konv. } \Leftrightarrow \forall \varepsilon > 0\ \exists
+            n(\varepsilon): \norm{a_k - a_l} < \varepsilon
+            \forall k,l \geq n(\varepsilon)
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Bolzano-Weierstraß}
+Jede beschränkte Folge im $\R^n$ hat eine konvergente Teilfolge.
+
+\subsection{Grenzwertrechenregeln}
+Die Grenzwertrechenregeln übertragen sich auch auf Folgen im $\R^n$.
+
+\subsection{Weitere Bemerkungen}
+Sei $A \subseteq  \R^n$ und $a \in \R^n$, dann gilt:
+\begin{enumerate}[label= (\alph*)]
+    \item
+        \begin{equation*}
+            a \in \bar{A} \Leftrightarrow \exists {(a_k)}_{k=1}^\infty
+            \text{ mit } a_k \in A \forall k \text{ mit } \lim_{k \rightarrow \infty}
+            a_k = a
+        \end{equation*}
+    \item $a$ ist ein Häufungspunkt von $A$
+        \begin{equation*}
+            \exists {(a_k)}_{k=1}^\infty \text{ mit } a_k \in A \backslash \{a\}
+            \text{ mit } \lim_{k \rightarrow \infty} a_k = a
+        \end{equation*}
+    \item $A$ ist abgeschlossen $\Leftrightarrow$ für jede konvergente Folge
+        ${(a_k)}_{k=1}^\infty$ mit $a_k \in A \forall k$ gilt
+        $\lim\limits_{k \rightarrow \infty} a_k \in A$.
+    \item $A$ ist kompakt $\Leftrightarrow$ Jede Folge in $A$ besitzt einen
+        Häufungspunt in $A$.
+\end{enumerate}
+
+\section{Funktionsgrenzwerte und Stetigkeit}
+
+\subsection{Definition Funktion}
+Eine Funktione $f: A \subseteq \R^n \rightarrow \R^m$ nennt man eine Funktion in
+$n$ Veränderlichen (oder Vektorfeld).
+Im Fall $m=1$ nennt man $f$ eine reele Funktion (oder Skalarfeld).
+
+\subsubsection{Schreibweise}
+\begin{equation*}
+    f(x_1, x_2, \ldots, x_n) :=
+    f\left(\begin{pmatrix}
+        x_1\\
+        \vdots \\
+        x_n
+    \end{pmatrix} \right) :=
+    \begin{pmatrix}
+        f_1(x_1, \ldots, x_n)\\
+        \vdots \\
+        f_n(x_1, \ldots, x_n)
+    \end{pmatrix}
+\end{equation*}
+
+\subsection{Definition Funktionsgrenzwert}
+Sei $f: A \subseteq \R^n \rightarrow \R^m$ und $a \in \bar{A}$ dann heißt ein
+$b \in \R^m$ mit:
+\begin{equation*}
+    \forall \varepsilon>0\ \exists \delta(\varepsilon):
+    \norm{f(x) - b}<\varepsilon\
+    \forall x \in U_{\delta(\varepsilon)}(a) \cap A
+\end{equation*}
+der Grenzwert von $f$ für x gegen a. Kurz:
+\begin{equation*}
+    \lim_{x \rightarrow a} f(x) = b
+\end{equation*}
+
+\subsection{Definitionen aus HM 1 im Mehrdimensionalen}
+Sei $f: A \subseteq \R^n \rightarrow \R^m$, $a \in \bar{A}$ und $b \in \R^m$
+\begin{enumerate}[label= (\alph*)]
+    \item Folgende Aussagen sind äquivalent:
+        \begin{enumerate}
+            \item $f(x) \rightarrow  b\ (x \rightarrow a)$
+            \item $\norm{f(x) - b} \rightarrow 0\ (x \rightarrow a, x \in A)$
+            \item Für jede Komponente
+                \begin{equation*}
+                    f_l(x) \text{ von } f(x) =
+                    \begin{pmatrix}
+                        f_1(x)\\
+                        \vdots \\
+                        f_m(x)
+                    \end{pmatrix}
+                    \text{ gilt }
+                    f_l(x) \rightarrow b_l\ (x \rightarrow a)
+                \end{equation*}
+            \item Für eine Folge ${(x_k)}_{k=1}^\infty$ in A mit
+                $\lim\limits_{k \rightarrow \infty}$ und $x_k \neq a\ \forall k$ folgt:
+                \begin{equation*}
+                        f(x_k) \rightarrow b\ (k \rightarrow \infty)
+                \end{equation*}
+        \end{enumerate}
+    \item Falls $\lim\limits_{x \rightarrow a} f(x)$ existiert ist dieser
+        Eindeutig.
+    \item Cauchy-Kriterium:
+        \begin{equation*}
+            \forall \varepsilon > 0\ \exists \delta(\varepsilon):
+            \norm{f(x) -f(y)}<\varepsilon\ \forall x,y \in
+            \circ{U}_{\delta{\varepsilon}}(a) \cap A
+        \end{equation*}
+\end{enumerate}
