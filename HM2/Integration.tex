@@ -17,7 +17,7 @@ Schreibweise für diese Menge $T$ sei:
 Ist T eine Zerlegung, dann heißt:
 \begin{enumerate}[label= (\alph*)]
     \item Die Zahl $\mu(T) :=
-        \max{ \{\ \abs{x_k - x_{k+1}}, k = 1, \ldots, n \} }$
+        \max{ \{\ \abs{x_{k-1} - x_k}, k = 0, \ldots, n \} }$
         das Feinheitsmaß von $T$.
     \item Ein Vektor $\xi = (\xi_1, \ldots, \xi_n) \in \R^n$ heißt
         ein Zwischenwertvektor zu $T$, wenn gilt
@@ -73,7 +73,7 @@ Der Grenzwert ist im Fall der Existenz für jede Folge identisch.
             \text{ mit } x_{k-1}^{(2)} \leq \xi_k^{(2)} \leq x_k^{(2)}
             \text{ mit } 1 \leq k \leq n_2\\
             &\xi_3& = (\xi_1^{(3)}, \ldots, \xi_n^{(3)})
-            \text{ mit } x_{k-1}^{(3)} \leq \xi_k^{3} \leq x_k^{(3)}
+            \text{ mit } x_{k-1}^{(3)} \leq \xi_k^{(3)} \leq x_k^{(3)}
             \text{ mit } 1 \leq k \leq n_3\\
             &\vdots&\\
             &\xi_l& = (\xi_1^{(l)}, \ldots, \xi_n^{(l)})
@@ -120,7 +120,7 @@ $f: [a, b] \rightarrow \R$ die auf $[a, b]$ Riemann integrierbar sind.
 \begin{enumerate}[label= (\alph*)]
     \item
         \begin{equation*}
-            f \in R[a, b] \Rightarrow f \text{ ist auf } [a,b] \text{beschränkt}
+            f \in R[a, b] \Rightarrow f \text{ ist auf } [a,b] \text{ beschränkt}
         \end{equation*}
     \item Ist $f, g \in R [a, b]$ und $c \in \R$ dann sind auch die Funktionen
         \begin{eqnarray*}
@@ -163,7 +163,7 @@ $g: [a,b] \rightarrow \R$ konstruiert werden kann, d.h.
     g(x) =
     \begin{cases}
         f(x) &\text{ falls } x \notin \{x_1, \ldots, x_n \} \\
-        y_1 &\text{ falls} x=x_1\\
+        y_1 &\text{ falls } x=x_1\\
         \vdots
     \end{cases}
 \end{equation*}
@@ -217,7 +217,7 @@ eine stetige Funktion definiert. Und für jedes $x_0 \in (a,b)$ gilt:
 \end{equation*}
 
 \subsection{Definition Stammfunktion}
-Gilt $F'(x) = f(x) \forall x \in [a,b]$ dann wird $F$ als Stammfunktion von
+Gilt $F'(x) = f(x)\ \forall x \in [a,b]$ dann wird $F$ als Stammfunktion von
 $f$ bezeichnet.
 
 \subsection{Eindeutigkeit der Stammfunktion}
@@ -251,8 +251,11 @@ Ist $f$ monoton auf $[a,b]$, $g$ integrierbar auf $[a,b]$, dann exisitiert ein
 $\xi \in [a,b]$ mit:
 \begin{equation*}
     \int_a^b f(x)g(x) \dx = f(a) \int_a^\xi g(x) \dx +
-        \int_\xi^b g(x) \dx
+        f(b)\int_\xi^b g(x) \dx
 \end{equation*}
+
+\section{Uneigentliche Integrale}
+
 
 \subsection{Definition uneigentliches Integral}
 Eine Funktion $f: [a, b) \rightarrow \R$ mit $a < b \leq \infty$ heißt über
@@ -261,7 +264,7 @@ $[a,b)$ uneigentlich Riemann integrierbar, wenn gilt:
     \item $\forall c$ mit $a \leq c < b$ ist $f \in R[a, c]$
     \item Der Grenzwert
         \begin{equation*}
-            \alpha = \lim_{c \rightarrow \infty} \int_a^c f(x) \dx
+            \alpha = \lim_{c \rightarrow b^-} \int_a^c f(x) \dx
         \end{equation*}
         existiert. In dem Fall schreiben wir
         \begin{equation*}
@@ -299,7 +302,7 @@ Sei $f \in R[a,b]\ \forall c \in (a,b), a < c \leq \infty$ Dann konv.
 \end{enumerate}
 
 \subsection{Majorantenkriterium}
-Seien $f, g \in R[a, c] \forall c \in (a,b), a < b \leq \infty$ oder
+Seien $f, g \in R[a, c]\ \forall c \in (a,b), a < b \leq \infty$ oder
 $f, g \in R[c, b] \forall c \in (a, b) -\infty \leq a < b$.
 Außerdem $\abs{f(x)} \leq g(x)$. Und
 \begin{equation*}

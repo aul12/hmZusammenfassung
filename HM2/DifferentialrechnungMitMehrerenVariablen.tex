@@ -15,7 +15,7 @@ Sind $n, m \in \N$, so gelten folgende Bezeichungen:
     \R^{m \times n} &:=& \Bigg\{
         \begin{pmatrix}
             a_{11} & \cdots & a_{1n}\\
-            \vdots & \ddots \\
+            \vdots & \ddots & \vdots \\
             a_{m1} & \cdots & a_{mn}
         \end{pmatrix}
         \text{ für }
@@ -23,7 +23,7 @@ Sind $n, m \in \N$, so gelten folgende Bezeichungen:
     \Bigg\}\\
     <x, y> &:=& x \cdot y := x^T y := \sum_{k=1}^n x_k y_k \text{ (Skalarprodukt)}\\
     \norm{x} &:=& {\Vert x \Vert}_2 := \abs{x} := \sqrt{\sum_{k=1}^n x_k^2}
-    \text{ euklidische Norm des }\R^n\text{ /Betrag in }\R^n
+    \text{ euklidische Norm des }\R^n\text{/Betrag in }\R^n
 \end{eqnarray*}
 
 \subsection{Folgerungen}
@@ -72,7 +72,7 @@ Sind $n, m \in \N$, so gelten folgende Bezeichungen:
 
 \subsection{Konventionen}
 \begin{enumerate}[label= (\alph*)]
-    \item In $\R^n$ sei stets $A^c := \R^n \ A$ für eine Menge $A \subseteq \R^n$
+    \item In $\R^n$ sei stets $A^c := \R^n \backslash A$ für eine Menge $A \subseteq \R^n$
     \item Mit $\norm{\cdot}$ bezeichnen wir die euklidische Norm $\norm{\cdot}_2$.
     Außer es wird explizit gesagt, dass $\norm{\cdot}$ eine allgemeine Norm ist
     (z.B. \glqq{} Sei $\norm{\cdot}$ eine Norm   auf $\R^n$)
@@ -84,7 +84,7 @@ Sei $a \in \R^n, \varepsilon > 0$ dann heißt
     U_\varepsilon(a) &:=& \{ x \in \R^n |\ \norm{x-a} < \varepsilon \} \text{ die }
     \varepsilon \text{-Umgebung von }a\\
     \dot{U}_\varepsilon(a) &:=& U_\varepsilon(a) \backslash \{a \}
-    ( =\{ x \in \R^n |\ 0<\norm{x-a}<\varepsilon \} ) \text{ die punktierte }
+    \ \ ( =\{ x \in \R^n |\ 0<\norm{x-a}<\varepsilon \} ) \text{ die punktierte }
     \varepsilon \text{-Umgebung von }a
 \end{eqnarray*}
 
@@ -123,7 +123,7 @@ Sei $A \subseteq \R^n$. Ein Punkt $a \in \R^n$ heißt:
         Kurz:
         \begin{equation*}
             a \in \R^n \text{ ist Häufungspunkt } :\Leftrightarrow
-            \forall\ \varepsilon > 0 \dot{U}_\varepsilon(a) \cap A \neq \emptyset
+            \forall\ \varepsilon > 0\ \dot{U}_\varepsilon(a) \cap A \neq \emptyset
         \end{equation*}
     \item Randpunkt von $A$, wenn jede $\varepsilon$-Umgebung Elemente aus $A$
         und $A^c$ enthält.
@@ -214,7 +214,7 @@ Sei $A \subseteq  \R^n$ und $a \in \R^n$, dann gilt:
     \item
         \begin{equation*}
             a \in \bar{A} \Leftrightarrow \exists {(a_k)}_{k=1}^\infty
-            \text{ mit } a_k \in A \forall k \text{ mit } \lim_{k \rightarrow \infty}
+            \text{ mit } a_k \in A\ \forall k \text{ mit } \lim_{k \rightarrow \infty}
             a_k = a
         \end{equation*}
     \item $a$ ist ein Häufungspunkt von $A$
@@ -223,7 +223,7 @@ Sei $A \subseteq  \R^n$ und $a \in \R^n$, dann gilt:
             \text{ mit } \lim_{k \rightarrow \infty} a_k = a
         \end{equation*}
     \item $A$ ist abgeschlossen $\Leftrightarrow$ für jede konvergente Folge
-        ${(a_k)}_{k=1}^\infty$ mit $a_k \in A \forall k$ gilt
+        ${(a_k)}_{k=1}^\infty$ mit $a_k \in A\ \forall k$ gilt
         $\lim\limits_{k \rightarrow \infty} a_k \in A$.
     \item $A$ ist kompakt $\Leftrightarrow$ Jede Folge in $A$ besitzt einen
         Häufungspunt in $A$.
@@ -257,7 +257,7 @@ $b \in \R^m$ mit:
 \begin{equation*}
     \forall \varepsilon>0\ \exists \delta(\varepsilon):
     \norm{f(x) - b}<\varepsilon\
-    \forall x \in U_{\delta(\varepsilon)}(a) \cap A
+    \forall x \in \dot{U}_{\delta(\varepsilon)}(a) \cap A
 \end{equation*}
 der Grenzwert von $f$ für x gegen a. Kurz:
 \begin{equation*}
@@ -294,7 +294,7 @@ Sei $f: A \subseteq \R^n \rightarrow \R^m$, $a \in \bar{A}$ und $b \in \R^m$
         \begin{equation*}
             \forall \varepsilon > 0\ \exists \delta(\varepsilon):
             \norm{f(x) -f(y)}<\varepsilon\ \forall x,y \in
-            \circ{U}_{\delta{\varepsilon}}(a) \cap A
+            \dot{U}_{\delta{\varepsilon}}(a) \cap A
         \end{equation*}
     \item Grenzwertrechenregeln gelten analog zu HM 1
     \item Sei $B \subseteq A$ mit $a \in \bar{B}$ dann gilt:
@@ -389,12 +389,12 @@ differentierbar.
 \subsubsection{Schreibweise}
 \begin{equation*}
     C^k(G, \R^n) := \{ f: G \rightarrow \R^n \vert \text{ alle } k \text{-ten
-    partiellen Ableitungen existieren und sind stetig}
+    partiellen Ableitungen existieren und sind stetig} \}
 \end{equation*}
 
 \subsection{Definition Umgebung eines Punktes}
 Eine Umgebung eines Punktes $a \in \R^n$ ist eine Menge $U \subseteq \R^n$ für
-die ein $\varepsilon > 0$ existiert, so dass $U_\varepsilon (a \subseteq U)$.
+die ein $\varepsilon > 0$ existiert, so dass $U_\varepsilon (a) \subseteq U$.
 Eine offene Umgebung $U$ ist eine Umgebung, die zusätzlich eine offene Menge ist.
 
 \subsubsection{Bemerkung}
@@ -435,7 +435,7 @@ Sei $f: G \subseteq \R^n \rightarrow \R^m$ und $a \in G \subseteq \R^n$
         \begin{equation*}
             \begin{pmatrix}
                 \frac{\partial}{\partial x_1} f_1(a) & \cdots & \frac{\partial}{\partial x_n} f_1(a)\\
-                \vdots & \ddots \\
+                \vdots & \ddots & \vdots \\
                 \frac{\partial}{\partial x_1} f_m(a) & \cdots & \frac{\partial}{\partial x_n} f_m(a)\\
             \end{pmatrix}
             =
@@ -469,11 +469,11 @@ Sei $f: G \subseteq \R^n \rightarrow \R^m$ und $a \in G \subseteq \R^n$
         \end{equation*}
     \item Definition des Matrix-Vektor-Produktes:
         \begin{eqnarray*}
-            A \in \R^{m \times n}, x \in \R^n, b \in \R^m\\
-            A \cdot x =
+            &A \in \R^{m \times n}, x \in \R^n, b \in \R^m&\\
+            &A \cdot x =
             \begin{pmatrix}
                 a_{11} & \cdots & a_{1n}\\
-                \vdots & \ddots \\
+                \vdots & \ddots  & \vdots \\
                 a_{m1} & \cdots & a_{mn}
             \end{pmatrix}
             \begin{pmatrix}
@@ -484,13 +484,13 @@ Sei $f: G \subseteq \R^n \rightarrow \R^m$ und $a \in G \subseteq \R^n$
                 a_{11} x_1 + \cdots + a_{1n} x_n\\
                 \vdots \\
                 a_{m1} x_1 + \cdots + a_{mn} x_n
-            \end{pmatrix}
+            \end{pmatrix}&
         \end{eqnarray*}
 \end{enumerate}
 
 \subsection{Zusammenhang Stetigkeit und Differenzierbarkeit}
 Ist $f: G \subseteq \R^n \rightarrow \R^m$ differentierbar in $a \in G$
-$\Leftrightarrow f$ stetig in $a$.
+$\Rightarrow f$ stetig in $a$.
 
 \subsection{Zusammenhang partielle und totale Diffbarkeit}
 Sei $f: G \subseteq \R^n \rightarrow \R^m$ und $a \in G$
@@ -515,7 +515,7 @@ Sei $f: G \subseteq \R^n \rightarrow \R^m$ und $a \in G$
 \end{enumerate}
 
 \subsection{Kettenregel}
-Ist $f: A \subseteq \R^ \rightarrow B \subseteq \R^m$ total differentierbar in
+Ist $f: A \subseteq \R^n \rightarrow B \subseteq \R^m$ total differentierbar in
 $a \in A$ und $g: B \rightarrow R^l$ total differentierbar in $a$. Dann gilt
 $g \circ f$ ist in $a$ differentierbar und
 \begin{equation*}
@@ -534,7 +534,7 @@ ist das Matrix-Produkt $C = A \cdot B$ definiert durch:
 \subsection{Definition lokales Extrema}
 \begin{enumerate}[label= (\alph*)]
     \item Eine Funktion $f: G \subseteq \R^n \rightarrow \R$ besitzt in $x_0 \in G$ ein
-        lokales Minimum (bzw. Maximum), wenn in einer Umgebun von $U$ von $x_0$ gilt:
+        lokales Minimum (bzw. Maximum), wenn in einer Umgebung von $U$ von $x_0$ gilt:
         \begin{equation*}
             f(x) \geq  f(x_0)\ (\text{bzw. } f(x) \leq f(x_0))\ \forall x \in U
         \end{equation*}

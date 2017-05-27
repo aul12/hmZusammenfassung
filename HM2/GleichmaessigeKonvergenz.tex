@@ -4,7 +4,7 @@ Sei $M$ eine Menge und $m \in \Z$. Ist jedem $n \in \{m, m+1, \ldots\}$ eine
 Funktion $f_n: M \rightarrow \R$ zugeordnet, so nennt man:
 \begin{enumerate}[label= (\alph*)]
     \item Die Folge ${(f_n)}_{n=m}^\infty$ eine Funktionenfolge auf $M$
-    \item Die Reihe $\sum_{n=m}^\infty$ eine Funktionenreihe auf $M$
+    \item Die Reihe $\sum_{n=m}^\infty f_n(x)$ eine Funktionenreihe auf $M$
 \end{enumerate}
 
 konvergiert ${(f_n)}_{n \geq m}$ (bzw. $\sum_{n=m}^\infty f_n(x)$) für alle
@@ -39,7 +39,7 @@ Offensichtlich gilt:
 
 
 \subsection{Stetigkeit der Grenzfunktion}
-Sei ${(f_n)}_{n=1}^\infty$ (bzw. $\sum_{n=1}^\infty$) gleichmäßig konvergent gegen
+Sei ${(f_n)}_{n=1}^\infty$ (bzw. $\sum_{n=1}^\infty f_n(x)$) gleichmäßig konvergent gegen
 $f$ auf einem Intervall $I$ und alle $f_n$ stetig auf $I$. Dann ist auch die
 Grenzfunktion $f$ stetig.
 
@@ -62,7 +62,7 @@ Sei ${(f_n)}_{n=1}^\infty$ eine Folge von integrierbaren Funktionen auf $[a,b]$
         gilt:
         \begin{equation*}
             \forall \varepsilon > 0\ \exists n(\varepsilon):
-            \abs{f_n(x) - f_m(x)} < \varepsilon \forall n \geq n(\varepsilon) \forall x \in M
+            \abs{f_n(x) - f_m(x)} < \varepsilon\ \forall n \geq n(\varepsilon) \forall x \in M
         \end{equation*}
     \item Analog für Funktionenreihen
 \end{enumerate}
@@ -104,5 +104,5 @@ Konvergenzradius $R > 0$ gilt:
 Wurde alles schon in HM1 gezeigt aber mühsam.
 
 \subsection{Majorantenkriterium für Funktionenreihen}
-Falls $\abs{f_n(x)} \leq a_n$ und $\sum_{n=1}^\infty$ konvergiert
+Falls $\abs{f_n(x)} \leq a_n$ und $\sum_{n=1}^\infty f_n(x)$ konvergiert
 $\Rightarrow \sum_{n=1}^\infty f_n(x)$ ist gleichmäßig konvergent.
