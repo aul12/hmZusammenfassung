@@ -335,3 +335,351 @@ Für $f, g: A \rightarrow \R^n$ gilt: Falls $\lim\limits_{x \rightarrow a} f(x)
             \lim_{x \rightarrow a} {f(x)}^T g(x) = \alpha^T \beta
         \end{equation*}
 \end{enumerate}
+
+\subsection{Maximum und Minimum Kompakter Mengen}
+\begin{enumerate}[label= (\alph*)]
+    \item Ist $\emptyset \neq A \subseteq \R$ kompakt, so existiert $\max{A}$ und
+        $\min{A}$.
+    \item Ist $A \subseteq \R^n$, $A$ kompakt und $f: \R^m \rightarrow \R^n$
+        stetig auf $A$, dann ist $f(A)$ kompakt.
+\end{enumerate}
+
+\subsection{Weierstraß}
+Falls $A \subseteq \R^m$ und $f: A \rightarrow \R$ stetig ist dann gilt:
+\begin{equation*}
+    A \text{ kompakt } \Rightarrow \min_{x \in A} f(x), \max_{x \in A} f(x)
+    \text{ existiert}
+\end{equation*}
+
+
+\section{Partielle Ableitungen und Richtungsableitungen}
+\subsection{Definition partielle Ableitung}
+Eine Funktion $f: A \subseteq \R^m \rightarrow \R^n$ heißt in einem Punkt
+$a \in \R^m$ partiell differentierbar nach seiner $k$-ten Variable $x_k
+(k \in \{ 1, \ldots, m\})$ wenn $f(a + h \cdot e_k)$ mit
+\begin{equation*}
+    e_k = \begin{pmatrix}
+        0 \\ 0 \\ \vdots \\ 1\ (k\text{-te Komponente}) \\ \vdots \\ 0
+    \end{pmatrix}
+\end{equation*}
+für ein festes $\delta > 0$ und alle $h$ mit $\abs{h} < \delta$ existiert:
+\begin{equation*}
+    \frac{\partial}{\partial x_k} f(a) := f_{x_k} (a) :=
+    \lim_{h \rightarrow 0} \frac{f(a + h \cdot e_k) - f(a)}{h}
+\end{equation*}
+
+Dieser Grenzwert heißt partielle Ableitung von $f$ nach $x_k$ bei $a$.
+
+\vspace{0.5cm}
+
+Exisitiert bei $a$ die partiellen Ableitungen $f_{x_1}(a), \ldots, f_{x_m}(a)$
+so heißt $f$ (einmal) partiell differentierbar bei $a$ und nennt man im Fall $n=1$
+den Spaltenvektor
+\begin{equation*}
+    \nabla f(a) := \grad f(a) :=
+    \begin{pmatrix}
+        f_{x_1}(a) \\ \vdots \\ f_{x_m}(a)
+    \end{pmatrix}
+\end{equation*}
+den Gradienten von $f$ bei $a$.
+
+Falls alle partiellen Ableitungen stetig sind nennt man $f$ stetig partiell
+differentierbar.
+
+\subsubsection{Schreibweise}
+\begin{equation*}
+    C^k(G, \R^n) := \{ f: G \rightarrow \R^n \vert \text{ alle } k \text{-ten
+    partiellen Ableitungen existieren und sind stetig}
+\end{equation*}
+
+\subsection{Definition Umgebung eines Punktes}
+Eine Umgebung eines Punktes $a \in \R^n$ ist eine Menge $U \subseteq \R^n$ für
+die ein $\varepsilon > 0$ existiert, so dass $U_\varepsilon (a \subseteq U)$.
+Eine offene Umgebung $U$ ist eine Umgebung, die zusätzlich eine offene Menge ist.
+
+\subsubsection{Bemerkung}
+Ist $f: G \subseteq \R^n \rightarrow \R$ partiell differentierbar und sind in einer
+Umgebung von $a \in G$ alle partiellen Ableitungen beschränkt, dann ist $f$ stetig
+in $a$.
+
+\subsection{Definition Richtungsableitung}
+Seien $a, r \in \R^n$ und $r$ eine Richtung, d.h. $\norm{r} = 1$. Eine Funktion
+$f: G \subseteq \R^n \rightarrow \R^m$ heißt bei $a$ in Richtung $r$ differentierbar,
+wenn der Grenzwert
+\begin{equation*}
+    \frac{\partial}{\partial r} f(a) := \lim_{h \rightarrow 0}
+    \frac{f(a + h \cdot r) - f(a)}{h}
+\end{equation*}
+existiert. Dieser Grenzwert heißt dann die Richtungsableitung von $f$ bei $a$ in
+Richtung $r$.
+
+\section{Die totale Ableitung}
+
+\subsection{Definition totale Ableitung}
+Sei $f: G \subseteq \R^n \rightarrow \R^m$ und $a \in G \subseteq \R^n$
+\begin{enumerate}[label= (\alph*)]
+    \item
+        Man nennt $f$ total differentierbar bei $a$, wenn es eine Matrix $A \in
+        R^{m \times n}$ gibt, dass bei einer Umgebung $U$ von $a$ gilt:
+        \begin{equation*}
+            f(x) = f(a) + A(x-a) + r(x)
+        \end{equation*}
+        mit
+        \begin{equation*}
+            \frac{r(x)}{\norm{x-a}} \rightarrow \vec{0}\ (x \rightarrow a)
+        \end{equation*}
+        In dem Fall nennen wir $A$ die (totale) Ableitung von $f$ bei $a$ und wir
+        schreiben $f'(a) = A$
+    \item Ist   $f = \begin{pmatrix}f_1\\ \vdots \\ f_n\end{pmatrix}$ partiell
+        differentierbar bei $a$, so heißt
+        \begin{equation*}
+            \begin{pmatrix}
+                \frac{\partial}{\partial x_1} f_1(a) & \cdots & \frac{\partial}{\partial x_n} f_1(a)\\
+                \vdots & \ddots \\
+                \frac{\partial}{\partial x_1} f_m(a) & \cdots & \frac{\partial}{\partial x_n} f_m(a)\\
+            \end{pmatrix}
+            =
+            \begin{pmatrix}
+                \nabla {f_1(a)}^T \\ \vdots \\ \nabla {f_n(a)}^T
+            \end{pmatrix}
+            = \frac{\partial}{\partial x}f(a) = J_f(a)
+        \end{equation*}
+        die Jacobi-Matrix von $f$ bei $a$.
+\end{enumerate}
+
+\subsubsection{Bemerkung}
+\begin{enumerate}[label= (\alph*)]
+    \item Wir werden sehen, dass gilt:
+        \begin{equation*}
+            f \text{ ist in }a\text{ total differentierbar} \Leftrightarrow
+            f'(a) = J_f(a)
+        \end{equation*}
+    \item Im Fall $m=1$ gilt also:
+        \begin{equation*}
+            J_f(a) = \nabla {f(a)}^T
+        \end{equation*}
+        und falls $f$ total differentierbar ist gilt:
+        \begin{equation*}
+            f'(a) = \nabla {f(a)}^T
+        \end{equation*}
+    \item Bedeutung des Skalarprodukts $x,y \in \R^n$
+        \begin{equation*}
+            x \cdot y := x^T y := \sum_{k=1}^n x_k y_k = \norm{x}_2 \norm{y}_2
+            \cos{\alpha}
+        \end{equation*}
+    \item Definition des Matrix-Vektor-Produktes:
+        \begin{eqnarray*}
+            A \in \R^{m \times n}, x \in \R^n, b \in \R^m\\
+            A \cdot x =
+            \begin{pmatrix}
+                a_{11} & \cdots & a_{1n}\\
+                \vdots & \ddots \\
+                a_{m1} & \cdots & a_{mn}
+            \end{pmatrix}
+            \begin{pmatrix}
+                x_1 \\ \vdots \\ x_n
+            \end{pmatrix}
+            =
+            \begin{pmatrix}
+                a_{11} x_1 + \cdots + a_{1n} x_n\\
+                \vdots \\
+                a_{m1} x_1 + \cdots + a_{mn} x_n
+            \end{pmatrix}
+        \end{eqnarray*}
+\end{enumerate}
+
+\subsection{Zusammenhang Stetigkeit und Differenzierbarkeit}
+Ist $f: G \subseteq \R^n \rightarrow \R^m$ differentierbar in $a \in G$
+$\Leftrightarrow f$ stetig in $a$.
+
+\subsection{Zusammenhang partielle und totale Diffbarkeit}
+Sei $f: G \subseteq \R^n \rightarrow \R^m$ und $a \in G$
+\begin{enumerate}[label= (\alph*)]
+    \item Ist $f$ total differentierbar bei $a$, so gilt:
+        \begin{enumerate}[label= (\alph*)]
+            \item $f$ ist bei $a$ partiell differentierbar und
+                \begin{equation*}
+                    f'(a) = \frac{\partial}{\partial x} f(a)
+                \end{equation*}
+            \item $f$ ist bei $a$ in jede Richtung $r$ differentierbar und
+                \begin{equation*}
+                    \frac{\partial}{\partial r} f(a) = J_f(a) \cdot r
+                \end{equation*}
+        \end{enumerate}
+    \item Wenn $f$ partiell differentierbar in $a$ ist und alle partiellen
+        Ableitungen in $a$ stetig sind, so ist $f$ in $a$ differentierbar.
+        \begin{equation*}
+            \frac{\partial}{\partial x_n} f(x_n) \text{ stetig in }a
+            \Leftrightarrow f \text{ differenzierbar in }a
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Kettenregel}
+Ist $f: A \subseteq \R^ \rightarrow B \subseteq \R^m$ total differentierbar in
+$a \in A$ und $g: B \rightarrow R^l$ total differentierbar in $a$. Dann gilt
+$g \circ f$ ist in $a$ differentierbar und
+\begin{equation*}
+    {(g \circ f)}' = g'(f(a)) \cdot f'(a)
+\end{equation*}
+
+\subsection{Matrix-Produkt}
+Für $A \in \R^{m \times k}, B \in \R^{k \times n}$ und $C \in \R^{m \times n}$
+ist das Matrix-Produkt $C = A \cdot B$ definiert durch:
+\begin{equation*}
+    c_{ij} = \sum_{l=1}^k a_{il} b_{lj}
+\end{equation*}
+
+\section{Extremwerte, Mittelwertsatz}
+
+\subsection{Definition lokales Extrema}
+\begin{enumerate}[label= (\alph*)]
+    \item Eine Funktion $f: G \subseteq \R^n \rightarrow \R$ besitzt in $x_0 \in G$ ein
+        lokales Minimum (bzw. Maximum), wenn in einer Umgebun von $U$ von $x_0$ gilt:
+        \begin{equation*}
+            f(x) \geq  f(x_0)\ (\text{bzw. } f(x) \leq f(x_0))\ \forall x \in U
+        \end{equation*}
+        unter einem lokalen Extrema versteht man ein lokales Minimum oder Maximum
+    \item $f$ besitzt in $x_0$ ein globales Minimum (bzw. Maximum), wenn
+        \begin{equation*}
+            f(x) \geq f(x_0)\ (\text{bzw. } f(x) \leq f(x_0))\ \forall x \in G
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Notwendige Bedingung für lokale Extrema}
+Besitzt $f: G \subseteq \R^n \rightarrow \R, f \in C^1(G, \R)$ in
+$x_0 \in \overset{\circ}{G}$ ein lokales Extrema, so gilt:
+\begin{equation*}
+    \nabla f(x_0) = 0
+\end{equation*}
+
+\subsubsection{Bemerkung}
+Einen Punkt $x_0 \in G$ mit $\nabla f(x_0) = 0$ nennen wir kritischen Punkt oder
+stationären Punkt.
+
+\subsection{Mittelwertsatz}
+Sei $f: G \subseteq \R^n \rightarrow \R$ mit $G$ offen differentierbar und $G$
+enthalte die Menge
+\begin{equation*}
+    L(a, b) :=\overline{ab} := \{ a + t \cdot (b-a)\ \vert t \in [0,1] \}
+\end{equation*}
+
+für $a,b \in G$. Dann exisitiert ein $\xi \in (0,1)$ mit
+\begin{equation*}
+    f(b) = f(a) + {\nabla f(a + \xi (b-a))}^T (b-a)
+\end{equation*}
+
+\subsection{Gebiete bzw.\ kurvenweise zusammenhängende Gebiete}
+\begin{enumerate}[label= (\alph*)]
+    \item Eine Menge
+        \begin{equation*}
+            \overline{a_0, a_1, \ldots, a_n} := \bigcup_{k=0}^{n-1} \overline{a_k, a_{k+1}}
+        \end{equation*}
+        für $a_0, \ldots, a_n \in \R^m$ heißt Polygonzug
+    \item Eine Menge $M \subseteq \R^n$ heißt kurvenweise zuammenhängend, wenn zu
+        $a, b \in M$ stets eine stetige Funktion $\gamma: [0,1] \rightarrow M$
+        exisitiert mit $\gamma(0) = a$ und $\gamma(1) = b$ (dann ist $\gamma$)
+        eine Kurve von $a$ nach $b$.
+    \item Eine Menge $G \subseteq \R^n$ heißt Gebiet, wenn $G$ offen und
+        kurvenweise zusammenhängend ist (keine Inseln).
+\end{enumerate}
+
+\subsubsection{Bemerkung}
+Ist $G$ ein Gebiet und $a, b \in G$ dann existiert stets ein Polynomzug, der $a$
+und $b$ verbindet und durch $G$ verläuft.
+
+
+\subsection{Partielle Ableitung r-ter Ordnung}
+Für $f: G \subseteq \R^n \rightarrow \R^m$ definiert man (falls existent) für
+$x_0 \in G$ und $k_1, \ldots, k_r \in \{ 1, \ldots, n \}$ die partielle Ableitung
+$r$-ter Ordnung indirekt durch:
+\begin{equation*}
+    \frac{\partial^r}{\partial x_{k_1} \ldots \partial x_{k_r}} f(x_0) :=
+    f_{x_{k_1} \cdots x_{k_r}} (x_0) :=
+    \begin{cases}
+        \dfrac{\partial}{\partial x_{k_1}} f(x_0) & \text{falls } r=1\\
+        \dfrac{\partial}{\partial x_{k_1}} \left(
+        \dfrac{\partial^{r-1}}{\partial x_{k_2} \ldots \partial x_{k_r}} f(x_0)
+        \right) & \text{sonst}
+    \end{cases}
+\end{equation*}
+existieren alle partiellen Ableitungen der Ordnung $r$, dann ist $f$ $r$-mal
+partiell differentierbar sind diese außerdem stetig, so ist $f$ $r$-mal stetig
+partiell differentierbar.
+
+\subsubsection{Schreibweise}
+\begin{equation*}
+    C^r(G, \R^m) := \{ f: G \rightarrow \R^m\ \vert \ f\ r\text{-mal stetig
+    partiell differentierbar}\}\text{ und }
+    C^r(G) := C^r(G, \R^1)
+\end{equation*}
+
+\subsection{Hessematrix}
+Ist $f: G \subseteq \R^n \rightarrow \R$ 2-mal partiell differentierbar bei
+$a \in G$ so heißt
+\begin{equation*}
+    H_f(a) :=
+    \begin{pmatrix}
+        f_{x_1 x_1}(a) & \cdots & f_{x_1 x_n}(a)\\
+        \vdots & \ddots & \vdots \\
+        f_{x_n x_1}(a) & \cdots & f_{x_n x_n}(a) \\
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \nabla f_{x_1}(a) & \cdots & \nabla f_{x_n}(a)
+    \end{pmatrix}
+\end{equation*}
+die Hesse-Matrix von $f$ bei $a$.
+
+\subsection{Definitheit}
+Sei $A \in \R^{n \times n}$
+\begin{enumerate}[label= (\alph*)]
+    \item Die durch $Q_A(x) := x^T \cdot A \cdot x$ definierte Funktion
+        $Q_A: \R^n \rightarrow \R$ heißt die Quadratische Form von $A$.
+    \item Die Matrix und die Quadratische Form heißen:
+        \begin{enumerate}
+            \item positiv definit
+                \begin{equation*}
+                    :\Leftrightarrow Q_A(x) > 0\ \forall x \in \R^n \backslash \{ 0 \}
+                \end{equation*}
+            \item positiv semidefinit
+                \begin{equation*}
+                    :\Leftrightarrow Q_A(x) \geq 0\ \forall x \in \R^n
+                \end{equation*}
+            \item negativ definit
+                \begin{equation*}
+                    :\Leftrightarrow Q_A(x) < 0\ \forall x \in \R^n \backslash \{ 0 \}
+                \end{equation*}
+            \item negativ semidefinit
+                \begin{equation*}
+                    :\Leftrightarrow Q_A(x) \leq 0\ \forall x \in \R^n
+                \end{equation*}
+            \item indefinit
+                \begin{equation*}
+                    :\Leftrightarrow \exists x, y \in \R^n:\ Q_A(x) < 0, Q_A(y) > 0
+                \end{equation*}
+        \end{enumerate}
+\end{enumerate}
+
+\subsection{Satz von Schwarz}
+Ist $G \neq \emptyset, f: G \subseteq \R^n \rightarrow \R$ 2-mal stetig partiell
+differentierbar, dann gilt:
+\begin{equation*}
+    H_f(x, y) = {H_f(x,y)}^T
+\end{equation*}
+
+\subsection{Satz von Taylor}
+Seien $a, b \in G$ ($G$ eine Gebiet mit $G \neq \emptyset$), $f: G \subseteq \R^n
+\rightarrow \R$ zweimal stetig differentierbar und $\overline{ab} \subseteq G$.
+Dann existiert eine $\xi \in (0,1)$ mit
+\begin{equation*}
+    f(b) = f(a) + \nabla {f(a)}^T (b-a) + \frac{1}{2} {(b-a)}^T H_f(a+ \xi (b-a))
+    (b-a)
+\end{equation*}
+
+\subsection{Hinreichende Bedinung für lokale Extrema}
+Sei $f \in C^2(U, \R)$ mit $U$ eine Umgebung von $a$ und $\nabla f(a) = \vec{0}$
+dann gilt:
+\begin{enumerate}[label= (\alph*)]
+    \item Ist $H_f(a)$ positiv definit, so ist bei $a$ ein lokales Minimum
+    \item Ist $H_f(a)$ negativ definit, so ist bei $a$ ein lokales Maximum
+\end{enumerate}
