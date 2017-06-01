@@ -91,7 +91,7 @@ Sei $a \in \R^n, \varepsilon > 0$ dann heißt
 \subsection{Definition Topologische Begriffe}
 Sei $A \subseteq \R^n$. Ein Punkt $a \in \R^n$ heißt:
 \begin{enumerate}[label= (\alph*)]
-    \item Innerer Punt von $A$, falls ein $\varepsilon > 0$ existiert, sodass
+    \item Innerer Punkt von $A$, falls ein $\varepsilon > 0$ existiert, sodass
         $U_\varepsilon(a) \subseteq A$
         Kurz:
         \begin{equation*}
@@ -123,7 +123,7 @@ Sei $A \subseteq \R^n$. Ein Punkt $a \in \R^n$ heißt:
         Kurz:
         \begin{equation*}
             a \in \R^n \text{ ist Häufungspunkt } :\Leftrightarrow
-            \forall\ \varepsilon > 0\ \dot{U}_\varepsilon(a) \cap A \neq \emptyset
+            \forall\ \varepsilon > 0:\ \dot{U}_\varepsilon(a) \cap A \neq \emptyset
         \end{equation*}
     \item Randpunkt von $A$, wenn jede $\varepsilon$-Umgebung Elemente aus $A$
         und $A^c$ enthält.
@@ -682,4 +682,127 @@ dann gilt:
 \begin{enumerate}[label= (\alph*)]
     \item Ist $H_f(a)$ positiv definit, so ist bei $a$ ein lokales Minimum
     \item Ist $H_f(a)$ negativ definit, so ist bei $a$ ein lokales Maximum
+\end{enumerate}
+
+\section{Implizit definierte Funktionen}
+\subsection{Bemerkung}
+Wir betrachten zunächst lineare Funktionen $f: \R^n \rightarrow \R^m$ dann lässt
+sich  $f(x)$ darstellen als:
+\begin{equation*}
+    f(x) = A x + b
+\end{equation*}
+mit $A \in \R^{m \times n}, b \in \R^m$
+
+\subsection{Vorläufige Definition Rang einer Matrix}
+Wir definieren für eine Matrix $A \in \R^{m \times n}$ den Rang vorläufig als
+die Anzahl der Stufen nachdem mit dem Gauss-Algorithmus die Matrix in
+Zeilen-Stufenform überführt wurde.
+
+\subsubsection{Bemerkung}
+Allgemein werden wir sehen, dass $A x = b$ lösbar ist $\Leftrightarrow$ Rang von
+$A$ gleich Rang von $(A \vert b)$ gilt. Eindeutig lösbar ist das LGS wenn in der
+Zeilen-Stufen Form in jeder Zeile eine Stufe anfängt und $A$ quadratisch ist.
+
+\subsection{Einheitsmatrix und Inverse eine Matrix}
+Ist $A \in \R^{n \times n}$ und $B \in \R^{n \times n}$ mit
+\begin{equation*}
+    B \cdot A =
+    \begin{pmatrix}
+        1 & 0 & \cdots & 0 & 0\\
+        0 & 1 & \cdots & 0 & 0\\
+        \vdots & \ddots \\
+        0 & 0 & \cdots & 0 & 1\\
+    \end{pmatrix}
+    I \text{ (Einheitsmatrix)}
+\end{equation*}
+dann nennt man $B$ die zu $A$ inverse Matrix und schreibt $A^{-1} := B$.
+Dann gilt:
+\begin{eqnarray*}
+    A x &=& b \\
+    \Leftrightarrow A^{-1} \cdot A \cdot x &=& A^{-1} \cdot b\\
+    \Leftrightarrow I \cdot x &=& A^{-1} \cdot b\\
+    \Leftrightarrow x &=& A^{-1} \cdot b
+\end{eqnarray*}
+
+Falls zu einer Matrix $A \in \R^{n \times n}$ die Inverse $A^{-1}$ existiert
+nennt man $A$ regulär.
+
+\subsubsection{Bemerkung}
+Die Menge $G := \{ A \in \R^n: A \text{ ist regulär} \}$ ist bezüglich der
+Matrixmultiplikation eine nicht abelsche Gruppe mit $I$ als neutrales Element
+und $A^{-1}$ als das zu $A$ (links-) inverse Element.
+
+\subsection{Zusammenhang Bijektivität und reguläre Matrizen}
+Für $f: \R^n \rightarrow \R^n$ mit $f(x) = A \cdot x + b$ gilt:
+\begin{equation*}
+    f \text{ ist bijektiv } \Leftrightarrow A \text{ ist regulär}
+\end{equation*}
+
+\subsection{Satz über die Umkehrfunktion}
+Sei $f \in C^1(G, \R^n)$ für ein Gebiet $G \subseteq \R^n$ und $x_0 \in G$. Weiter
+gelte, dass $f'(x_0)$ regulär ist. Dann gibt es eine offene Umgebung $U$ von $x_0$
+($U \subseteq G$), dass gilt:
+\begin{enumerate}[label= (\alph*)]
+    \item $f(U)$ ist offen und $f'(x)$ ist regulär
+    \item $f: U \rightarrow V$ ist bijektiv und $f^{-1}: V \rightarrow U$ ist aus
+        $C^1(V, U)$
+    \item
+        \begin{equation*}
+            \frac{\text{d}}{\text{d}y} f^{-1} (y) = {(f'(f^{-1}(y)))}^{-1}
+            \ \forall y \in V
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Satz über die Gebietstreue}
+Ist $G$ eine offene Menge in $\R^n$ und $f \in C^1 (G, \R^n)$ mit $f'(x)$
+ist regulär auf $G$, so ist auch $f(G)$ ein Gebiet.
+
+\subsection{Definition Auflösbarkeit}
+Sei $g: \R^{m + n} \rightarrow \R^m\ (n, m \in \N)$ und $b \in \R^m$.
+Man nennt die Gleichung
+\begin{equation*}
+    g(x,y) = b \text{ mit } x \in \R^n \text{ und } y \in \R^m
+\end{equation*}
+\begin{enumerate}[label= (\alph*)]
+    \item Auf $G \in \R^n$ (global) nach $y$ auflösbar, wenn es eine Funktion
+        $f: G \subseteq \R^n \rightarrow \R^m$ gibt mit
+        $g(x, f(x)) = b\ \forall x \in G$
+    \item Bei $x_0 \in \R^n$ lokal nach $y$ auflösbar, wenn $g(x, y) = b$ in
+        einer Umgebung von $x_0$ nach $y$ (global) auflösbar ist.
+
+        D.h mit $y_0 := f(x_0)$ existiert die Auflösung $y = f(x)$ mit
+        $g(x, f(x))=b$ und $y_0 = f(x_0)$ in einer Umgebung von $x_0$.
+\end{enumerate}
+
+\subsubsection{Bemerkung}
+Allgemein soll auch für nichtlineare Funktionen einfach geprüft werden können ob
+eine lokale Auflösung nach $x$ oder $y$ existiert.
+
+Wir werden sehen es gilt:
+\begin{equation}
+    \frac{\partial}{\partial x} g \vert_{x=x_0} \text{ regulär } \Leftrightarrow
+    \text{ Es existiert eine lokale Auflösung nach }x
+\end{equation}
+(Analog für Auflösungen nach $y$).
+
+\subsection{Hauptsatz über implizite Funktionen}
+Sei $x_0 \in \R^n$ und $y_0, b \in \R^m$. Für eine offene Umgebung $G$ von
+$\left(\begin{smallmatrix}x_0\\y_0\end{smallmatrix}\right)$. Sei $g \in C^1(G, \R^m)$
+(d.h $g: G \subseteq \R^{m + n} \rightarrow \R^m$ und stetig differentierbar) ist
+$g(x_0, y_0)=b$ und $\frac{\partial}{\partial y} g(x_0, y_0)$ regulär, so gibt
+es eine Umgebung $U$ von $x_0$ und $V$ von $y_0$, so dass:
+\begin{enumerate}[label= (\alph*)]
+    \item
+        \begin{equation*}
+            \frac{\partial}{\partial y} g(x, y) \text{ ist regulär }
+            \forall x \in U \text{ und } \forall y \in V
+        \end{equation*}
+    \item Die Gleichung $g(x,y)=b$ besitzt eine eindeutige Auflösung
+        $f: U \rightarrow V$ mit $y_0 = f(x_0)$ und es gilt:
+        \begin{equation*}
+            f'(x) = {(\frac{\partial}{\partial y} g(x, f(x)) )}^{-1} \cdot
+            \frac{\partial}{\partial x} g(x, f(x)) \forall x \in U
+        \end{equation*}
+        (die Auflösung ist also differentierbar)
+    \item Ist $g \in C^r (g, \R^m)$ dann ist $f \in C^r(U, \R^m)$
 \end{enumerate}
