@@ -806,3 +806,105 @@ es eine Umgebung $U$ von $x_0$ und $V$ von $y_0$, so dass:
         (die Auflösung ist also differentierbar)
     \item Ist $g \in C^r (g, \R^m)$ dann ist $f \in C^r(U, \R^m)$
 \end{enumerate}
+
+\subsection{Extrema unter Nebenbedingungen}
+\begin{equation*}
+    \begin{cases}
+        x+y & \rightarrow \max \text{oder } \min \\
+        x^2 + y^2 = 1
+    \end{cases}
+\end{equation*}
+\paragraph{Idee}
+Nebenbedingung nach $y$ auflösen und in Zielfunktion einsetzten
+\begin{enumerate}
+    \item $y = \pm \sqrt{1-x^2}$
+        \begin{equation}
+            \Rightarrow f(x,y) = f(x, \pm \sqrt{1-x^2}) = \tilde{f}(x)
+        \end{equation}
+    \item
+        \begin{equation*}
+            \tilde{f}(x) \stackrel{!}{=}, \tilde{f}^{(k)}(x) \stackrel{!}{=}, \ldots,
+                \tilde{f}^{2l}(x) \stackrel{!}{=} 0\ k=1,\ldots, 2\cdot l - 1
+        \end{equation*}
+\end{enumerate}
+
+\paragraph{Beobachtung}
+Bei den gesuchten Extrema berühren sich die Höhenlinien von $f$ und $g$
+\begin{equation*}
+    \stackrel{\text{Formaler}}{\Rightarrow} \exists \lambda \in \R:
+    \nabla f(x,y) = \lambda \nabla g(x,y)
+\end{equation*}
+Aber die Bedingung ist ist nicht hinreichend, sondern nur notwendig.
+
+Trotzdem: Die notwendige Bedingung liefert (hoffentlich) einen Endliche Anzahl
+Kandidaten, diese können einzeln überprüft werden.
+
+\subsection{Definition lokale Minima/Maxima unter Nebenbedingungen}
+Seien $f, g_1, \ldots g_m: G \subseteq \R^n \rightarrow \R$ mit $G$ offen
+gegeben sowie $b_1, \ldots, b_m \in \R$. Dann nennt man ein $x_0 \in G$ ein
+lokales Minimum (bzw. Maximum) von $f$ unter der Nebenbedingung $g_1(x) = b_1
+\ldots g_m(x) = b_m$ wenn es eine offene Umgebung $U \subseteq G$ von $x_0$ gibt
+mit $f(x) \geq f(x_0) \forall x \in U$  und $g_k(x) = b_k$ für $k=1 \ldots m$
+(bzw. $f(x) \leq f(x_0)  \forall x \in U$).
+
+\subsection{Definition Linear Unabhängig}
+Seien $a_1, \ldots, a_m \in \R^n$ mit $m\in \N$. Dann heißen diese Vektoren
+linear unabhängig, wenn das lineare Gleichungssystem
+\begin{equation*}
+    \alpha_1 a_1 + \cdots + \alpha_n a_n = \vec{0}
+\end{equation*}
+nur die Lösung $\alpha_1 = \cdots \alpha_m = 0$ besitzt.
+\begin{equation*}
+    \Leftrightarrow
+        \begin{pmatrix}
+            a_1 & \ldots & a_m
+        \end{pmatrix}
+        \cdot
+        \begin{pmatrix}
+            \alpha_1 \\
+            \vdots \\
+            \alpha_n
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            0 \\
+            \vdots \\
+            0
+        \end{pmatrix}
+\end{equation*}
+Ansonsten sind die Vektoren linear abhängig.
+
+\subsubsection{Bemerkung}
+Sind $a_1, \cdots a_k$ nicht linear abhängig:
+\begin{eqnarray*}
+    \stackrel{\text{Def.}}{\Rightarrow} \exists\ k \in \{1, \ldots m\} \text{ und
+    Lösung } \alpha_1, \ldots \alpha_m \text{ mit}\\
+    \alpha_1 a_1 + \cdots + \alpha_k a_k + \ldots \alpha_m a_m = 0\ a_k \neq 0\\
+    \Rightarrow a_k = -\frac{\alpha_1}{\alpha_k} a_1 \ldots -\frac{\alpha_1}{\alpha_k} a_{k-1}
+    -\frac{\alpha_1}{\alpha_k} a_{k+1} \ldots
+\end{eqnarray*}
+d.h. $a_k$ lässt sich aus durch $a_1, \ldots, a_{k-1}, a_{k+1}, \ldots, a_m$
+bestimmen.
+
+\subsection{Satz von Lagrange}
+Seien $f, g_1, \ldots g_m \in C^1(U)$ für eine offene Umgebung $U$ von $x_0 \in \R$
+(wie oben $f,g_1 \ldots : G \subseteq \R^n \rightarrow \R$) und seien
+$b_1, \ldots b_m \in \R$. Ist $x_0$ ein lokales Extrema unter der Nebenbedinung
+$g_k(x) = b_k k=1,\ldots m$ und die Vektoren $\nabla g_1(x_0), \ldots \nabla g_m(x_0)$
+linear unabhängig.
+\begin{eqnarray*}
+    \exists\  \lambda_1, \ldots, \lambda_m \in \R &\text{ mit }&
+    \nabla f(x_1) + \lambda_1 \nabla g_1(x_0) + \cdots + \lambda_m \nabla g(x_0)
+    = \vec{0} \\
+    &\Leftrightarrow& f'(x_0)^T + J_g(x_0)^T \cdot \lambda = \vec{0} \\
+    &\Leftrightarrow& f'(x_0) = \nabla^T J_g(x_0)
+\end{eqnarray*}
+Zudem muss $x_0$ die Nebenbedingung erfüllen.
+
+\subsection{Lagrange Funktion}
+\begin{eqnarray*}
+    L(x,\lambda) &=& L(x_1, \cdots, x_m, \lambda_1, \cdots, \lambda_m)
+    := f(x) + \lambda^T (g(x) - b) \\
+    \Leftrightarrow L'(x,\lambda) = \left( f'(x) + \lambda^T g'(x), g(x)-b)
+    \stackrel{!}{=} \vec{0}
+\end{eqnarray*}
