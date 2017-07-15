@@ -1,0 +1,202 @@
+\section{Der Begriff Vektorraum}
+\subsection{Definition Vektorraum}
+Gegeben sei eine abelsche Gruppe $V$ und ein Körper $\K$ (bei uns wird $\K=\R$
+oder $\K=\C$ gelten) und eine Abbildung:
+\begin{equation*}
+    \cdot: \K \times V \to V, \cdot(\alpha, x) \mapsto \alpha \cdot x =:
+    \alpha x \text{ (Skalierung)}
+\end{equation*}
+Dann nennt man $V$ einen Vektorraum über $\K$, wenn die folgenden Vektorraumaxiome
+erfüllt sind:
+\begin{eqnarray*}
+    &\text{(V1)}& \alpha \cdot (\beta \cdot v) = (\alpha \cdot \beta) \cdot v
+    \text{ (Assoziativgesetz)}\\
+    &\text{(V2)}& \alpha \cdot (x+y) = (\alpha \cdot x) + (\alpha \cdot y) =
+    \alpha x + \alpha y \\
+    && (\alpha + \beta) \cdot x = \alpha x + \beta x
+    \text{ (Distributivgesetzte)}\\
+    &\text{(V3)}& 1 \cdot x = x \text{ für die } 1 \in \K \text{ (Gesetz der Eins)}
+\end{eqnarray*}
+
+In einem Vektorraum $V$ über $\K$ nennt man Elemente aus $V$ Vektoren, die Elemente
+aus $\K$ Skalare, $\K$ den Skalarkörper und \glqq{}$\cdot$\grqq{} die
+Multiplikation mit Skalaren. Die \glqq{}$+$\grqq{} Verknüpfung in $V$ die $V$ die
+Vektoraddition und das neutrale Element $\vec{0} \in V$ den Nullvektor.
+
+\subsection{Rechenregeln}
+Ist $V$ ein Vektorraum über $\K$, so gilt für $\alpha, \beta \in \K$ und
+$x, y \in V$:
+\begin{enumerate}
+    \item
+        \begin{enumerate}[label = (\alph*)]
+            \item $0 \cdot x = \vec{0} = \alpha \vec{0}$
+            \item $\alpha \cdot x = \vec{0} \Rightarrow \alpha = 0 \lor x=\vec{0}$
+        \end{enumerate}
+     \item
+        \begin{equation*}
+            \alpha (-x) = (-\alpha) x = - (\alpha x)
+        \end{equation*}
+\end{enumerate}
+
+\section{Unterräume}
+\subsection{Definition Unterraum}
+Eine Teilmenge $U$ eines Vektorraums $V$ über $\K$ heißt Unterraum von $V$, wenn
+$U$ bezüglich der in $V$ definierten Vektoraddition und Skalierung ein Vektorraum
+ist.
+
+\subsection{Unterraumkriterien}
+Für $U \subseteq V$ und $U \neq \emptyset$ sind folgende Aussagen äquivalent
+\begin{enumerate}[label = (\alph*)]
+    \item $U$ ist ein Unterraum von $V$
+    \item
+        \begin{equation*}
+            x,y \in U, \alpha, \beta \in \K \Rightarrow
+            \alpha x + \beta y \in U
+        \end{equation*}
+    \item
+        \begin{equation*}
+            (x,y \in U \Rightarrow x+y \in U) \land
+            (\alpha \in K, x \in U \Rightarrow \alpha x \in U)
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Durchschnitt von Unterräumen}
+Der Durchschnitt von Unterräumen ist wieder ein Unterraum, d.h.:
+\begin{equation*}
+    U_i\ i \in J\ (J\text{ eine Indexmenge}) \text{ sind Unterräume}
+    \Rightarrow \bigcap_{i \in J} U_i \text{ ist Unterraum}
+\end{equation*}
+
+\subsection{Defintion lineare Hülle}
+\begin{itemize}
+    \item Ist $M$ eine beliebige Teilemenge eines Vektorraums. Dann heißt
+        \begin{equation*}
+            \vspan (M) := \bigcap_{U \in S} U \text{ mit }
+            S := \{ U \subseteq V: U \text{ ist Unterraum}, U \supseteq M \}
+        \end{equation*}
+        der von $M$ aufgespannte Unterraum oder die lineare Hülle von M.
+    \item Ist $U$ ein Unterraum und $M \subseteq V$ mit $\vspan(M) = U$, dann heißt
+        $M$ ein erzeugendes System von $U$.
+\end{itemize}
+
+\subsubsection{Bemerkung}
+\begin{enumerate}
+    \item $\vspan(M)$ ist der kleinste Unterraum, der $M$ enthält
+    \item $\vspan(\emptyset) = \vec{0}$
+    \item $M \subseteq N \Rightarrow \vspan(M) \subseteq \vspan(N)$
+    \item Ist $U$ ein Unterraum, dann gilt $U=\vspan(U)=\vspan(U \setminus \{\vec{0}\})$
+\end{enumerate}
+
+\subsection{Definition Linearkombination}
+Ist $V$ ein Vektorraum über $\K$ und $x_1, \ldots x_n \in V, \alpha_1, \ldots,
+\alpha_n \in \K$ dann heißt
+\begin{equation*}
+    \sum_{k=1}^n a_k x_k \in V
+\end{equation*}
+eine Linearkombination von $x_1, \ldots, x_n$ (mit Koeffizienten $\alpha_1, \ldots
+\alpha_n$).
+
+\subsection{Zusammenhang lineare Hülle --- Linearkombination}
+Sei $V$ ein Vektorraum über $\K$ und $M \subseteq V$, dann gilt $\vspan{M}$ ist
+die Menge aller Linearkombinationen, d.h.
+\begin{equation*}
+    \vspan(M) = \{\alpha_1 x_1 + \cdots + \alpha_n x_n \vert x \in \N,
+    x_1, \ldots, x_n \in M, \alpha_1, \ldots, \alpha_n \in \K \}
+\end{equation*}
+im Fall $M=\{x_1, \ldots, x_n\}$ gilt:
+\begin{equation*}
+    \vspan(M) =  \{\alpha_1 x_1 + \ldots \alpha_n x_n \vert \alpha_1, \ldots
+    \alpha_n \in \K \}
+\end{equation*}
+
+\section{Lineare Unabhängigkeit}
+\subsection{Definition Lineare Unabhängigkeit}
+Sei $V$ ein Vektorraum über $\K$
+\begin{enumerate}[label = (\alph*)]
+    \item Eine endliche Liste $a_1, \ldots, a_n \in V$ heißt linear unabhängig
+        (l.u.), wenn gilt
+        \begin{equation*}
+            \alpha_1 a_1 + \cdots + \alpha_n a_n = \vec{0}
+            \Rightarrow \alpha_1 = \cdots = \alpha_n  = 0
+        \end{equation*}
+        Andernfalls heißen $a_1, \ldots, a_n$ linear abhängig (l.a.).
+    \item Eine beliebige Teilmenge $M \subseteq V$ heißt linear unabhängig, wenn
+        für eine beliebige endliche Liste $a_1, \ldots, a_n \in M$ gilt, dass
+        diese linear unabhängig sind. Andernfalls ist $M$ linear abhängig.
+\end{enumerate}
+
+\subsection{Rechenregeln für lineare Unabhängigkeit}
+Für Vektoren $a, a_1, \ldots, a_n, b_1, \ldots, b_n$ eines Vektorraumes $V$ gilt:
+\begin{enumerate}[label = (\alph*)]
+        \item
+            \begin{equation*}
+                a \text{l.u.} \Leftrightarrow \{a\} \text{ l.u.} \Leftrightarrow
+                a \neq \vec{0}
+            \end{equation*}
+            Bemerkung:
+
+            $a_1, a_2$ mit $a_1 = a_2$ ist linear unabhängig, aber $M=\{a, a\} =
+            \{a\}$ ist nur dann linear abhängig wenn $a = \vec{0}$.
+        \item
+            $a_1, \ldots, a_n$ linear abhängig $\Rightarrow$ $a_1, \ldots a_n,
+            b_1, \ldots, b_k$ sind linear abhängig für $k \geq 0$.
+        \item $a_1, \ldots, a_n$ linear unabhängig $\Rightarrow a_1, \ldots, a_k$
+            linear unabhängig für $k \leq n$
+        \item $a_1, \ldots, a_n$ linear unabhängig $\Rightarrow a_1, \ldots a_n$
+            sind paarweise verschieden
+        \item Für $n \geq 2$ sind $a_1, \ldots, a_n$ genau dann linear abhängig,
+            wenn ein Vektor als Linearkombination darstellbar ist. D.h.:
+            \begin{equation*}
+                \exists i \in \{1, \ldots, n\}: a_i = \sum_{k=1, k \neq i}^n
+                \alpha_k a_k \text{ für } \alpha_1, \ldots, \alpha_{i-1},
+                \alpha_{i+1}, \ldots, \alpha_n \in \K
+            \end{equation*}
+        \item Sind $a_1, \ldots, a_n$ linear unabhängig und $a_1, \ldots, a_n, a$
+            linear abhängig, so ist $a$ die linear Kombination von $a_1, \ldots,
+            a_n$ und die Koeffizienten sind eindeutig.
+        \item Ist $a$ eine Linearkombination von $a_1, \ldots, a_n$ und jeder
+            Vektor $a_k$ eine Linearkombination von $b_1, \ldots, b_m$ so ist
+            $a$ eine Linearkombination von $b_1, \ldots, b_m$
+\end{enumerate}
+
+\subsubsection{Bemerkung}
+Für Teilmengen $M, N$ eines Vektorraums $V$ gilt:
+\begin{enumerate}[label= (\alph*)]
+    \item $M$ l.a. $M \subseteq N \Rightarrow N$ l.a.
+    \item $M=\emptyset \Rightarrow M$ l.u.
+    \item $\vec{0} \in M \Rightarrow M$ l.a.
+\end{enumerate}
+
+\paragraph{Für $V = \R^3$}
+\begin{enumerate}[label= (\alph*)]
+    \item $a_1, a_2, a_3$ seien linear abhängig und $a_1, a_2$ linear unabhängig
+
+        $\Leftrightarrow$ also $a_3$ ist in der von $a_1$ und $a_2$ aufgespannten
+        Ebene
+
+        $\Rightarrow$ Spat mit Kanten $a_1, a_2, a_3$ hat Volumen $0$
+
+        $\Leftrightarrow \det(a_1, a_2, a_3) = 0$
+    \item $a_1, a_2$ linear abhängig $\Rightarrow a_2$ ist auf der von $a_1$
+        aufgespannten Gerade
+
+        $\Rightarrow \det(a_1, a_2) = 0$
+\end{enumerate}
+
+\section{Basis und Dimension}
+\subsection{Definition Hamel-Basis}
+\begin{enumerate}[label= (\alph*)]
+    \item Eine Teilmenge $B$ eines Vektorraums $V$ heißt (Hamel-) Basis von $V$,
+        wenn gilt
+        \begin{enumerate}[label= (\roman*)]
+            \item $B$ ist linear unabhängig
+            \item $V = \vspan(B)$
+        \end{enumerate}
+        Kurz:
+        \begin{equation*}
+            B \text{ ist ein linear unabhängiges Erzeuger-System
+            von }V
+        \end{equation*}
+    \item Man sagt Vektoren $b_1, \ldots, b_n$ bilden eine Basis von $V$, wenn
+        gilt $B=\{b_1, \ldots, b_n\}$ ist eine Basis von $V$.
+\end{enumerate}
