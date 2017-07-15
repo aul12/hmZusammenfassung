@@ -1,0 +1,736 @@
+\section{Parameterintegrale}
+\subsection{Eigentliche Parameterintegrale}
+Sei $f(x,t)$ reel und stetig in $[\alpha, \beta] \times [a,b]$ (also $x\in[\alpha, \beta],
+t \in [a,b]$). Dann gilt für
+\begin{equation*}
+    F(x) := \int_a^b f(x,t) \dt
+\end{equation*}
+\begin{enumerate}[label= (\alph*)]
+    \item $F$ ist stetig auf $[\alpha, \beta]$
+    \item Ist $f_x$ stetig in $[\alpha, \beta] \times [a,b]$, so ist
+        $F \in C^1([\alpha, \beta])$ und $F'(x) = \int_a^b f_x(x,t) \dt$
+    \item Satz von Fubini:
+        \begin{equation*}
+            \int_\alpha^\beta F(x) \dx = \int_\alpha^\beta \int_a^b f(x,t) \dt \dx
+            = \int_a^b \int_\alpha^\beta f(x,t) \dx \dt
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Leibniz Regel}
+Seien $f(x,t), f_x(x,t)$ stetig in $[\alpha, \beta] \times [a,b]$ und
+$u, v \in C^1 ( [a,b])$. Dann ist
+\begin{equation*}
+    F(x) = \int_{u(x)}^{v(x)} f(x,t) \dt \in C^1([a,b])
+\end{equation*}
+und
+\begin{equation*}
+    F'(x) = \int_{u(x)}^{v(x)} f_x(x,t) \dt +
+    f(x, v(x)) v'(x) - f(x, u(x)) u'(x)
+\end{equation*}
+
+\subsection{Uneigentliche Parameterintegrale}
+Ist für jedes $x \in M \subseteq \R$ ein uneigentliches Integral
+\begin{equation*}
+    \int_a^b f(x,t) \dt
+\end{equation*}
+mit kritischem Punkt $a$ oder $b$ gegeben, so heißt dieses gleichmäßig konvergent
+in $M$, wenn gilt:
+\begin{equation*}
+    \forall \varepsilon > 0\ \exists L \in (a,b): \abs{\int_{T_1}^{T_2} f(x,t) \dt}
+    <\varepsilon \ \forall x \in M \forall T_1, T_2 \in (a,L) (\text{bzw.}
+    \forall T_1, T_2 \in (L,b))
+\end{equation*}
+
+\subsection{Majorantenkriterium}
+Ein uneigentliches Integral $\int_a^b f(x,t) \dt$ konvergiert gleichmäßig in $M$ wenn ein konvergentes
+Integral
+\begin{equation*}
+    \int_a^b g(t) \dt \text{ ex.\ mit} \abs{f(x,t)} \leq g(t)
+\end{equation*}
+
+\subsection{Fubini für uneigentliche Parameterintegrale}
+Ist $f(x,t)$ stetig in $[\alpha, \beta] \times [a,b]$ und konvergiert
+\begin{equation*}
+    F(x) = \int_a^b f(x,t) \dt
+\end{equation*}
+gleichmäßig auf $[\alpha, \beta]$ dann ist $F$ stetig und
+\begin{equation*}
+    \int_\alpha^\beta \int_a^b f(x,t) \dt \dx =
+    \int_a^b \int_\alpha^\beta f(x,t) \dx \dt
+\end{equation*}
+
+\subsection{Konvergenzkriterien}
+Sind $f(x,t), f_x(x,t)$ stetig auf $[\alpha, \beta] \times [a,b]$ und ist
+\begin{equation*}
+    \int_a^b f(x, t) \dt
+\end{equation*}
+für ein $x_0 \in [\alpha, \beta]$ konvergent und ist
+\begin{equation*}
+    \int_a^b f_x(x,t) \dt
+\end{equation*}
+gleichmäßig konvergent. Dann gilt:
+\begin{equation*}
+    F(x) = \int_a^b f(x,t) \dt\ \forall x \in [\alpha, \beta]
+\end{equation*}
+und
+\begin{equation*}
+    F'(x) = \int_a^b f_x(x,t) \dt\ \forall x \in (\alpha, \beta)
+\end{equation*}
+existiert und ist stetig.
+
+\section{Kurvenintegrale}
+\subsection{Äquivalenz für Kurven}
+Zwei stetige Funktionen $x: [a, b] \subseteq \R \rightarrow \R^n, y:[\alpha, \beta]
+\subseteq \R \rightarrow \R^n$ heißen Äquivalent (schreibweise $x \sim y$), wenn eine
+streng monoton wachsende Funktion
+\begin{equation*}
+    \phi: [a,b] \rightarrow [\alpha, \beta]
+\end{equation*}
+gibt mit
+\begin{equation*}
+    x(t) = y(\phi(t))\ \forall t \in [a,b]
+\end{equation*}
+
+\subsubsection{Bemerkung}
+Es gilt:
+\begin{enumerate}[label= (\alph*)]
+    \item $x \sim x$ (Reflexivität)
+    \item $x \sim y \Rightarrow y \sim x$ (Symmetrie)
+    \item $x \sim y \land y \sim z \Rightarrow x \sim z$ (Transitivität)
+\end{enumerate}
+
+\subsection{Kurven im $\R^n$}
+Ist $x: [a,b] \subseteq \R \rightarrow \R^n$ stetig, so nennt man die Menge
+\begin{equation*}
+    \K := \{y: [\alpha, \beta] \subseteq \R \rightarrow \R^n \text{ mit } x \sim y\}
+\end{equation*}
+die Kurve $\K$ mit Parameterdarstellung $x$ und den Punkt $x(a)$ Anfangspunkt und
+$x(b)$ Endpunkt.
+
+\subsubsection{Schreibweise}
+\begin{equation*}
+    \K: x(t), a \leq t \leq b
+\end{equation*}
+Die Menge
+\begin{equation*}
+    T(\K) := \{x(t): t \in [a,b]\} = x([a,b])
+\end{equation*}
+nennt man den Träger der Kurve $\K$.
+
+\subsubsection{Bemerkung}
+Verschieden Kurven können also den gleichen Träger haben.
+
+Man nennt $K$:
+\begin{enumerate}[label= (\alph*)]
+    \item Geschlossen, wenn $x(a) = x(b)$
+    \item Einfach oder Jordankurve, wenn $x(t) \neq x(s)\ \forall t,s: a \leq t < s <b$
+\end{enumerate}
+
+\subsection{Eigenschaften von Parameterdarstellungen}
+\begin{enumerate}[label= (\alph*)]
+    \item Eine Parameterdarstellung $x:[a,b] \rightarrow \R^n$ einer Kurve heißt
+        stückweise stetig differentierbar, wenn eine Zerlegung
+        \begin{equation}
+            T: a=t_0 < \ldots < t_k = b
+        \end{equation}
+        existiert und $x$ auf $(t_l, t_{l+1})\ l\in\{0,\ldots,k-1\}$
+        differentierbar ist.
+    \item Besitzt eine Kurve $\K$ eine (stückweise) stetig differentierbare
+        Parameterdarstellung $x(t), t\in [a,b]$ mit $\dot{x}(t) \neq \vec{0}$
+        für $t \in [a,b]$ so heißt $\K$ stückweise glatt oder stückweise regulär.
+    \item Ist eine Parameterdarstellung $x$ von $\K$ differentierbar und glatt,
+        so heißt
+        \begin{equation*}
+            T(t) := \frac{\dot{x}(t)}{\norm{\dot{x}(t)}}
+        \end{equation*}
+        der Tangential (einheits) vektor von $x$ und $\K$
+    \item Ist auch $T$ differentierbar und glatt (also $\dot{T}(k) \neq \vec{0}$)
+        so heißt
+        \begin{equation*}
+            N(t) := \frac{\dot{T}(t)}{\norm{\dot{T}(t)}}
+        \end{equation*}
+        der (Haupt-) Normalen (einheits) vektor von $\K$ und $x$ bei $t$
+    \item Und falls $n=3$
+        \begin{equation*}
+            B(t) = T(t) \times N(t)
+        \end{equation*}
+        der Binormalen (einheits) vektor von $\K$ und $x$ bei $t$
+        (Man nennt dann $T(t), N(t), B(t)$ ein begleitendes Dreibein von $\K$)
+    \item Existiert $T(t)$, so nennt man die Gerade
+        \begin{equation*}
+            \{x(t) + \lambda \dot{x}(t): \lambda \in \R\}
+        \end{equation*}
+        die Tangente von $\K$ bei $\lambda$
+    \item Existiert auch $N(t)$ so nennt man die Ebene
+        \begin{equation*}
+            \{ x(t) + \lambda \dot{x}(t) + \mu \ddot{x}(t): \lambda, \mu \in \R\}
+        \end{equation*}
+        die Schmiegeebene von $\K$ bei $t$.
+\end{enumerate}
+
+\subsubsection{Bemerkung}
+Sei $x(t) = y(\phi(t))$ mit $a\leq t \leq b$ zwei Parameterdarstellungen von $x$.
+Dann gilt:
+\begin{equation*}
+    T(t) = \frac{\dot{x}(t)}{\norm{\dot{x}(t)}} = \frac{\dot{y}(\varphi(t)) \cdot \dot{\varphi}(t)}
+    {\norm{\dot{y}(\phi(t)) \cdot \dot{\varphi}(t)}} = \frac{\dot{y}(\varphi(t))}
+    {\norm{\dot{y}(\varphi(t))}}
+\end{equation*}
+Das heißt die Berechnung von $T$ ist unabhängig von der konkreten Parameterdarstellung
+
+Existiert $N(t)$ dann gilt:
+\begin{equation*}
+    N(t) \bot T(t)
+\end{equation*}
+Existiert auch $B(t)$ (im $\R^3$), dann gilt:
+$N(t), T(t), B(t)$ sind paarweise Orthogonal.
+
+\subsection{Weitere Definitionen zu Kurven}
+\begin{enumerate}[label= (\alph*)]
+    \item Ist $\K: x(t), a \leq t \leq b$ eine Kurve, so heißt:
+        \begin{equation*}
+            - \K: y(t), a \leq t \leq b \text{ mit } y(t)=x(a+b-1)
+        \end{equation*}
+        die zu $\K$ entgegengesetzte Kurve
+    \item Sind $\K: x(t), a \leq t \leq b$ und $\mathbb{L}: y(t), \alpha \leq
+        t \leq \beta$ zwei Kurven und gilt $x(b) = y(\alpha)$ dann ist
+        \begin{equation*}
+            \K + \mathbb{L}: z(t), a \leq t \leq (\beta-\alpha) + b
+        \end{equation*}
+        und
+        \begin{equation*}
+            z(t) =
+            \begin{cases}
+                x(t) &, a \leq t \leq b\\
+                y(t-b+\alpha) &, b \leq t \leq (\beta-\alpha) + b
+            \end{cases}
+        \end{equation*}
+        die Aus $\K$ und $\mathbb{L}$ zusammengesetzte Kurve.
+\end{enumerate}
+
+\subsection{Kurventintegrale 2. Art}
+Sei $\K$ eine Kurve im $\R^n$ und
+\begin{equation*}
+    f: T(\K) \rightarrow \R^n
+\end{equation*}
+\begin{enumerate}[label= (\alph*)]
+    \item Sei $x: [a,b]  \rightarrow \R^n$ eine Parameterdarstellung von $\K$
+        \begin{enumerate}[label = (\roman*)]
+            \item Für eine Zerlegung $T: a = t_0 < \cdots < t_n = b$,
+                Zwischenpunte $Z: (\xi_1, \ldots, \xi_n)$ mit
+                $t_{k-1} \leq \xi_k \leq t_k$
+                heißt
+                \begin{equation*}
+                    S(f,x,T,Z) := \sum_{k=1}^n f(x(\xi_k)) \cdot (x(t_k) - x(t_{k-1}))
+                \end{equation*}
+                die Riemann-Summe von $f, T, Z$ bezüglich $x$.
+            \item Exitiert eine Zahl $I \in \R$ derart, dass für jede Folge von
+                Zerlegungen $T_n$ mit
+                \begin{equation*}
+                    \lim_{n \rightarrow \infty} \mu(T_n) = 0
+                \end{equation*}
+                stets
+                \begin{equation*}
+                    \lim_{n \rightarrow \infty} S(f,x,T_n, Z_n) = I
+                \end{equation*}
+                folgt, so heißt $I$ das Kurvenintegral (2. Art) von
+                $f$ längs $\K$ bzgl. $x$.
+        \end{enumerate}
+    \item Gibt es stets ein $I$ wie in (a) so heißt $f$ längs $\K$ (Riemann-)
+        integrierbar und man nennt $I$ das (unbestimmte) Kurvenintegral von $f$
+        längs $\K$ und schreibt:
+        \begin{equation*}
+            I = \int_\K f = \int_\K f(x) \cdot \dx = \int_\K f_1(x) \dx_1 + \cdots
+            + f_n(x) \dx_n
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Substitutionsregel}
+Ist $\K: x(t), a \leq t \leq b$ eine Kurve im $\R^n$ und $x(t)$ stückweise
+differentierbar, sowie $f: T(\K) \rightarrow \R^n$ stetig, so ist $f$ längs
+$\K$ integrierbar und es gilt:
+\begin{equation*}
+    \int_K f(x) \dx = \int_a^b f(x(t)) \text{d}x(t) = \int_a^b f(x(t)) \cdot
+    \dot{x}(t) \dt
+\end{equation*}
+
+\subsection{Definition Wegunabhängigkeit}
+Sei $f\in C(G, \R^n)$ mit $G \subseteq \R^n$ ein Gebiet:
+\begin{enumerate}[label= (\alph*)]
+    \item Gilt für zwei Wege $\K$ und $\mathbb{L}$ mit gleichem Anfangs- und
+        Endpunkt stets
+        \begin{equation*}
+            \int_\K f = \int_{\mathbb{L}} f
+        \end{equation*}
+        dann heißen die Kurvenintegrale Wegunabängig in $G$.
+    \item Eine Funktion $F \in C^1(G,\R)$ heißt Stammfunktion von $f$ in $G$, wenn
+        \begin{equation*}
+            \nabla F(x) = f(x)\ \forall x \in G
+        \end{equation*}
+        gilt.
+    \item Man nennt
+        \begin{equation*}
+            P := -F
+        \end{equation*}
+        das Potential von $f$.
+    \item Man nennt $f$ konservativ in $G$ oder ein Potentialfeld oder Gradienentenfeld
+        in $G$, wenn $f$ eine Stammfunktion hat.
+\end{enumerate}
+
+\subsection{1. Hauptsatz für Kurvenintegral}
+Sei $f$ konservativ in $G$ mit Stammfunktion $F$ und Potential $P$ dann gilt
+für jeden Weg $\K$ in $G$ mit Anfangspunkt $A \in G$ und Endpunkt $B \in G$:
+\begin{equation*}
+    \int_\K f = F(B) - F(A) = P(A) - P(B)
+\end{equation*}
+insbesondere ist also das Integral wegunabhängig.
+
+\subsection{Äquivalente Aussagen zu Stammfunktionen}
+\begin{enumerate}[label= (\alph*)]
+    \item
+        \begin{equation*}
+            \int_\K f \text{ ist wegunabhängig in } G
+        \end{equation*}
+    \item
+        $f$ besitzt eine Stammfunktion
+    \item
+        \begin{equation*}
+            \int_\K f = 0 \text{ für jede geschlossene Kurve } \K
+        \end{equation*}
+\end{enumerate}
+
+\subsubsection{Bemerkung}
+Rechenregeln für zwei Kurven $\K$ und $\mathbb{L}$:
+\begin{enumerate}[label= (\alph*)]
+    \item
+        \begin{equation*}
+            \int_{\K + \mathbb{L}} f = \int_\K f + \int_\mathbb{L} f
+        \end{equation*}
+    \item
+        \begin{equation*}
+            \int_{-\K} f = - \int_\K f
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Definition einfach zusammenhängende Gebiete}
+Ein Gebiet $G \subseteq \R^n$ heißt einfach zusammenhängend, wenn sich jede
+geschlossene Kurve in $G$ innerhalb von $G$ \glqq{}auf einen beliebigen
+Punkt zusammenziehen lässt\grqq{}.
+
+\subsection{Sternförmige Gebiete}
+Eine Menge $G \subseteq \R^n$ heißt Sternförmig bezüglich $x_0 \in G$, wenn für
+alle $x \in G$ gilt, dass $\overline{x_0x} \subseteq G$ (d.h.\ jedes $x$ ist von
+$x_0$ durch einen Streckenzug erreichbar). $G$ ist ein sternförmiges Gebiet,
+wenn $G$ offen und sternförmig ist.
+
+\subsubsection{Bemerkung}
+\begin{equation*}
+    G \text{ sternförmig} \Rightarrow G \text{ einfach zusammenhängend}
+\end{equation*}
+
+\subsection{2. Hauptsatz für Kurvenintegrale}
+Sei $f \in C^1(G, \R^n), G \subseteq \R^n$ ein Gebiet, dann gilt:
+\begin{enumerate}[label= (\alph*)]
+    \item Besitzt $f$ eine Stammmfunktion in $G$, so erfüllt $f$ in $G$ die
+        Integrabilitätsbedingung:
+        \begin{equation*}
+            \frac{\partial f_l}{\partial x_k} = \frac{\partial f_k}{\partial x_l}\
+            k,l \in \{ 1, \ldots, n\}
+        \end{equation*}
+        D.h.\ die Jacobi-Matrix von $f$ ist symetrisch.
+
+        Kurz:
+        \begin{equation*}
+            f \text{ hat Stammfunktion} \Rightarrow f' = (f')^T
+        \end{equation*}
+    \item Ist $G$ einfach zusammenhängend und erfüllt $f$ die Integrabilitätsbedingung
+        dann besitzt $f$ eine Stammfunktion.
+
+        Kurz:
+        \begin{equation*}
+            G \text{ einfach zusammenhängend} \land f' = (f')^T \Rightarrow
+                \exists F: \nabla F = f
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Definition Rotation}
+Sei $G \subseteq \R^3$ offen und $f: G \rightarrow R^3$ partiell differentierbar,
+dann heißt die Funktion $\rot f: G \rightarrow \R$ mit
+\begin{equation*}
+    \rot f(x) :=
+    \begin{pmatrix}
+        \dfrac{\partial f_3}{\partial x_2} - \dfrac{\partial f_2}{\partial x_3} \\
+        \dfrac{\partial f_1}{\partial x_3} - \dfrac{\partial f_3}{\partial x_1} \\
+        \dfrac{\partial f_2}{\partial x_1} - \dfrac{\partial f_1}{\partial x_2} \\
+    \end{pmatrix}
+\end{equation*}
+die Rotation von $f$ in $G$.
+
+\subsubsection{Bemerkung}
+Im Fall $f: G \subseteq \R^2 \rightarrow \R^2$ definiert man
+\begin{equation*}
+    \rot f(x_1, x_2) = \frac{\partial f_2}{\partial x_1} - \frac{\partial f_1}{\partial x_2}
+\end{equation*}
+Formal betrachtet man die Hilfsfunktion
+\begin{equation*}
+    \tilde{f}(x,y,z) :=
+    \begin{pmatrix}
+        f_1(x,y)\\
+        f_2(x,y)\\
+        0
+    \end{pmatrix}
+\end{equation*}
+
+\subsection{Zusammenhang Rotation und Integrabilitätsbedingung}
+Ist $f \in C^1(G, \R^3), G$ ein Gebiet, dann gilt
+\begin{enumerate}[label= (\alph*)]
+    \item $f$ besitzt eine Stammfunktion $\Rightarrow \rot f = \vec{0}$
+    \item $G$ einfach zusammenhängend und $\rot f = \vec{0} \Rightarrow f$
+        hat Stammfunktion.
+\end{enumerate}
+
+\subsection{Definition Linienintegral/Kurvenintegral 1. Art}
+Sei $\K: x(t), a \leq t \leq b$ ein Weg, und $x$ stückweise differentierbar.
+Für ein $\phi \in  C(T(\R), \R)$ heißt
+\begin{equation*}
+    \int_\K \phi \ds := \int_a^b \phi(x(t)) \norm{ \dot{x}(t)} \dt
+\end{equation*}
+ein Linienintegral oder Kurvenintegral 1. Art von $\phi$ längs $\K$.
+
+\subsubsection{Bemerkung}
+\begin{enumerate}[label= (\alph*)]
+    \item
+        Mit $\phi \equiv 1$:
+        \begin{equation*}
+            \int_\K 1 \ds = \int_a^b \phi(x,t) \norm{\dot{x}(t)} \dt
+            \int_a^b  \norm{\dot{x}(t)} \dt = l(\K)
+        \end{equation*}
+        d.h.\ mit Linienintegralen können auch Weglängen berechnet werden,
+        bzw. Weglängen berechnet man mit $\phi = 1$.
+    \item
+        $\phi: [a,b] \rightarrow \R$ wähle $\K: x(t) = a + t \cdot (b-a)\
+        t \in [0,1]$:
+        \begin{equation*}
+            \int_\K \phi \ds = \int_0^1 \phi (a + t \cdot (b-a)) \norm{b-a} \dt
+            = \int_a^b \phi(t) \dt
+        \end{equation*}
+    \item Linienintegrale hängen nicht von der Parameterdarstellung ab.
+    \item Man schreibt (falls Parameter-Darstellung bekannt ist) oft
+        \begin{equation*}
+            \ds = \norm{\dot{x}(t)} \dt
+        \end{equation*}
+        und nennt $\ds$ Bogensegment oder Liniensegment.
+    \item Ist $f \in C(T(\K), \R^n)$ und $\dot{x}(t) \neq \vec{0}\ \forall
+        t \in [a,b]$, dann ist:
+        \begin{eqnarray*}
+            \int_\K f &=& \int_\K f(x) \dx = \int_a^b f(x(t)) \dot{x}(t) \dt \\
+            &=& \int_a^b \frac{f(x(t)) \dot{x}(t)}{\norm{\dot{x}(t)}} \norm{\dot{x}(t)}
+            \dt \\ &=& \int_a^b f(x(t)) \cdot T(t) \norm{\dot{x}(t)} \dt  \\ &=&
+            \int_\K \phi \ds \text{ mit } \phi(t) = f(x(t)) \cdot T(t)
+        \end{eqnarray*}
+\end{enumerate}
+
+\section{Bereichsintegrale}
+Hier: $f: G \subseteq \R^n \rightarrow \R$ und
+\begin{equation*}
+    \int_G f = \int_G f(x_1, \ldots, x_n) \intd{(x_1, \ldots x_n)}
+\end{equation*}
+sollen anschaulich bedeuten:
+
+Welches Volumen schließt der Graph von $f$ mit der Grundfläche $G$ ein.
+
+\subsection{Intervalle im $\R^n$}
+Für $a,b \in \R^n$ bezeichnet die Menge
+\begin{equation*}
+    [a,b] := [a_1, b_1] \times \cdots \times [a_n, b_n]
+\end{equation*}
+einen (kompakten) Quader oder (kompaktes) Intervall im $\R^n$. Die Zahl
+\begin{equation*}
+    V([a,b]) =
+    \begin{cases}
+        \prod_{k=1}^n (b_k - a_k) &, \text{falls }  b_k > a_k \text{ für } k=1,\ldots\\
+        0 &,\text{sonst}
+    \end{cases}
+\end{equation*}
+bezeichnet das Volumen, und die Zahlen $b_1 - a_1, \ldots b_n - a_n$ als
+Kantenlängen.
+
+\subsection{Definition Zerlegung}
+Ist $[a,b] = [a_1, b_1] \times \cdots \times [a_n, b_n]$ und ist für jedes
+$k \in \{1, \ldots, n\}$ mit
+\begin{equation*}
+    T^{(k)} : a_k = x_0 < \cdots < x_{l_k} = b_k
+\end{equation*}
+eine Zerlegung von $[a_k, b_k]$ dann heißt die Menge
+\begin{equation*}
+    I_{l_1, \ldots, l_n} = [x_{l_1 - 1}^{(1)} - x_{l_1}^{(1)}] \times \cdots \times
+    [x_{l_1 - 1}^{(n)} - x_{l_1}^{(n)}]
+\end{equation*}
+mit $l_k \in \{1, \ldots, l_k\}$ für $k \in \{1, \ldots, n\}$ eine Zerlegung $T$
+von $[a,b]$.
+
+Das Feinheitsmaß von $T$ ist
+\begin{equation*}
+    \mu(T) = \max_{l_1, \ldots, l_n} V(I_{l_1, \ldots, l_n})
+\end{equation*}
+
+Allgemein ist ein Intervall von der Form
+\begin{equation*}
+    [x_i^{(1)}, x_{i+1}^{(1)}] \times [x_j^{(2)}, x_{j+1}^{(2)}]
+\end{equation*}
+mit $i \in \{0, \ldots, l_1-1\}$ und $j \in \{0, \ldots l_2-1\}$.
+
+\subsection{Definition Riemann-Summe}
+Sei $T$ eine Zerlegung eines kompakten Quaders $I \subseteq \R^n$ mit Teilquadern
+$I_1, \ldots, I_l$ mit $l=l_1 \cdot \cdots \cdot l_n$ (entstehen indem man die
+Zerlegungsintervalle fortlaufend durchnummeriert) und Zwischenpunkte
+$\xi = (\xi_1, \ldots, \xi_l)$ mit $\xi_i \in I_i (i \in \{l, \ldots, n\})$
+und $f: I \to \R$ (d.h. Skalarwertige Funktion). Dann heißt
+\begin{equation*}
+    S(f, T, \xi) = \sum_{i=1}^l f(\xi_i) f(\xi_i) \mu(I_1)
+\end{equation*}
+die Riemann-Summe von $f$ bezüglich $T$ und $\xi$.
+
+\subsection{Riemann integrierbare Bereichsintegrale}
+Sei $f: I \to \R$ eine Funktion, $I \subseteq \R^n$ ein Quader. Gibt es eine Zahl
+$\alpha \in \R$, so dass für jede Folge von Zerlegungen ${(T_k)}_{k=1}^\infty$ mit
+Zwischenpunkten ${(\xi_k)}_{k=1}^\infty$ mit $\lim\limits_{k \to \infty} \mu(T_k)=0$
+die Riemann-Summe $S(f, T_k, \xi_k)$ gegen $\alpha$ konvergiert für $k \to \infty$
+dann heißt $f$ Riemann integrierbar über $I$ und $\alpha$ nennen wir das
+Bereichsintegral von $f$ über $I$.
+
+\subsubsection{Schreibweise}
+\begin{equation*}
+    \alpha = \int_I f(x) \dx
+\end{equation*}
+Zur Schreibweise: z.B. $n=2$ auch:
+\begin{equation*}
+    \alpha = \iint_I f(x,y) \intd{(x,y)} := \int_I f(x,y) \intd{(x,y)}
+\end{equation*}
+oder Angabe von $I$ an dem Integral:
+\begin{equation*}
+    \alpha = \int_{[a_1, b_1]\times[a_2,b_2]} f(x,y) \intd{(x,y)}
+\end{equation*}
+
+\subsection{Bereichsintegrale über beschränkte Mengen}
+Sei $M \subseteq \R^n$ beschränkt und $I = [a_1, b_1] \times \cdots \times [a_n,
+b_n]$ ein Quader mit $M \subseteq I$. Dann heißt $f: M \to \R$ über $M$ integrierbar
+wenn die Funktion
+\begin{equation*}
+    \tilde{f}: I \to \R \text{ mit } \tilde{f}(x) =
+    \begin{cases}
+        f(x) &, x\in M\\
+        0 &, \text{ sonst}
+    \end{cases}
+\end{equation*}
+über $I$ Bereichs-Riemann integrierbar ist. Wir definieren:
+\begin{equation*}
+    \int_M f(x) \dx = \int_I \tilde{f}(x) \dx
+\end{equation*}
+
+\subsection{Cavalieri}
+Sei $M \subseteq \R^n (n >1)$ und bezeichne
+\begin{equation*}
+    M' = \{ x \in \R: {(x,y)}^T \in M \text{ für ein } y \in \R^{n-1} \}
+\end{equation*}
+und für $x \in M'$
+\begin{equation*}
+    M(x) = \{ y \in \R^{n-1}: {(x,y)}^ \in M \}
+\end{equation*}
+dann gilt für $f \in C(\bar{M})$ (falls $M, M', M(x)$ sogenannte messbare Mengen
+sind, d.h $\mu(M), \mu{M'}, \mu{M(x)}$ sind definiert)
+\begin{equation*}
+    \int_M f(x,y) \intd{(x,y)} = \int_{M'} \left[ \int_{M(x)} f(x,y) \dy \right]
+        \dx
+\end{equation*}
+mit $x \in \R$ und $y \in \R^{n-1}$.
+
+\subsection{Fubini}
+Im Fall $n=2$ steht nach Cavalieri ein Parameterintegral und mit Fubini gilt:
+\begin{equation*}
+    \int_{M'} \int_{M(x)} f(x,y) \dy \dx =
+    \int_{\tilde{M}'} \int{\tilde{M}(y)} f(x,y) \dx \dy
+\end{equation*}
+wobei $\tilde{M}', \tilde{M}(y)$ analog zu $M', M(x)$ bezüglich $y$ definiert
+sind.
+
+\subsection{Definition Meßbare-Mengen}
+Eine beschränkte Menge $M \subseteq \R^n$ heißt (Jordan-) meßbar, wenn
+\begin{equation*}
+    \int_M 1 \dx
+\end{equation*}
+existiert, in diesem Fall nennt man
+\begin{equation*}
+    \mu(M) := \int_M 1 \dx
+\end{equation*}
+das Volumen von $M$. Ist $\mu{M} =0$, so nenntn man $M$ eine Nullmenge.
+
+\subsection{Definition $2 \times 2$ Determinante}
+Für
+\begin{equation*}
+    A =
+    \begin{pmatrix}
+        a & c \\
+        b & d \\
+    \end{pmatrix}
+    \in \R^{2 \times 2}
+\end{equation*}
+definieren wir die Funktion
+\begin{equation*}
+    \det: \R^{2 \times 2} \to \R
+\end{equation*}
+durch $A \mapsto \det(A) = a \cdot d -  c \cdot b$ und nennen die
+Funktionsauswertung die Determinante von $A$.
+
+\subsection{Mehrdimensionale Substitutonsregel}
+Sei $M \subseteq \R^n$ meßbar und $G \supseteq M$ ein Gebiet. Ist $T\in C^1(G, \R^m)$
+und gilt $\det(T'(x)) \neq 0\ \forall x \in M \setminus N$ für eine Nullmenge $N$,
+dann gilt:
+\begin{equation*}
+    \int_{T(M)} f(x_1, \ldots, x_n) \intd{(x_1, \ldots, x_n)} =
+    \int_M f(T(u_1, \ldots, u_n)) \cdot \abs{\det(T'(u_1, \ldots, u_n))} \intd{(u_1, \ldots
+    u_n)}
+\end{equation*}
+
+\section{Integralsätze in der Ebene}
+\subsection{Positiv berandete Menge}
+Eine beschränkte Menge $B \subseteq \R^2$ heißt positiv berandet durch einen Weg,
+(Randkurve) $\K$, wenn $T(\K) = \partial B$ ist und wenn $\K$ eine stückweise
+stetig differentierbare Parameterdarstellung $x: [a,b] \to \R^2$ hat mit:
+\begin{enumerate}[label = (\roman*)]
+    \item $\dot{x}(t) \neq 0$ für fast alle $t \in [a,b]$
+    \item der Normalenvektor von $x(t)$ zeigt nach außen
+\end{enumerate}
+
+\subsection{Satz von Green}
+Ist $B \subseteq \R^2$ positiv berandet, dann gilt für alle $f \in C^1(B, \R^2)$
+\begin{equation*}
+    \iint_B \frac{\partial f_2}{\partial x} - \frac{\partial f_1}{\partial y}
+    \intd{(x,y)} =
+    \int_{\partial B} f(x,y) \intd{(x,y)}
+\end{equation*}
+
+\subsection{Definition Normalbereiche}
+Eine Menge $B \subseteq \R^2$ heißt Normalbereich bezüglich der $x$-Achse
+(bzw. $y$-Achse), wenn es ein Intervall $[a,b]$ gibt und die Funktion
+$\varphi, \psi$ mit
+\begin{equation*}
+    B = \{ {(x,y)}^T: a \leq x \leq b, \phi(x) \leq y \leq \psi(x) \}
+\end{equation*}
+
+\subsection{Gauß'sche Integralsätze in der Ebene}
+Sei $B \subseteq \R^2$ ein positiv berandeter Bereich und $f \in C^1(B, \R^2)$
+bzw. $f \in C^2(B, \R^2)$ und bezeichne $\nu$ die nach außen gerichtete Normale
+auf $\partial B$. Dann gelten die Integralsätze:
+\begin{enumerate}[label = (\roman*)]
+    \item
+        \begin{equation*}
+            \iint_B (\diver f)(x,y) \intd{(x,y)} = \int_{\partial B} f \cdot \nu \ds
+        \end{equation*}
+    \item
+        \begin{equation*}
+            \iint_B f_1(x,y) \Delta f_2(x,y) - f_2(x,y) \Delta f_1(x,y) \intd{(x,y)}
+            = \int_{\partial B} f_1 \frac{\partial f_2}{\partial \nu} - f_2
+            \frac{\partial f_1}{\partial \nu}
+        \end{equation*}
+\end{enumerate}
+
+\section{Oberflächenintegrale und Integralsätze im $\R^3$}
+\subsection{Definition Reguläre Flächen}
+Sei $B \subseteq \R^2$ und $x: B \to \R^3$,
+\begin{equation*}
+    x(u,v) =
+    \begin{pmatrix}
+        x_1(u,v)\\
+        x_2(u,v)\\
+        x_3(u,v)
+    \end{pmatrix}
+\end{equation*}
+eine stetig diffbare Funktion, für die $x_u = \frac{\partial x}{\partial u}$ und
+$x_v = \frac{\partial x}{\partial v}$ linear unabhängig sind (d.h.\ die Vektoren
+$x_u$ und $x_v$ zeigen nicht in die gleiche oder entgegengesetzte Richtung) (für
+fast alle ${(u,v)}^T \in B$) die Menge der Ausnahmen muss $\tilde{B} \subseteq B$
+muss $\mu{\tilde{B}} = 0$ erfüllen.
+
+Das Bild einer solchen Funktion, d.h.\ die Menge
+\begin{equation*}
+    A = x(B) := \{ x(u,v) \vert {(u,v)}^T \in B \}
+\end{equation*}
+heißt dann eine reguläre Fläche im $\R^3$ und die Funktion $x$ heißt die
+Parametrisierung von $A$.
+
+Man nennt
+\begin{enumerate}[label = (\roman*)]
+    \item $x_u(u,v), x_v(u,v)$ die Tangentialvektoren in ${(u,v)}^T$
+    \item $n(u,v) := \frac{(x_u \times x_v)(u,v)}{\norm{(x_u \times x_v)}(u,v)}$
+        \begin{itemize}
+            \item Vektor mit Länge $1$ der Senkrecht auf den Tangentialvektoren
+                steht
+            \item Rechnerisch zu enthalten durch das Kreuzprodukt der
+                Tangentialvektoren
+        \end{itemize}
+\end{enumerate}
+der (Flächen-) Normalenvektor in ${(u,v)}^T$ falls $x_u(u,v)$ und $x_v(u,v)$
+linear unabhängig sind.
+
+Ist $B$ positiv berandet durch $\K: y(t), a \leq t \leq b$ so nennt man $A$ positiv
+berandet durch Kurve mit Parameterdarstellung $x(y(t)), a \leq t \leq b$.
+
+\subsection{Defintion Oberflächenintegral}
+Sei $A$ eine reguläre Fläche im $\R^3$ mit Parameterdarstellung $x: B \to \R^3,
+B \subseteq \R^2$ meßbar und $x$ injektiv auf $B \setminus N$ für eine Nullmenge
+$N$.
+\begin{enumerate}[label = (\alph*)]
+    \item Für jedes $f \in C(A, \R)$ heißt
+        \begin{equation*}
+            \iint_A f \cdot \ido= \iint_B f(x(u,v)) \cdot \norm{(x_u \times x_v)
+            (u,v)} \intd{(u,v)}
+        \end{equation*}
+        das Oberflächenintegral von $f$ über $A$ und man nennt
+        \begin{equation*}
+            \ido= \norm{(x_u \times x_v)
+            (u,v)} \intd{(u,v)}
+        \end{equation*}
+        das Oberflächenelement.
+    \item $O(A) := \iint_A 1 \do$ heißt Oberflächeninhalt von $A$.
+\end{enumerate}
+
+\subsubsection{Bemerkung}
+\begin{enumerate}
+    \item Das Oberflächenintegral hängt nicht von der Parameterdarstellung ab.
+    \item Ein Summand des Obefĺöchenintegrals sieht so aus:
+        \begin{equation*}
+            f(x(u,v)) \cdot \norm{(x_u \times x_v)(u,v)} \cdot \Delta u \Delta v
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Satz von Stokes}
+Sei $A$ eine reguläre Fläche im $\R^3$ und $\partial A$ positiv berandet. Dann
+gilt für $f \in C^1(A, \R^3)$
+\begin{equation*}
+    \iint_A \rot f \cdot n \ido= \int_{\partial A} f
+\end{equation*}
+Mit $n$:
+\begin{enumerate}[label = (\roman*)]
+    \item Normalenvektor
+    \item Länge 1
+    \item Senkrecht auf Fläche
+    \item Immer auf der gleichen Seite von $A$
+\end{enumerate}
+also
+\begin{equation*}
+    \iint_B \rot(f(x(u,v))) \cdot n(x(u,v)) \cdot \norm{(x_u \times x_v)(u,v)}
+    \intd{(u,v)} = \int_{\partial A} f
+\end{equation*}
+mit
+\begin{equation*}
+    n(x(u,v)) = \pm \frac{(x_u \times x_v)(u,v)}{\norm{(x_u \times x_v)(u,v)}}
+\end{equation*}
+
+\subsection{Divergenzsatz von Gauß}
+Sei $M \subseteq \R^3$ kompakt und $\partial M$ ergebe sich als endliche
+Vereinigung von regulären Flächen, deren Normale $n$ (normiert) nach Außen
+zeigt. Dann gilt fpr jedes $f \in C^1(M, \R^3)$
+\begin{equation*}
+    \iiint_M \div f = \iint_{\partial M} f \cdot n \ido
+\end{equation*}
