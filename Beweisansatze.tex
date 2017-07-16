@@ -1,5 +1,5 @@
 \chapter{HM 1}
-
+\section{Grenzwerte}
 \subsection{Eindeutigkeit des Grenzwert einer Folge }
  Zeige, dass Grenzwert a = Grenzwert b, nahrhafte 0
 \subsection{Konvergente Folgen sind beschränkt }
@@ -81,3 +81,60 @@ Sandwich-Theorem
  Zeigen das $\sup=\max$
 
  \chapter{HM 2}
+ \section{Integration in mehreren Veränderlichen}
+ \subsection{Fubini}
+ Hilfsfunktion:
+ \begin{equation*}
+     g(u) = \int_\alpha^\beta \int_a^b f(x,t) \dt \dx - \int_a^b \int_\alpha^\beta
+     f(x,t) \dx \dt
+ \end{equation*}
+ zeigen dass $g'(u) \equiv 0$ und $g(x) = g(a) = 0$.
+
+ \subsection{Leibniz Regel}
+ Hilfsfunktion:
+ \begin{equation*}
+     G(x,a,b) = \int_a^b f(x,t) \dt
+ \end{equation*}
+ $\nabla G$ berechenen, innere Ableitung.
+
+ \subsection{Beweis-Idee Kurvenintegrale (Subsitutionsregel)}
+ Riemann Summe, Mittelwertsatz, Abschätzung für verschiedene $\xi$, da $f$ stetig.
+
+ \subsection{1. Hauptsatz für Kurvenintegrale}
+ Kurvenintegral mit Parametrisierung, integrant als Ableitung darstellen.
+
+ \subsection{Äquivalente Aussagen für Kurvenintegrale}
+ Kurven kombinieren/aufteilen um aus mehreren Kurven eine geschlossene bzw.\ aus
+ einer geschlossenen Kurven mehrer mit gleichem Anfangs-/Endpunkt zu erzeugen.
+
+ \subsection{2. Hauptsatz für Kurvenintegrale}
+ \begin{enumerate}
+     \item $f$ stetig, $F \in C^2$, Satz von Schwarz
+     \item Nur für Sternförmiges Gebiet.
+
+        $F$ als Integral von $x_0$ (Mittelpunkt von Sternförmigem Gebiet) zu $x$
+        darstellen und Weg Parametrisieren.
+
+        Ableitung von $F$ nach $x_k$ berechnen, Skalarprodukt als Summe schreiben,
+        Produktregel, Integrabilitätsbedinung anwenden, als Ableitung nach $t$
+        darstellen.
+ \end{enumerate}
+
+ \subsection{Gauß'sche Integralsätze in der Ebene}
+ \begin{enumerate}
+     \item Hilfsfunktion:
+        \begin{equation*}
+            h(x,y) =
+            \begin{pmatrix}
+                -f_2(x,y)\\
+                f_1(x,y)
+            \end{pmatrix}
+        \end{equation*}
+        zeigen dass $\iint \vdiv h = - \iint \rot f$, Stokes anwenden, $f$ durch
+        $h$ darstellen, Normalenvektor normieren, Linienintegral.
+    \item Hilfsfunktion:
+        \begin{equation*}
+            h(x,y) = f_1(x,y) \nabla f_2(x,y) - f_2(x,y) \nabla f_1(x,y)
+        \end{equation*}
+        $\vdiv h$ und $h \nu$ ausrechnen und Gleichheit über ersten Teil von Gauß.
+ \end{enumerate}

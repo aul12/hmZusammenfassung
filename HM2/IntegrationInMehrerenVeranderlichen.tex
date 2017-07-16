@@ -160,7 +160,7 @@ Man nennt $K$:
         \begin{equation*}
             \{x(t) + \lambda \dot{x}(t): \lambda \in \R\}
         \end{equation*}
-        die Tangente von $\K$ bei $\lambda$
+        die Tangente von $\K$ bei $t$
     \item Existiert auch $N(t)$ so nennt man die Ebene
         \begin{equation*}
             \{ x(t) + \lambda \dot{x}(t) + \mu \ddot{x}(t): \lambda, \mu \in \R\}
@@ -250,7 +250,7 @@ Ist $\K: x(t), a \leq t \leq b$ eine Kurve im $\R^n$ und $x(t)$ stückweise
 differentierbar, sowie $f: T(\K) \rightarrow \R^n$ stetig, so ist $f$ längs
 $\K$ integrierbar und es gilt:
 \begin{equation*}
-    \int_K f(x) \dx = \int_a^b f(x(t)) \text{d}x(t) = \int_a^b f(x(t)) \cdot
+    \int_\K f(x) \dx = \int_a^b f(x(t)) \text{d}x(t) = \int_a^b f(x(t)) \cdot
     \dot{x}(t) \dt
 \end{equation*}
 
@@ -727,10 +727,10 @@ mit
     n(x(u,v)) = \pm \frac{(x_u \times x_v)(u,v)}{\norm{(x_u \times x_v)(u,v)}}
 \end{equation*}
 
-\subsection{vdivgenzsatz von Gauß}
+\subsection{Divergenzsatz von Gauß}
 Sei $M \subseteq \R^3$ kompakt und $\partial M$ ergebe sich als endliche
 Vereinigung von regulären Flächen, deren Normale $n$ (normiert) nach Außen
-zeigt. Dann gilt fpr jedes $f \in C^1(M, \R^3)$
+zeigt. Dann gilt für jedes $f \in C^1(M, \R^3)$
 \begin{equation*}
-    \iiint_M \div f = \iint_{\partial M} f \cdot n \ido
+    \iiint_M \vdiv f = \iint_{\partial M} f \cdot n \ido
 \end{equation*}
