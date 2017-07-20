@@ -200,3 +200,311 @@ Für Teilmengen $M, N$ eines Vektorraums $V$ gilt:
     \item Man sagt Vektoren $b_1, \ldots, b_n$ bilden eine Basis von $V$, wenn
         gilt $B=\{b_1, \ldots, b_n\}$ ist eine Basis von $V$.
 \end{enumerate}
+
+\subsection{Äquivalente Aussagen zu Basen}
+Sein $B \subseteq V, V$ ein Vektorraum, dann sind folgende Aussagen äquivalent
+\begin{enumerate}
+    \item $B$ ist eine Basis
+    \item $B$ ist ein minimales Erzeugersystem
+        \begin{enumerate}
+            \item $V = \vspan(B)$
+            \item $V \neq \vspan(\tilde{B})$ mit $\tilde{B} \subsetneq B$
+        \end{enumerate}
+    \item $B$ ist eine maximale, linear Unabhängige Teilmenge von $V$, d.h
+        \begin{enumerate}
+            \item $B$ ist linear unabhängig
+            \item $B \cup \{ x \}$ ist linear abhängig für $x \in V \setminus B$
+                beliebig. D.h. $x \in \vspan(B)$
+        \end{enumerate}
+    \item Falls $B \neq \emptyset$ ist dies auch äquivalent zu:
+
+        Jedes $x \in V$ ist eine Linearkombination von endlich vielen Vektoren
+        aus $B$ und die koeffizienten sind eindeutig bestimmt.
+\end{enumerate}
+
+\subsection{Existenz einer Basis}
+Jeder Vektorraum $V$ besitzt eine Basis. Genauer gilt: ist $M$ ein
+Erzeugendensystem von $V$, so gibt es eine Basis $B$ von $V$ mit
+$B \subseteq V$.
+
+\subsection{Eigenschaften der Basis}
+Sei $V$ ein Vektorraum, dann gilt
+\begin{enumerate}
+    \item Ist $M \subseteq V$ endlich und linear unabhängig so existiert eine
+        Basis $B$ von $V$ mit $M \subseteq B$. D.h. $M$ kann zu einer Basis von
+        $V$ erweitert werden.
+    \item Ist $B$ und $\tilde{B}$ jeweils eine Basis von $V$ dann haben beide
+        gleich viele Elemente. Also $\abs{B} = \abs{\tilde{B}}$ (also auch im
+        Fall $\infty = \infty$).
+\end{enumerate}
+
+\subsection{Definition Dimension}
+Ist $V$ ein Vektorraum und $B$ eine Basis, dann ist
+\begin{equation*}
+    \dim V := \abs{B}
+\end{equation*}
+die Dimension von $V$. Im Fall $\abs{B} < \infty$ also $\dim V \in \N_0$ heißt
+$V$ endlich dimensional.
+
+\subsection{Beziehung von Dimensionen}
+Ist $U$ ein Unterraum von $V$, so gilt
+\begin{enumerate}[label = (\alph*)]
+    \item $\dim U \leq \dim V$
+    \item $\dim U = \dim V \Leftrightarrow U = V$ für $\dim V < \infty$
+\end{enumerate}
+
+\subsection{Lineare unabängigkeit im $n$-Dimensionalen}
+Ist $V$ ein $n$-Dimensionaler Vektorraum, so gilt:
+\begin{enumerate}[label = (\alph*)]
+    \item $n$ linear unabhängige Vektoren bilden eine Basis
+    \item $n+1$ Vektoren $V$ sind linear abhängig.
+\end{enumerate}
+
+\section{Lineare Gleichungssysteme}
+\subsection{Definition lineares Gleichungssystem}
+Sei $m, n \in \K, \K$ ein Körper. $A \in \K^{m \times n}, b \in \K^m$ dann nennt
+man die Gleichung
+\begin{equation*}
+    A \cdot x = b \Leftrightarrow
+    \begin{cases}
+        a_{11} x_1 + a_{12} x_2 + \cdots + a_{1n} x_n &= b_1\\
+        a_{21} x_1 + a_{22} x_2 + \cdots + a_{2n} x_n &= b_2\\
+        \vdots & \vdots \\
+        a_{m1} x_1 + a_{m2} x_2 + \cdots + a_{mn} x_n &= b_m
+    \end{cases}
+\end{equation*}
+ein Lineares Gleichungssystem mit Koeffizienten $A$, rechter Seite $b$ und
+Unbekannten $x$.
+
+Etwas allgemeiner mit $A \in \K^{m \times n}, B \in \K^{m \times r},
+X \in \K^{n \times r}$.
+
+Dann ist
+\begin{equation*}
+    A \cdot X = B \Leftrightarrow
+    \begin{cases}
+        A \cdot x_1 & = b_1\\
+        \vdots & \vdots \\
+        A \cdot x_r = b_r
+    \end{cases}
+\end{equation*}
+ein System von Linearengleichungen mit Koeffizienten $X$, rechten Seiten $B$
+und Unbekannten $X$.
+
+Im Fall $b=\vec{0}$ (bzw. $B = \vec{0}$) heißt das LGS homogen.
+
+\subsubsection{Bemerkung}
+Im Fall $A x = b$ nennt man
+\begin{enumerate}[label= (\alph*)]
+    \item $\mathbb{L}(A, b) := \{ x \in \K^n: A x = b \}$ die Lösungsmenge des
+        LGS
+    \item $\Kern(A) := \{ x \in \K^n: A \cdot x = \vec{0}\}$ den Kern von $A$.
+        Es gilt $\Kern(A) = \mathbb{L}(A,\vec{0})$.
+    \item $\Im(A) := \{ y \in \K^m:\ \exists x \in \K^n \text{ mit } A x = y\}$
+        das Bild von $A$.
+\end{enumerate}
+
+\subsection{Zusammenhang Kern und Lösung eines LGS}
+Sei $A \in \K^{m \times n}$, dann gilt
+\begin{enumerate}[label= (\alph*)]
+    \item $\Kern(A)$ ist Unterraum von $\K^n$
+    \item Ist $b \in \K^m$ und $x_0 \in \K^n$ eine Lösung von $Ax=n$, dann ist
+        die Lösungsgesamtheit
+        \begin{equation*}
+            x_0 + \Kern(A) := \{ x_0 + y: y \in \Kern(A) \}
+        \end{equation*}
+\end{enumerate}
+
+\subsubsection{Bemerkung}
+Außerdem ist $\mathbb{L}(A,b)$ und $\Kern(A) = \mathbb{L}(A,\vec{0})$
+ein Unterraum von $\K^n$.
+
+\subsection{Definition Affiner Unterraum, lineare Mannigfaltigkeit}
+Ist $x_0$ ein Vektor und $U$ ein Unterraum, dann ist
+\begin{equation*}
+    x_0 + U := \{ x_0 + u: u \in U\}
+\end{equation*}
+ein affiner Unterraum und $\dim(x_0 + U) := \dim(U)$ die Dimension von $x_o + U$.
+
+\subsection{Definition Zeilen-/Spaltenrang}
+Sei
+\begin{equation*}
+    A = (a_1, \ldots, a_n) =
+    \begin{pmatrix}
+        \tilde{a}_1^T \\ \vdots \\ \tilde{a}_m^T
+    \end{pmatrix}
+\end{equation*}
+. Dann heißt
+\begin{enumerate}[label= (\alph*)]
+    \item $\dim(\vspan(a_1, \ldots, a_n))$ der Spaltenrang
+    \item $\dim(\vspan(\tilde{a}_1, \ldots, \tilde{a}_m))$ der Zeilenrang
+\end{enumerate}
+
+\subsubsection{Bemerkung}
+Also Spaltenrang $\widehat{=}$ Anzahl der linear unabhängigen Spalten.
+
+Und Zeilenrang $\widehat{=}$ Anzahl der linear unabhängigen Zeilen.
+
+\subsection{Elementare Zeilen-/Stufenoperationen}
+Mittels elementarer Zeilen- bzw. Stufenoperationen kann man eine Matrix auf
+Zeilenstufenform bringen.
+\begin{enumerate}
+    \item Vertauschen von Zeilen bzw. Spalten
+
+        Spalten-Operation:
+        \begin{equation*}
+            A \cdot E =
+            \begin{pmatrix}
+                1 & 2 & 3\\
+                4 & 5 & 6\\
+                7 & 8 & 9
+            \end{pmatrix}
+            \begin{pmatrix}
+                0 & 0 & 1\\
+                0 & 1 & 0\\
+                1 & 0 & 0
+            \end{pmatrix}
+            =
+            \begin{pmatrix}
+                3 & 2 & 1\\
+                6 & 5 & 4\\
+                9 & 8 & 7
+            \end{pmatrix}
+        \end{equation*}
+        Zeilen-Operationen
+        \begin{equation*}
+            E \cdot A =
+            \begin{pmatrix}
+                0 & 0 & 1\\
+                0 & 1 & 0\\
+                1 & 0 & 0
+            \end{pmatrix}
+            \begin{pmatrix}
+                1 & 2 & 3\\
+                4 & 5 & 6\\
+                7 & 8 & 9
+            \end{pmatrix}
+            =
+            \begin{pmatrix}
+                7 & 8 & 9\\
+                4 & 5 & 6\\
+                1 & 2 & 3\\
+            \end{pmatrix}
+        \end{equation*}
+    \item Das $\alpha$-fache der zweiten Zeile/Spalte zur ersten Zeile/Spalte
+        addieren
+
+        Spalten-Operation:
+        \begin{equation*}
+            A \cdot E =
+            \begin{pmatrix}
+                1 & 2 & 3\\
+                4 & 5 & 6\\
+                7 & 8 & 9
+            \end{pmatrix}
+            \begin{pmatrix}
+                1 & 0 & 0\\
+                \alpha & 1 & 0\\
+                0 & 0 & 1
+            \end{pmatrix}
+            =
+            \begin{pmatrix}
+                1 + 2 \alpha & 2 & 3\\
+                4 + 5 \alpha & 5 & 6\\
+                7 + 8 \alpha & 8 & 9
+            \end{pmatrix}
+        \end{equation*}
+        Zeilen-Operationen
+        \begin{equation*}
+            E \cdot A =
+            \begin{pmatrix}
+                1 & 0 & 0\\
+                \alpha & 1 & 0\\
+                0 & 0 & 1
+            \end{pmatrix}
+            \begin{pmatrix}
+                1 & 2 & 3\\
+                4 & 5 & 6\\
+                7 & 8 & 9
+            \end{pmatrix}
+            =
+            \begin{pmatrix}
+                1 + 4 \alpha & 2+5\alpha & 3+6\alpha \\
+                4 & 5 & 6\\
+                7 & 8 & 9
+            \end{pmatrix}
+        \end{equation*}
+    \item Zeile/Spalte 2 mit $\alpha$ multiplizieren
+
+        Spalten-Operation:
+        \begin{equation*}
+            A \cdot E =
+            \begin{pmatrix}
+                1 & 2 & 3\\
+                4 & 5 & 6\\
+                7 & 8 & 9
+            \end{pmatrix}
+            \begin{pmatrix}
+                1 & 0 & 0\\
+                0 & \alpha & 0\\
+                0 & 0 & 1
+            \end{pmatrix}
+            =
+            \begin{pmatrix}
+                1 & 2 \alpha & 3\\
+                4 & 5 \alpha & 6\\
+                7 & 8 \alpha & 9
+            \end{pmatrix}
+        \end{equation*}
+        Zeilen-Operationen:
+        \begin{equation*}
+            E \cdot A =
+            \begin{pmatrix}
+                1 & 0 & 0\\
+                0 & \alpha & 0\\
+                0 & 0 & 1
+            \end{pmatrix}
+            \begin{pmatrix}
+                1 & 2 & 3\\
+                4 & 5 & 6\\
+                7 & 8 & 9
+            \end{pmatrix}
+            =
+            \begin{pmatrix}
+                1 & 2 & 3\\
+                4 \alpha & 5 \alpha & 6 \alpha \\
+                7 & 8 & 9
+            \end{pmatrix}
+        \end{equation*}
+\end{enumerate}
+Formal  bedeutet die Übeführung von $A$ in Zeilenstufenform $\tilde{A}$ also:
+\begin{enumerate}[label= (\alph*)]
+    \item mit elementaren Zeilenoperationen (Gauß) überführt ist
+        $\tilde{A} = E_r \cdot \cdots \cdot E_1 \cdot A$ mit Elementarmatrizen
+        $E_1, \ldots, E_r$.
+    \item Mit elementaren Spaltenoperationen ist $\tilde{\tilde{A}} = A_1 \cdot
+        E_1 \cdot \cdots \cdot E_s$ mit Elementarmatrizen $E_1, \ldots, E_s$.
+\end{enumerate}
+
+\subsubsection{Bemerkung}
+Statt in Zeilenstufenform kann man $A$ auch in die Form der Pseudo-Einheitsmatrix
+\begin{equation*}
+    \hat{I} =
+    \begin{pmatrix}
+        1  \\
+        & 1 & \vec{0} &  \\
+        & \vec{0} & \ddots \\
+        &  & & 0
+    \end{pmatrix} = \diag(1, 1, \ldots, 0, 0)
+\end{equation*}
+
+Man kann zeigen:
+\begin{enumerate}
+    \item Wird eine Zeilenoperation durchgeführt ändert sich nicht der
+        Zeilenrang
+    \item Wir eine Spaltenoperation durchgeführt ändert sich nicht der
+        Spaltenrang
+\end{enumerate}
+
+\subsection{Beziehung Spalten-/Zeilenrang}
+Zeilen- und Spaltenrang sind gleich.
