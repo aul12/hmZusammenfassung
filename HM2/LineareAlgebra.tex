@@ -285,7 +285,7 @@ Dann ist
     \begin{cases}
         A \cdot x_1 & = b_1\\
         \vdots & \vdots \\
-        A \cdot x_r = b_r
+        A \cdot x_r & = b_r
     \end{cases}
 \end{equation*}
 ein System von Linearengleichungen mit Koeffizienten $X$, rechten Seiten $B$
@@ -300,7 +300,7 @@ Im Fall $A x = b$ nennt man
         LGS
     \item $\Kern(A) := \{ x \in \K^n: A \cdot x = \vec{0}\}$ den Kern von $A$.
         Es gilt $\Kern(A) = \mathbb{L}(A,\vec{0})$.
-    \item $\Im(A) := \{ y \in \K^m:\ \exists x \in \K^n \text{ mit } A x = y\}$
+    \item $\Image(A) := \{ y \in \K^m:\ \exists x \in \K^n \text{ mit } A x = y\}$
         das Bild von $A$.
 \end{enumerate}
 
@@ -508,3 +508,36 @@ Man kann zeigen:
 
 \subsection{Beziehung Spalten-/Zeilenrang}
 Zeilen- und Spaltenrang sind gleich.
+
+\subsection{Definition Rang einer Matrix}
+Seu $A\in\K^{m\times n}$, dann ist der Rang von $A$ definiert aös der Zeilenrang
+von $A$ und wir schreiben dafür:
+\begin{equation*}
+    \rg(A) := \text{ Zeilenrang}
+\end{equation*}
+
+\subsection{Gauß-Algorithmus}
+Sei für $A \in \K^{m \times n}, b\in\K^m, x\in\K^n$ $Ax=b$ ein LGS mit gewissen
+elementaren Zeilenoperationen wird $A$ in eine Zeilenstufenform $\tilde{A}$
+überführt ($\tilde{A} = E_r \cdot \cdots \cdot E_1 \cdot A$). Gleichzeitig werden
+diese auf $b$ angewende, wobei man ein $\tilde{b}$ erhält ($\tilde{b} = E_r \cdot
+\cdots \cdot E_1 \cdot b$).
+
+Dann gilt für $x$:
+\begin{equation*}
+    Ax = b \Leftrightarrow \tilde{A}x = \tilde{b}
+\end{equation*}
+
+\subsection{Lösbarkeit eines LGS}
+Ein LGS $AX = b$ ist lösbar, genau dann wenn
+\begin{equation*}
+    \rg(A) = \rg(A\vert b)
+\end{equation*}
+gilt.
+
+\subsection{Lösung eines LGS}
+Falls ein LGS $Ax = b$ lösbar ist, dann ist $\mathbb{L}(A\vert b)$ ein affiner
+Unterraum und es gilt:
+\begin{equation*}
+    \dim(\L(A\vert b)) = n - \rg(A)
+\end{equation*}
