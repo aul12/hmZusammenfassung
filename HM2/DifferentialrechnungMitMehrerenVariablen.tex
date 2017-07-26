@@ -10,7 +10,7 @@ Sind $n, m \in \N$, so gelten folgende Bezeichungen:
             x_n
         \end{pmatrix}
         \text{ für }
-        x_1, \ldots, x_n \in \R^n
+        x_1, \ldots, x_n \in \R
     \Bigg\} \\
     \R^{m \times n} &:=& \Bigg\{
         \begin{pmatrix}
@@ -43,8 +43,8 @@ Sind $n, m \in \N$, so gelten folgende Bezeichungen:
             \norm{x}_2 \leq \norm{x}_1
         \end{equation*}
     \item $\norm{x}_1$, $\norm{x}_2$, $\norm{x}_\infty$ sind drei mögliche Festlegungen
-        für Vektornormen. Allgemein hat eine Norm $\norm{\cdot}_2$
-        ($\norm{\cdot}_2: \R^2 \rightarrow \R$) folgende Eigenschaften:
+        für Vektornormen. Allgemein hat eine Norm $\norm{\cdot}$
+        ($\norm{\cdot}: \R^n \rightarrow \R$) folgende Eigenschaften:
         \begin{eqnarray*}
             &\norm{x} \geq 0&\ \forall x \in \R^n \land \norm{x}=0 \Leftrightarrow
             x = \begin{pmatrix}
@@ -75,7 +75,7 @@ Sind $n, m \in \N$, so gelten folgende Bezeichungen:
     \item In $\R^n$ sei stets $A^c := \R^n \backslash A$ für eine Menge $A \subseteq \R^n$
     \item Mit $\norm{\cdot}$ bezeichnen wir die euklidische Norm $\norm{\cdot}_2$.
     Außer es wird explizit gesagt, dass $\norm{\cdot}$ eine allgemeine Norm ist
-    (z.B. \glqq{} Sei $\norm{\cdot}$ eine Norm   auf $\R^n$)
+    (z.B. \glqq{} Sei $\norm{\cdot}$ eine Norm   auf $\R^n$ \grqq{})
 \end{enumerate}
 
 \subsection{Definition Epsilon-Umgebung}
@@ -247,7 +247,7 @@ Im Fall $m=1$ nennt man $f$ eine reele Funktion (oder Skalarfeld).
     \begin{pmatrix}
         f_1(x_1, \ldots, x_n)\\
         \vdots \\
-        f_n(x_1, \ldots, x_n)
+        f_m(x_1, \ldots, x_n)
     \end{pmatrix}
 \end{equation*}
 
@@ -894,10 +894,10 @@ $g_k(x) = b_k k=1,\ldots m$ und die Vektoren $\nabla g_1(x_0), \ldots \nabla g_m
 linear unabhängig.
 \begin{eqnarray*}
     \exists\  \lambda_1, \ldots, \lambda_m \in \R &\text{ mit }&
-    \nabla f(x_1) + \lambda_1 \nabla g_1(x_0) + \cdots + \lambda_m \nabla g(x_0)
+    \nabla f(x_0) + \lambda_1 \nabla g_1(x_0) + \cdots + \lambda_m \nabla g(x_0)
     = \vec{0} \\
     &\Leftrightarrow& f'(x_0)^T + J_g(x_0)^T \cdot \lambda = \vec{0} \\
-    &\Leftrightarrow& f'(x_0) = \nabla^T J_g(x_0)
+    &\Leftrightarrow& f'(x_0) = \lambda^T J_g(x_0)
 \end{eqnarray*}
 Zudem muss $x_0$ die Nebenbedingung erfüllen.
 

@@ -148,7 +148,7 @@ $f: [a, b] \rightarrow \R$ die auf $[a, b]$ Riemann integrierbar sind.
         \end{equation*}
     \item
         \begin{equation*}
-        f \in R[a, b] \Rightarrow \abs{f} \in R[a, bv]
+        f \in R[a, b] \Rightarrow \abs{f} \in R[a, b]
         \end{equation*}
         und
         \begin{equation*}
@@ -156,7 +156,7 @@ $f: [a, b] \rightarrow \R$ die auf $[a, b]$ Riemann integrierbar sind.
         \end{equation*}
 \end{enumerate}
 
-\subsection{Änderung von Funktionen}
+\subsection{Endliche änderung von Funktionen}
 Wenn $f \in R[a, b]$ ist und durch endlich viele Änderungen daraus
 $g: [a,b] \rightarrow \R$ konstruiert werden kann, d.h.
 \begin{equation*}
@@ -164,7 +164,8 @@ $g: [a,b] \rightarrow \R$ konstruiert werden kann, d.h.
     \begin{cases}
         f(x) &\text{ falls } x \notin \{x_1, \ldots, x_n \} \\
         y_1 &\text{ falls } x=x_1\\
-        \vdots
+        &   \vdots \\
+        y_n &\text{ falls } x=x_n
     \end{cases}
 \end{equation*}
 dann gilt $g \in R[a, b]$ und
@@ -183,8 +184,8 @@ Falls $f: [a, b] \rightarrow \R$ stückweise stetig ist, d.h.\ es existieren
 endlich viele Intervall-Stücke auf denen $f$ stetig ist, dann ist
 $f \in R[a,b]$ und es gilt:
 \begin{equation*}
-    \int_a^b f(x) \dx = \int_{x_0}^{x_1} f(x) \dx + \int_{x_1}^{x_2} f(x)
-    + \ldots + \int_{x_{n-1}}^{x_n} f(x)
+    \int_a^b f(x) \dx = \int_{x_0}^{x_1} f(x) \dx + \int_{x_1}^{x_2} f(x) \dx
+    + \cdots + \int_{x_{n-1}}^{x_n} f(x) \dx
 \end{equation*}
 
 \subsection{1. Mittelwertsatz der Integralrechnung}
@@ -327,7 +328,7 @@ konvergent ist.
 \subsection{Minorantenkriterium}
 \begin{equation*}
     f(x) \geq g(x) \geq 0 \land \int_a^b g(x) \dx = \infty
-    \Rightarrow \int_a^\infty f(x) \dx = \infty
+    \Rightarrow \int_a^b f(x) \dx = \infty
 \end{equation*}
 
 \subsection{Integralkriterium für Reihen}
