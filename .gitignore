@@ -2,6 +2,6 @@
 ubungsklausur2.synctex.gz
 main.synctex.gz
 .latex.json
-**/.aux
-**/.log
-**/toc
+**/*.aux
+**/*.log
+**/*.toc
