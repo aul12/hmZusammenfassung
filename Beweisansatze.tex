@@ -126,8 +126,77 @@ Sandwich-Theorem
  \section{Gleichmäßige Konvergenz}
 
  \subsection{Stetigkeit der Grenzfunktion}
- Same shit as allways: Zeige Stetigkeit mithilfe $\delta\varepsilon$-Kriterium
- durch einfügen von nahrhaften Nullen. Und dann Dreiecksungleichungen. 
+ Same shit as usual: Zeige Stetigkeit mithilfe $\delta\varepsilon$-Kriterium
+ durch einfügen von nahrhaften Nullen. Und dann Dreiecksungleichungen.
+
+ \section{Differentialrechnung mit mehreren Veränderlichen}
+ \subsection{Grenzwertrechenregeln}
+ Verwende GWRR aus HM, indem du die einzelnen Vektorkomponenten betrachtest.
+
+ \subsection{Max/Min kompakter Mengen}
+ \begin{itemize}
+     \item[a)] Konstruiere eine Folge aus der Menge A, die gegen das Supremum von A
+     konvergiert und zeige damit, dass das Supremum in A enthlaten ist.
+     \item[b)] Ansatz: Zeige, dass eine konvergente Folge $(y_n)_{n=1}^\infty$ aus
+     dem Bild B von f $B:=f(A)$ beschränkt ist und gegen einen Wert in B konvergiert.
+     Dazu nutzt du eine Folge $(x_n)_{n=1}^\infty \in A$ mit $f(x_n) = y_n$. Nutze
+     nun die Stetigkeit von f.
+
+ \end{itemize}
+
+ \subsection{Stetigkeit einer Funktion durch beschränkte partielle Ableitungen} \label{HM2:DiffTotAbl}
+  Für $f:G\subseteq \R^n \rightarrow \R$ ist zu zeigen:
+  $\abs{\frac{\partial f}{\partial x_k}} \leq c_k \in \R \ \forall k \Rightarrow f \in C(G,\R)$
+
+  Ansatz: Definition der Stetigkeit mit nahrhaften Nullen (verändere immer nur ein
+  Argument aus f, sodass du den eindimensionalen Mittelwertsatz aus HM1 anwenden kannst).
+
+  \subsection{Diff'barkeit impliziert Stetigkeit}
+  Betrachte $ \lim\limits_{x \rightarrow a}{f(x)}$ und setze die Definition für
+  totale Diff'barkeit ein.
+
+  \subsection{Zusammenhang totale und partielle Diff'barkeit}
+  Ist f total diff'bar und es ist zu zeigen: $\frac{\partial f(x)}{\partial r} = f'(x) \cdot r$
+  mit r eine Richtung.
+
+  \vspace{0.5cm}
+
+  Ansatz: Richtungsableitung mit Definition ausrechnen und dann die Definition der
+  totalen Diff'barkeit einsetzen. Betrachte also:
+  \begin{equation*}
+      \norm{\frac{f(x+h \cdot r) - f(x)}{h} - J_f(x) \cdot r}
+  \end{equation*}
+
+  \vspace{0.5cm}
+
+  Weiterhin ist zu zeigen, dass wenn alle partiellen Ableitungen von f stetig sind,
+  f diff'bar ist. Dies haben wir nur für Skalarfelder gezeigt.
+
+  Ansatz: Schreibe $f(x) = f(a) + (f(x) - f(a))$ und gehe dann vor wie in~\ref{HM2:DiffTotAbl}.
+
+  \subsection{Kettenregel}
+  Setze in $g \circ f = g(f(x))$ die Definition der totalen Diff'barkeit ein.
+
+  \subsection{Notwendige Bedingung für Extrema}
+  Definiere eine Hilfsfunktion $g(t):=f(x_0 + t(x-x_0))$ und argumentiere dann
+  für lokale Extrema wie in HM1.
+
+  \subsection{Mittelwertsatz}
+  Hilfsfunktion $g(t):=f(a + t(b-a))$. Verwende den eindimensionale MWS.
+
+  \subsection{Konstante Funktionen}
+  Zeige: $f(x) \equiv \text{const} \Leftrightarrow \nabla f(x) = \vec0 \ \forall x \in G$
+
+  Ansatz für Rückrichtung: Nutze die Punkte eines Polygonzuges vom Punkt a nach
+  Punkt x und den MWS.
+
+  \subsection{Taylor}
+  Nutze die Hilfsfunktion $g(t):=f(a+t(b-a))$ und Taylor aus HM1.
+
+  \subsection{Hinreichende Bedingung für Extrema}
+  Nutze den Satz von Taylor.
+
+
 
  \section{Integration in mehreren Veränderlichen}
  \subsection{Ableitung in Integral ziehen}
