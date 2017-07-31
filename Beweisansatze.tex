@@ -96,7 +96,7 @@ Benutze die Tranisitivität des Integrals und folgende Abschätzung:
  m &:=&\inf\limits_{[a,b]}(f)\\
  M &:=&\sup\limits_{[a,b]}(f)
 \end{eqnarray*}
-\subsection{Eine Stammfunktion einer Funktion ist stetig und differentierbarkeit}\label{HM2Int:StFkt}
+\subsection{Eine Stammfunktion einer Funktion ist stetig und differentierbar}\label{HM2Int:StFkt}
 Stetigkeit mit $\delta-\varepsilon$-Kriterium nachrechen und dabei die Beschränktheit von
 f ausnutzen
 
@@ -195,6 +195,26 @@ Nutze die Hilfsfunktion $g(t):=f(a+t(b-a))$ und Taylor aus HM1.
 \subsection{Hinreichende Bedingung für Extrema}
 Nutze den Satz von Taylor.
 
+\subsection{Beweisidee für den Hauptsatz über implizite Funktionen}
+Laut Voraussetzung ist $g(x,y) \in C^1(G,\R)$. Deswegen kann man g als näherungsweise
+linear annehmen (lokal betrachtet). Mit dieser Näherung lässt sich g einfach nach
+z.B. y auflösen.
+
+\subsection{Herleitung für die Ableitung der Aulösung}
+Hier für den Fall $g:G\subseteq \R^{2} \rightarrow \R$. Nutze folgenden Ansatz:
+
+\begin{equation*}
+    \frac{\text{d}}{\dx}g(x,f(x)) \stackrel{!}{=} 0
+\end{equation*}
+
+Diese Gleichung lässt sich einfach nach $f'(x)$ auflösen.
+
+\subsection{Satz von Lagrange}
+Nur für den vereinfachten Fall $f,g:G \subseteq \R^{2} \rightarrow \R$
+
+Da in userem Fall $\nabla g(x_0,y_0) \neq 0$, existiert eine Auflösung a nach x oder
+y. Damit kannst du dir eine Hilfsfunktion $h(x):=f(x,a(x))$ definieren und diese
+auf Extremstellen untersuchen (wie in HM1).
 
 
  \section{Integration in mehreren Veränderlichen}
