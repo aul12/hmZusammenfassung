@@ -5,3 +5,5 @@ main.synctex.gz
 **/*.aux
 **/*.log
 **/*.toc
+**/*.fls
+**/*.fdb_latexmk
