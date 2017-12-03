@@ -1,6 +1,181 @@
+%!TEX root = ../main.tex
 \section{Normen und innere Produkte}
 \subsection{Definition Vektornorm}
 Sei $V$ ein Vektorraum über $\K$ eine Abbildung
 \begin{equation*}
 	\norm{\cdot}: V \rightarrow \R
 \end{equation*}
+nennt man eine Norm, wenn für $\lambda \in \K, x, y \in V$  stets gilt:
+\begin{enumerate}[label= (\alph*)]
+	\item 
+		\begin{equation*}
+			\norm{x} \geq 0 \forall x \in V\ \land\ \norm{x} = 0 \Leftrightarrow x = \vec{0}
+		\end{equation*}
+	\item 
+		\begin{equation*}
+			\norm{\lambda \cdot x} = \abs{\lambda} \cdot \norm{x}
+		\end{equation*}
+	\item
+		\begin{equation*}
+			\norm{x + y } \leq \norm{x} + \norm{y}
+		\end{equation*}
+\end{enumerate}
+In dem Fall heißt heißt $V$ normierter Vektorraum. Einen Vektor $a \in V$ nennen wir normiert, wenn $\norm{a} = 1$ ist.
+\subsubsection{Bemerkung}
+\begin{enumerate}
+	\item In einem normierten Vektorraum, kann man jedes $a \in V \backslash \{\vec{0}\}$ durch
+		\begin{equation*}
+			\tilde{a} = \frac{1}{\norm{a}} \cdot a
+		\end{equation*}
+		normieren, dann
+		\begin{equation*}
+			\norm{a} = \norm{\frac{1}{\norm{a}} \cdot a} = \abs{\frac{1}{\norm{a}}} \norm{a} = \frac{1}{\norm{a}} \norm{a} = 1
+		\end{equation*}
+	\item Es gilt in einem normierten Vektorraum auch, dass
+		\begin{equation*}
+			\abs{\norm{x} - \norm{y}} \leq \norm{x - y}\ \forall x,y \in V
+		\end{equation*}
+		Bew.: folgt aus (N3) (vgl. HM1)
+\end{enumerate}
+
+\subsection{Skalarprodukt / inneres Produkt} Sei $V$ ein Vektorraum über $K =
+\C$ oder $K=\R$. Eine Abbildung: \begin{equation*}     < \cdot, \cdot >: V
+\times V \rightarrow \K, (x,y) \mapsto <x,y> \end{equation*}  heißt inneres
+Produkt oder Skalarprodukt in $V$, wenn für $\lambda \in \K, x,y \in V$ stets gilt:
+\begin{enumerate}
+	\item
+		\begin{equation*}
+			<x,x> \geq 0\ \land\ <x,x> = 0 \Leftrightarrow x = \vec{0}
+		\end{equation*}
+	\item Homogenität:
+		\begin{equation*}
+			<x, \lambda y> = \lambda <x, y>
+		\end{equation*}
+	\item Additivität:
+		\begin{equation*}
+			<x, y+z> = <x,y> + <x,z>
+		\end{equation*}
+	\item
+		\begin{equation*}
+			<x,y> = \overline{<y,x>}
+		\end{equation*}
+\end{enumerate}
+Ist $<\cdot,\cdot>$ ein inneres Produkt von $V$, dann heißt $V$ innerer Produktraum
+und genauer:
+\begin{enumerate}[label= (\alph*)]
+	\item euklidischer Raum für $V = \R^n$
+	\item unitärer Raum für $V = \C^n$
+\end{enumerate}
+\subsubsection{Bemerkung}
+In (S1) wird implizit verlangt, dass $<x,x> \in \R$ gilt.
+
+\subsection{Definition induzierte Norm}
+Ist $V$ ein innerer Produktraum bezüglich $<\cdot,\cdot>$ so heißt die durch
+$\norm{x}:=\sqrt{<x,y>}$ definierte Abbildung
+\begin{equation*}
+	\norm{\cdot}: V \rightarrow \R
+\end{equation*}
+die induzierte Norm.
+\subsubsection{Bemerkung}
+Dass die induzierte Norm eine Norm ist, ist noch zu zeigen.
+
+\subsection{Äquivalente Aussagen zu induzierten Normen}
+Sei $V$ ein Vektorraum über $\K$ und $\norm{\cdot}$ eine Norm, dann sind folgende
+Aussagen äquivalent:
+\begin{enumerate}
+	\item Die Norm wird durch ein Skalarprodukt induziert
+	\item Es gilt die sogennante Parallelogram Identität:
+		\begin{equation*}
+			{\norm{x+y}}^2 + {\norm{x-y}}^2 = 2(\norm{x}^2 + \norm{y}^2)
+		\end{equation*}
+\end{enumerate}
+
+\subsection{Rechenregeln für Skalarprodukte}
+Seien $x,y \in V, \lambda \in \K$:
+\begin{enumerate}
+	\item
+		\begin{equation*}
+			<\lambda x, y>  = \overline{\lambda} <x,y>
+		\end{equation*} 
+	\item 
+		\begin{equation*}
+			<x+y, z> = <x,z> + <y,z>
+		\end{equation*}
+	\item
+		\begin{equation*}
+			<\vec{0}, y> = <x, \vec{0}> = 0
+		\end{equation*}
+\end{enumerate}
+
+\subsection{Cauchy-Schwarz'sche-Ungleichung}
+Sei $V$ ein Vektorraum mit Skalarprodukt $<\cdot, \cdot>$ und induzierter Norm
+$\norm{\cdot}$ dann gilt $<x,y>\leq\norm{x}\norm{y}$
+
+\section{Orthogonalität}
+\subsection{Orthogonaltität}
+Sei $V$ ein innerer Produktraum, dann nennt man
+\begin{enumerate}[label= (\alph*)]
+	\item Zwei Vektoren $x,y \in V$ orthogonal (schreibweise $x \perp y$)
+		\begin{equation*}
+			:\Leftrightarrow <x,y> = 0
+		\end{equation*}
+	\item $M \subseteq V$ ein Orthogonalsystem (OGS) in $V$, wenn gilt:
+		\begin{equation*}
+			x,y \in M \land x \neq y \Rightarrow x \perp y
+		\end{equation*}
+	\item $M \subseteq V$ ein Orthonormalsystem (ONS) in $V$, wenn $M$ ein OGS ist
+		und gilt
+		\begin{equation*}
+			x \in M \Rightarrow \norm{x} = 1
+		\end{equation*}
+	\item $B \subseteq V$ eine Orthogonalbasis von $V$ wenn $B$ eine Basis von 
+		$V$ ist und $B$ ein OGS ist.
+	\item $B \subseteq V$ eine Orthonormalbasis von $V$ wenn $B$ eine Basis von
+		$V$ ist und $B$ ein ONS ist.
+\end{enumerate}
+
+\subsection{Orthogonalität und lineare Abhängigkeit}
+Sei $V$ ein innerer Produktraum. Dann gilt:
+\begin{enumerate}[label= (\alph*)]
+	\item Seien $b_1, \ldots, b_n \in V$ orthogonal und alle $\neq \vec{0} \Rightarrow$
+		$b_1, \ldots, b_n$ sind linear unabhängig.
+	\item Ist $B = \{b_1, \ldots, b_n\}$ ein OGS und $x \in \vspan{B}$, dann gilt
+		\begin{equation*}
+			x = \alpha_1 b_1 + \ldots + \alpha_n b_n
+		\end{equation*}
+		mit
+		\begin{equation*}
+			\alpha_k = \frac{<b_k, x>}{<b_k, b_k>}
+		\end{equation*}
+\end{enumerate}
+
+\subsection{Gram-Schmidt (Orthogonalisierung von Vektoren)}
+Seien $x_1, \ldots, x_n$ linear unabhängige Vektoren eines inneren Produktraums.
+Definiert man:
+\begin{eqnarray*}
+	y_1 &:=& x_1 \\
+	y_k &:=& x_k - \sum_{l=1}^{k-1} \frac{<y_l, x_k>}{<y_l, y_l>} y_l\  \text{für}\ 
+	k\in\{2, \ldots, n\}
+\end{eqnarray*}
+dann gilt: $\vspan{(x_1, \ldots, x_n)} = \vspan{(y_1, \ldots, y_n)}$ und $y_l \perp y_k$
+für $l \neq k$.
+
+\subsection{Orthogonale Projektion}
+Sei $V$ ei innerer Produktraum und $x_1, \ldots, x_n$ linear unabhängig. Dann gilt
+für $x \in V$
+\begin{enumerate}[label= (\alph*)]
+	\item
+		\begin{equation*}
+			\exists! \hat{x} \in V: \norm{x - \hat{x}} = 
+			\min \{\norm{x-u}: u \in \vspan(x_1, \ldots, x_n) \}
+		\end{equation*}
+	\item
+		Für $\hat{x}$ aus (a) gilt $x-\hat{x} \perp U$ d.h.
+		\begin{equation*}
+			x - \hat{x} \perp u\ \forall u \in U
+		\end{equation*}
+		Sind $y_1, \ldots, y_n$ ein OGS mit $U = \vspan(y_1, \ldots, y_n)$ dann gilt:
+		\begin{equation*}
+			\hat{x} = \sum_{k=1}^{n} \frac{<y_k,x>}{<y_k, y_k>} y_k
+		\end{equation*}
+\end{enumerate}
