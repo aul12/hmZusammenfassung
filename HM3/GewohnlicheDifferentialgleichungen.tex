@@ -150,3 +150,125 @@ kann man stets in ein System 1. Ordnung umschreiben.
 			\end{pmatrix}
 		\end{equation*}
 \end{enumerate}
+
+\section{Existenz- und Eindeutigkeitsaussagen}
+\subsection{Voltera'sche Integralgleichung}
+Sei $G \subseteq \R^2$ ein Gebiet und $f:G \rightarrow \R$ stetig, $I \subseteq \R$ ein Intervall und
+$x_0 \in I$. Dann gilt:
+\begin{enumerate}
+	\item $y: I \rightarrow \R$ löst das AWP.
+		\begin{equation*}
+			y' = f(x,y),\ y(x_0) = y_0
+		\end{equation*}
+		genau dann, wenn die Integralgleichung
+	\item
+		\begin{equation*}
+			y(x) = y(x_0) \int_{x_0}^x f(t, y(t)) \dt\ \forall x \in I
+		\end{equation*}
+		für alle $y$ erfüllt ist.
+\end{enumerate}
+
+Von der Form $y=\Phi(y)$ mit
+\begin{equation*}
+	\Phi(y) := y_0 + \int_{x_0}^x f(t, y(t)) \dt
+\end{equation*}
+genauer: $\Phi: \operatorname{C}^1(I) \rightarrow \operatorname{C}^1(I)$ also $y$ muss Fixpunkt von $\Phi$ sein.
+
+\subsection{Bemerkung: Newton-Verfahren zur Bestimmung von Nullstellen}
+Sei $f: \R \rightarrow \R$. Tangente bestimmen:
+\begin{eqnarray*}
+	T(x) &=& f(x_0) + f'(x_0) (x-x_0) = 0 \\
+	\Rightarrow x_1 &=& x_0 - \frac{f(x_0)}{f'(x_0)} = \Phi(x_0) \\
+	x_{n+1} &=& x_n - \frac{f(x_n)}{f'(x_n)} = \Phi(x_n)
+\end{eqnarray*}
+Hoffnung die so erzeugte Folge ${(x_n)}_{n=1}^\infty$ konvertiert gegen ein $\overline{x}$, 
+das heißt es gilt (falls $\Phi$ stetig):
+\begin{equation*}
+	\overline{x} = \lim_{n \to \infty} x{n+1} = \lim_{n \to \infty} \Phi(x_n) = \Phi(\lim_{n \to \infty} x_n) = \Phi(\overline{x})
+\end{equation*}
+Das heißt, falls alles gut geht ist $\overline{x}$ der Fixpunkt von $\Phi$ 
+(muss aber nicht immer so sein, z.B $f(x)=\sin(x)$).
+
+\subsection{Picard-Iterator}
+Der sogenannte Picard-Iterator bildet Funktionen auf Funktionen ab und ist definiert durch:
+\begin{equation*}
+	\Phi: y \rightarrow y_0 + \int_{x_0}^x f(t, y(t)) \dt
+\end{equation*}
+
+\subsection{Definition Lipschitz-Bedingung}
+Sei $G \subseteq \R^2$ ein Gebiet. Eine Funktion $f: G \rightarrow \R$ erfüllt eine Lipschitz-Bedingung
+(L-Bedingung) bezüglich der zweiten Komponente wenn gilt:
+\begin{equation*}
+	\exists L > 0:\ \abs{f(x,y_1) - f(x, y_2)} < L \cdot \abs{y_1 - y_2}
+\end{equation*}
+
+\subsubsection{Bemerkung}
+Für $x$ fest, ist die L-Bedingung äquivalent zur Lipschitz-Stetigkeit.
+
+\subsection{Partielle Ableitung und Lipschitz-Bedingung}
+Ist bei $f$ die partielle Ableitung nach der zweiten Komponente beschränkt, dann ist die L-Bedingung erfüllt:
+\begin{equation*}
+	\abs{f_y(x,y)} < L\ \forall
+	\begin{pmatrix}
+		x \\ y
+	\end{pmatrix} \in G \Rightarrow \abs{f(x, y_1) - f(x,y_2)} = \abs{f_y(x, \xi)(y_1-y_2)} \leq L \abs{y_1 - y_2}
+\end{equation*}
+
+\subsection{Picard-Lindelöf (Existenz und Eindeutigkeit einer Lösung)}
+Seien $r, s > 0, x_0; y_0 \in \R; M := [x_0, x_0 + r] \times [y_0-s, y_0+s]$ sei $G$ ein Gebiet mit
+$M \subseteq G \subseteq \R^2$. Außerdem erfülle $f$ auf $G$ eine L-Bedingung bezüglich der zweiten 
+Komponente mit $L>0$. Außerdem gelte $\abs{f(x,y)} \leq c \ \forall (x,y)^T \in M$. Dann besitzt das AWP
+\begin{equation*}
+	(\text{AWP}) = \begin{cases}
+		y' = f(x,y) \\ y(x_0) = y_0
+	\end{cases}
+\end{equation*}
+auf dem Intervall $I := [x_0, x_0 + \alpha]$ mit $\alpha = \min \{r, \frac{s}{c} \}$ genau eine Lösung.
+
+\subsection{Peano (Existenz einer Lösung)}
+Gelten alle Voraussetzungen von Picard-Lindelöf bis auf die L-Bedingung, dann besitzt
+\begin{equation*}
+	(\text{AWP}) = \begin{cases}
+		y' = f(x,y) \\ y(x_0) = y_0
+	\end{cases}
+\end{equation*}
+mindestens eine Lösung $y: I \rightarrow \R$ mit $I = [x_0, x_0 + \alpha]$ und $\alpha = \min \{ r, \frac{s}{c} \}$.
+
+\subsection{Gronwallsche Ungleichung}
+Sei $c > 0; f,g: [a,b] \rightarrow [0, \infty)$ stetig gilt:
+\begin{equation*}
+	f(x) \leq c + \int_a^x f(t) g(t) \dt\ \forall x \in [a,b]
+\end{equation*}
+dann ist
+\begin{equation*}
+	f(x) \leq c \cdot \exp{\left(\int_a^x g(t) \dt\right)}\ \forall x \in [a,b]
+\end{equation*}
+
+\subsection{Banach'scher Fixpunktsatz}
+Sei $V = \R^n$ und $M \subseteq \R^n$ abgeschlossen (bezüglich $\norm{\cdot}_\infty$) weiter sei:
+$\Phi: M \to M$ eine Kontradiktion, das heißt $\Phi$ ist L-stetig mit $L < 1$.
+
+Dann besitzt $\Phi$ genau einen Fixpunkt $\overline{x} \in M$ (das heißt $\Phi(\overline{x}) = \overline{x}$) und
+$\overline{x}$ ist der Grenzwert der Folge ${(x_n)}_{n=1}^\infty$ mit:
+\begin{equation*}
+	x_k = \begin{cases}
+		\text{beliebig} & k = 0 \\
+		\Phi({x_{k-1}}) & \text{sonst}
+	\end{cases}
+\end{equation*}
+
+\subsection{Norm Äquivalenz im $\R^n$}
+Sei $\norm{\cdot}$ eine beliebige Norm im $\R^n$, dann existieren $c_1, c_2 > 0$ mit
+\begin{equation*}
+ 	c_1 \norm{x}_\infty \leq \norm{x} \leq c_2 \norm{x}_\infty\ \forall x \in \R^n
+\end{equation*}
+
+\subsection{Stabilität}
+Sei $G \subseteq \R^2$ ein Gebiet, $f_1, f_2: G \to \R$ stetige Funktionen die auf $G$ eine L-Bedingung erfüllen
+mit $L > 0$. Zusätzlich gelte $\abs{f_1(x,y)-f_2(x,y)} < c\ \forall (x,y)^T \in G$ (Modellierungsfehler).
+
+Dann gilt ist $y_1$ eine Lösung des AWP $y' = f_1(x,y), y(x_0) = y_0$ und $y_2$ eine Lösung des AWP 
+$y' = f_2(x,y), y(x_0) = \tilde{y_0}$ so folgt:
+\begin{equation*}
+	\abs{y_1(x) - y_2(x)} \leq (\abs{y_0 - \tilde{y_0}} + c  \cdot (x-x_0)) \exp{(L (x-x_0))}
+\end{equation*} 
