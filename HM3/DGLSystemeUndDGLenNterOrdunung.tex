@@ -1,0 +1,343 @@
+%!TEX root = ../main.tex
+\section{Systeme von DGLen 1. Ordnung}
+\subsection{Definition DGL-System}
+Sei $G \subseteq \R^{n+1}$ und für $k \in \{1, \ldots, n\}$ sei $f_k: G \to \R$ stetig:
+\begin{enumerate}[label= (\alph*)]
+	\item $y(x) = (y_1(x), \ldots, y_n(x))^T$ heißt Lösung des Systems:
+		\begin{eqnarray*}
+			y_1' &=& f_1(x, y_1, \ldots, y_n) \\
+			&\vdots& \\
+			y_n' &=& f_n(x, y_1, \ldots, y_n) \\
+		\end{eqnarray*}
+		von DLGen $n$-ter Ordnung, wenn gilt:
+		\begin{enumerate}
+			\item 
+				\begin{equation*}
+					\begin{pmatrix}
+						x \\ y(x)
+					\end{pmatrix} \in G\ \forall x \in I
+				\end{equation*} 
+			\item $y$ ist differentierbar auf $I$ (Komponentenweise, d.h. $y_k$ ist diff'bar $\forall k$)
+			\item $y_k'(x) = f_k(x, y_1(x), \ldots, y_n(x))\ \forall x \in I$ und bel. $k\in\{1, \ldots, n\}$ 
+		\end{enumerate}
+	\item Ist $(x,y)^T = (x_0, y_1^{(0)}, \ldots, y_n^{(0)})^T \in G$ dann löst $y: I \to \R^n$ das AWP.
+		\begin{equation*}
+			\text{(AWP)} = 
+			\begin{cases}
+				y_1'(x) &= f_1(x, y_1(x), \ldots, y_n(x)) \\
+				&\vdots \\
+				y_n'(x) &= f_n(x, y_1(x), \ldots, y_n(x))\\
+				y_k(x_0) &= y_k^{(0)}\ k \in \{1, \ldots, n\}
+			\end{cases}
+		\end{equation*} 
+		wenn $y$ die DGL löst und $y(x_0)=(y_1^{(0)}, \ldots,y_n^{(0)})^T$ gilt.
+\end{enumerate}
+
+\subsection{Schreibweise}
+\begin{enumerate}[label= (\alph*)]
+	\item DGL:
+		\begin{enumerate}
+			\item 
+				\begin{equation*}
+					y: I \to \R^n, y(x) := \begin{pmatrix}
+						y_1(x) \\ \vdots \\ y_n(x)
+					\end{pmatrix} \text{ oder }
+					y = \begin{pmatrix}
+						y_1 \\ \vdots \\ y_n
+					\end{pmatrix}
+				\end{equation*}
+			\item
+				\begin{equation*}
+					f_k(x,y) = f_k(x, y_1, \ldots, y_n) \text{ bzw. }
+					f_k(x,y(x)) = f_k(x, y_1(x), \ldots, y_n(x))\ \forall x \in I
+				\end{equation*}			
+			\item $f: G \subseteq \R^{n+1} \to \R^n$ mit
+				\begin{equation*}
+					f(x,y) = f(x, y_1, \ldots, y_n) = \begin{pmatrix}
+						f_1(x, y_1, \ldots, y_n) \\
+						\vdots \\
+						f_n/(x, y_1, \ldots, y_n)
+					\end{pmatrix}
+				\end{equation*}
+		\end{enumerate}
+	\item AWP:
+		\begin{equation*}
+			\text{(AWP)} = \begin{cases}
+				y' &= f(x,y) \\
+				y(x_0) &= y_0
+			\end{cases} \text{ mit }
+			y_0 = \begin{pmatrix}
+				y_1^{(0)} \\ \vdots \\ y_n^{(0)}
+			\end{pmatrix}
+		\end{equation*}
+	\item Integration von Vektoren:
+		Für $g:[a,b] \subseteq \R \rightarrow \R^n, g(x) = (g_1(x), \ldots, g_n(x))^T$ definieren wir (falls $g_1, \ldots, g_n$ int'bar sind):
+		\begin{equation*}
+		 \int_a^b g(x) \dx = \begin{pmatrix}
+		 		\int_a^b g_1(x) \dx \\
+		 		\vdots \\
+		 		\int_a^b g_n(x) \dx \\
+		 	\end{pmatrix}
+		\end{equation*}
+\end{enumerate}
+
+\subsection{Voltera'sche Integralgleichung}
+Sei $G \subseteq \R^{n+1}$ ein Gebiet, $f: G \to \R^n$ stetig und
+\begin{equation*}
+	\begin{pmatrix}
+		x_0 \\ y_1^{(0)} \\ \vdots \\ y_n^{(0)}
+	\end{pmatrix} = 
+	\begin{pmatrix}
+		x_0 \\ y_0
+	\end{pmatrix}
+	\in G
+\end{equation*} 
+dann ist $y: I \subseteq \R \to \R^n$ genau dann eine Lösung des AWP $y'=f(x,y), y(x_0)=y_0$, wenn gilt
+\begin{equation*}
+	y(x) = y_0 + \int_{x_0}^x f(t, y(t)) \dt
+\end{equation*}
+
+\subsection{Definition Lipschitz-Bedingung}
+Sei $f: M \subseteq \R^{n+1} \to \R^n$. Dann erfüllt $f$ eine L-Bed. Mit $L>0$, wenn gilt:
+\begin{equation*}
+	\norm{f(x,y_1) - f(x, y_2)} < L \cdot \norm{y_1-y_2}\ \forall 
+	\begin{pmatrix}
+		x, y_1
+	\end{pmatrix},
+	\begin{pmatrix}
+		x, y_2
+	\end{pmatrix} \in M
+\end{equation*}
+
+\subsection{Bemerkung}
+Welche Norm hier verwendet wird ist egal, denn es existiert ein $c_1, c_2$ mit
+\begin{equation*}
+	c_1 \norm{\cdot}_\infty \leq \norm{\cdot} \leq c_2 \norm{\cdot}
+\end{equation*}
+
+\subsection{Satz von Picard-Lindelöf}
+Seien $r,s > 0; x_0 \in \R, y_0 = (y_1^{(0)}, \ldots, y_n^{(n)})^T \in \R^n$ und $M = \{
+(x, y_1, \ldots, y_n)^T\in \R^n: x \in [x_0, x_0 + r], y_k \in [y_k^{(0)}-s, y_k^{(0)}+s]\}$
+und $f: G \to \R^n$ stetig.
+
+Falls $f$ auf $M$ eine L-Bed. erfüllt so exitiert auf $I = [x_0, x_0 + \alpha]$ mit $\alpha = \min \{r, \frac{s}{c} \}$
+für
+\begin{equation*}
+	c := \max_{(x,y)^T \in M} \norm{f(x,y)}_\infty
+\end{equation*}
+
+\subsection{Satz von Peano}
+Falls die L-Bed. im Satz von Picard-Lindelöf nicht erfüllt ist, alle anderen Vorraussetzungen aber gelten kann man auf
+$I = [x_0, x_0 + \alpha]$ (mit $\alpha$ wie oben) trotzdem die Existenz einer Lösung zeigen, nicht aber deren Eindeutigkeit.
+
+\subsection{Stabilität}
+Analog gilt, falls $f$ eine L-Bed. erfüllt und eine Lösung existiert:
+\begin{equation*}
+	\norm{y_1(x) - y_2(x)}_\infty \leq (\norm{y_0 - \tilde{y_0}}_\infty c (x-x_0)) \exp{\left(L(x-x_0)\right)}
+\end{equation*}
+dabei ist $y_1$ Lösung von $y'=f_1(x,y), y(x_0)=y_0$ und $y'=f_2(x,y), y(x_0) = \overline{y_0}$
+
+\section{Lineare DGL-Systeme 1. Ordnung}
+\subsection{Definition}
+Ein DGL System der Form
+\begin{equation*}
+	\begin{pmatrix}
+		y_1'(x) \\ \vdots \\ y_n'(x)
+	\end{pmatrix} = 
+	\begin{pmatrix}
+		a_{11}(x) & \cdots & a_{1n}(x) \\
+		\vdots & \ddots & \vdots \\
+		a_{n1}(x) & \cdots & a_{nn}(x)
+	\end{pmatrix}
+	\begin{pmatrix}
+		y_1(x) \\ \vdots \\ y_n(x)
+	\end{pmatrix} +
+	\begin{pmatrix}
+		b_1(x) \\ \vdots \\ b_n(x)
+	\end{pmatrix}
+\end{equation*}
+oder in kurz:
+\begin{equation*}
+	y'(x) = A(x) y(x) + b(x)
+\end{equation*}
+mit stetigen Funktionen $a_{ij}: I \to \R, b_i:I \to \R\ \forall i,j \in \{1, \ldots, n\},\ I \subseteq \R$ ein Intervall heißt ein lineares DGL-System 1. Ordnung.
+
+\subsection{Definition Frobenius-Norm}
+Für $A \in \R^{m \times n}$ ist durch
+\begin{equation*}
+	\norm{A}_F = \sqrt{\sum_{i=1}^n \sum_{j=1}^n \abs{a_{ij}}^2}
+\end{equation*}
+die sogenannte Frobenius-Norm $\norm{\cdot}_F: \R^{m \times n} \rightarrow \R$ definiert.
+
+\subsection{Matrixnorm und Vektornorm}
+\begin{enumerate}[label= (\alph*)]
+	\item $\norm{\cdot}_F$ ist eine Vektornorm auf dem Vektorraum $\R^{m \times n}$ (oder $\C^{m \times n}$)
+	\item Die Matrix-Norm $\norm{\cdot}_F$ ist bezüglich der Vektornorm $\norm{\cdot}_2$ submultiplikativ, d.h. es gilt
+		\begin{equation*}
+			\norm{A \cdot x}_2 \leq \norm{A}_F \cdot \norm{x}_2
+		\end{equation*}
+	\item Bezüglich einer beliebigen Vektornorm auf $\R^n$ gilt:
+		\begin{equation*}
+			\norm{A x} \leq c_1 \norm{A x}_2 \leq \norm{A}_F \norm{x}_2 \leq c_2 \norm{A}_F \norm{x}
+		\end{equation*}
+\end{enumerate}
+
+\subsection{Grenznorm}
+Die sogenannte Grenznorm für eine Matrix-Norm wird bezüglich einer Vektornorm $\norm{\cdot}$ so definiert:
+\begin{equation*}
+	\norm{A} := \sup_{x \in \R^n \land x\neq \vec{0}} \frac{\norm{A x}}{\norm{x}} = \max_{\norm{x}=1} \norm{A x}
+\end{equation*}
+Daraus folgt:
+\begin{equation*}
+	\norm{A x} \leq \norm{A} \norm{x}
+\end{equation*}
+und für mindestens ein $x$ gilt $=$ (d.h die Abschätzung ist scharf).
+
+Die Bezeichnung der Grenznorm wird von der Vektornorm übernommen. Es gilt also:
+\begin{equation*}
+	\norm{A}_p = \sup_{x \in \R^n \land x \neq \vec{0}} \frac{\norm{A x}_p}{\norm{x}_p}
+\end{equation*}
+die Grenznorm bezüglich $\norm{\cdot}_p$.
+
+\subsubsection{Bemerkung}
+Es gilt:
+\begin{equation*}
+	\norm{A}_2 \leq \norm{A}_F
+\end{equation*}
+
+\subsection{Lösungsmengen von linearen Gleichungssystemen}
+\begin{enumerate}[label= (\alph*)]
+	\item Die Lösungsmenge von $y' = A(x) y$ ist ein Unterraum des Vektorraums der stetigen Funktionen
+	\item Die Lösungsmenge von $y' = A(x) y + b(x)$ ist ein affiner Unterraum des Vektorraums der stetigen Funktionen
+\end{enumerate}
+
+\subsection{Definition Fundamentalsystem}
+Sei $I \subseteq \R$ ein nicht entartetes Intervall und $A: I \to \R^{n \times n}$ stetig
+\begin{enumerate}[label= (\alph*)]
+	\item Eine Basis des Lösungsraums von $y' = A(x) y$ heißt Fundamentalsystem (FS). Ist $y_1, \ldots, y_n$ so ein FS,
+		dann heißt die Matrix 
+		\begin{equation*}
+			Y(x) = (y_1(x), \ldots, y_n())
+		\end{equation*}
+		die Fundamentalmatrix
+	\item Für $y_1, \ldots, y_n: I \to \R^n$ heißt $W: I \to \R$ mit $W(x) = \det (Y(x))$ die Wronski-Determinante
+		des Fundamentalsystems.
+\end{enumerate}
+
+\subsection{Definition Determinante}
+Eine Funktion $\det: \R^{n \times n} \to \R$ heißt Determinante, wenn gilt
+\begin{enumerate}[label= (\alph*)]
+	\item Mit $I$ der Einheitsmatrix:
+		\begin{equation*}
+			\det(I) = 1
+		\end{equation*}
+	\item $\det$ ist linear in jeder Spalte, d.h. für $1\leq l \leq n$ gilt:
+		\begin{equation*}
+			\det(a_1 \ldots, a_{l-1}, \alpha x + \beta y, a_{l+1}, \ldots, a_n) =
+			\alpha \det(a_1 \ldots, a_{l-1}, x, a_{l+1}, \ldots, a_n) + 
+			\beta \det(a_1 \ldots, a_{l-1}, y, a_{l+1}, \ldots, a_n)
+		\end{equation*}
+	\item Spalten tauschen ändert Vorzeichen:
+		\begin{equation*}
+			\det(a_1, \ldots, a_i, \ldots, a_j, \ldots, a_n) =
+			\det(a_1, \ldots, a_j, \ldots, a_i, \ldots, a_n)
+		\end{equation*}
+\end{enumerate}
+
+\subsection{Entwicklungssatz von Laplace}
+Sei $A \in \R^{n \times n}$ und bezeichne $A_{ij}$ die $(n-1)\times(n-1)$ Matrix, die aus $A$ durch Streichen
+der $i$-ten Zeile und $j$-ten Spalte entsteht. Die Einträge von $A$ bezeichnen wir mit $A = (a_{ij})_{1 \leq i,j \leq n}$. Dann gilt:
+\begin{enumerate}[label= (\alph*)]
+	\item Für $j \in \{1, \ldots, n \}$ beliebig aber fest ist
+		\begin{equation*}
+			\det(A) = \sum_{i=1}^n a_{ij} \det{A_{ij}} {(-1)}^{i+j}
+		\end{equation*}
+	\item Für $i \in \{1, \ldots, n \}$ beliebig aber fest ist
+		\begin{equation*}
+			\det(A) = \sum_{j=1}^n a_{ij} \det{A_{ij}} {(-1)}^{i+j}
+		\end{equation*}
+\end{enumerate}
+
+\subsection{Leibniz-Formel für Determinanten}
+Sei $A \in \R^{n \times n}$ und bezeichne $S_n$ die Gruppe der Permutationen von
+$\{1, \ldots, n\}$ und sei $\sgn(\sigma)$ definiert durch $\sgn: S_n \to \{-1, 1\}$:
+\begin{equation*}
+	\sgn{\sigma} = \begin{cases}
+		1 & \text{ falls $\sigma$ durch eine gerade Anzahl Permutationen entsteht} \\
+		-1 & \text{ sonst}
+	\end{cases}
+\end{equation*}
+wobei eine Transposition einer paarweisen Vertauschung entspricht.
+
+Dann gilt:
+\begin{equation*}
+	\det(A) = \det((a_{ij})_{1\leq  i,j \leq n}) = 
+	\sum_{\sigma \in S_n} \sgn(\sigma) \prod_{k=1}^n a_{k\sigma(k)}
+\end{equation*}
+
+\subsection{Berechnung der Wronski-Determinante ohne bekanntes FS}
+Für die Wronski-Determinante gilt (d.h. FS existiert, sonst ist Wronski-Determinante nicht
+definiert):
+\begin{enumerate}[label= (\alph*)]
+	\item $W(x)$ kann durch eine lineare DGL 1. Ordnung bestimmt werden:
+		\begin{equation*}
+			W'(x) = \operatorname{spur}(A(x)) \cdot W(x)
+		\end{equation*}
+		mit
+		\begin{equation*}
+			\operatorname{spur}(A) = \sum_{i=1}^n a_{ii}
+		\end{equation*}
+	\item
+		Durch Lösen der DGL folgt:
+		\begin{equation*}
+			W(x) = W(x_0) \cdot \exp\left(\int_{x_0}^x \operatorname{spur}(A(t)) \dt \right)
+		\end{equation*}
+\end{enumerate}
+
+\subsubsection{Bemerkung}
+Falls $y' = A(x) y$ eine Anfangsbedingung hat ist $W(x_0)$ durch die Anfangsbedinung bekannt, dadurch ist
+$W(x)$ bekannt.
+
+
+\subsection{Ableitung der Determinante}
+Sei $I \subseteq \R$ ein nicht-entartetes Interval und $A(x)$ (komponentenweise) differentierbar auf
+$I$, dann ist $\det(A(x))$ differentierbar und es gilt:
+\begin{equation*}
+	\ddx \det(A(x)) = \sum_{i=1}^n \det \begin{pmatrix}
+		a_{11}(x) & \cdots & a_{1n}(x)\\
+		& \vdots \\
+		a_{i-1,1}(x) & \cdots & a_{i-1,n}(x)\\
+		a'_{i1}(x) & \cdots & a'_{in}(x)\\
+		a_{i+1,1}(x) & \cdots & a_{i+1,n}(x)\\
+		& \vdots \\
+		a_{n1}(x) & \cdots & a_{nn}(x)\\
+	\end{pmatrix}
+\end{equation*}
+
+
+\subsection{Äquivalente Aussagen zu FSen und Wronski-Determinaten}
+Sei $I \subseteq \R$ ein nicht entartetes Interval, $A: I \to \R^{n \times n}$ stetig.
+Sind $y_1, \ldots, y_n$ Lösungen von $y' = A(x)  y$ und bezeichne $W(x) = \det(y_1(x), \ldots, y_n(x))$
+dann sind folgende Aussagen äquivalent:
+\begin{enumerate}[label= (\alph*)]
+	\item $y_1, \ldots, y_n$ bilden ein FS
+	\item $W(x) \neq 0\ \forall x \in I$
+	\item $\exists x_0 \in I: W(x_0) \neq 0$
+\end{enumerate}		
+
+\subsection{Partikuläre Lösung aus Wronksi-Determinante}
+Sei $I \subseteq \R$ ein nicht entartetes Intervall, $A: I \to \R^{n \times n}$ stetig und $b: I \to \R^n$
+stetig, weiter sei $y_1, \ldots, y_n$ ein FS des homogenen Systems $y' = A(x) y$.
+
+Dann ist:
+\begin{equation*}
+	y_p: I \to \R^n \text{ mit } y_p(x) = \sum_{k=1}^n y_k(x) \int_{x_0}^x \frac{W_k(t)}{W(t)} \dt
+\end{equation*}
+mit $x_0 \in I$ beliebig und 
+\begin{equation*}
+	W_k(x) = \det(y_1(x), \ldots, y_{k-1}(x), b(x), y_{k+1}(x), \ldots, y_n(x))
+\end{equation*}
+eine Lösung des inhomogenen Systems
+\begin{equation*}
+	y'(x) = A(x) y(x) + b(x)
+\end{equation*}
