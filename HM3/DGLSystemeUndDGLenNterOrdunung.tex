@@ -341,3 +341,121 @@ eine Lösung des inhomogenen Systems
 \begin{equation*}
 	y'(x) = A(x) y(x) + b(x)
 \end{equation*}
+
+\section{Lineare DGL-Systeme 1. Ordnung mit konstanten Koeffizienten}
+Für $A \in \R^{n \times n}$ betrachtet man $y' = A y + b(x)$
+bzw. $y' = A y$. Ein FS von $y' = A y$ liefert eine partikuläre Lösung von
+$y' = A y + b(x)$.
+
+\subsection{Definition Eigenwerte und Eigenvektoren}
+Sei $A \in \K^{n\times n}$ (mit $\K = \R$ oder $\K = \C$), dann heißt ein $\lambda \in \K$
+Eigenwert von $A$, wenn ein $v \in \K^n\backslash\{\vec{0}\}$ existiert mit
+\begin{equation*}
+	A v = \lambda v
+\end{equation*}
+
+\subsubsection{Bemerkung}
+\begin{enumerate}[label= (\alph*)]
+	\item Ein Eigenvektor $v$ zum Eigenwert $\lambda$ existiert genau dann, wenn
+		\begin{equation*}
+			p_A(\lambda) := \det(A - \lambda - I) = 0
+		\end{equation*}
+		ist.
+	\item Offensichtlich gilt: Ist $v$ ein Eigenvektor zum Eigenwert $\lambda$ so ist auch 
+		$\alpha v$ ein Eigenvektor zu $\lambda$.
+	\item Offensichtlich ist $y = v \cdot \exp{\lambda}$ eine Lösung der homogenen DGL $y' = A y$
+		wenn $v$ eine Eigenvektor von $A$ und $\lambda$ ein zugehöriger Eigenwert ist.
+\end{enumerate}
+
+\subsection{Algebraische und Geometrische Vielfachheit}
+Ist $\lambda$ ein Eigenwert von $A \in \K^{n \times n}$, dann ist
+\begin{enumerate}[label= (\alph*)]
+	\item Die Algebraische Vielfachheit von $\lambda$ die Ordnung der Nullstelle von $p_A(\lambda)$
+	\item Die Geometrische Vielfachheit von $\lambda$ die Dimension von $\Kern(A-\lambda I)$, also die
+		Anzahl der linear Unabhängigen Lösungen von $A - \lambda I = \vec{0}$.
+\end{enumerate}
+
+\subsection{Diagonalisierbarkeit}
+Falls zu einer Matrix $A \in \K^{n \times n}$ eine reguläre Matrix $V \in \K^{n \times n}$ existiert mit
+\begin{equation*}
+	V^{-1} A V = \operatorname{diag}(\lambda_1, \ldots, \lambda_n) = 
+	\begin{pmatrix}
+		\lambda_1 & 0 & \cdots & 0 & 0 \\
+		0 & \lambda_2 & \cdots & 0 & 0 \\
+		\vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & \cdots & \lambda_{n-1} & 0\\
+		0 & 0 & \cdots & 0 & \lambda{n}
+	\end{pmatrix}
+\end{equation*}
+so heißt $A$ diagonalisierbar.
+
+\subsubsection{Bemerkung}
+\begin{enumerate}[label= (\alph*)]
+	\item Es gilt:
+		\begin{eqnarray*}
+			V^{-1} A V &=& \operatorname{diag}(\lambda_1, \ldots, \lambda_n)\\
+			\Leftrightarrow A V &=& \operatorname{diag}(\lambda_1, \ldots, \lambda_n) V \\
+			\Leftrightarrow (A  \cdot v_1, \ldots, A \cdot v_n) &=& (\lambda_1 v_1, \ldots, \lambda_n v_n)
+			\Leftrightarrow A v_k = \lambda_k v_k\ \forall k \in \{1, \ldots, n\}
+		\end{eqnarray*}
+		d.h $V$ besteht aus den Eigenvektoren von $A$ und die Diagonalmatrix aus den Zugehörigen Eigenwerten.
+	\item Ist $A$ diagonalisierbar, dann gilt:
+		\begin{eqnarray*}
+			A^l = (V D V^{-1}) (V D V^{-1}) \cdots (V D V^{-1}) = V D^l V^{-1} = V 
+			\operatorname{diag}(\lambda_1^l, \ldots, \lambda_n^l) V^{-1}
+		\end{eqnarray*}
+	\item So ein $V$ existiert nur wenn $n$-linear Unabhängige Eigenvektoren existieren, da die Matrix $V$ sonst nicht
+		invertierbar ist.
+	\item Selbst wenn $A$ eine reele Matrix ist sind die Eigenwerte und -vektoren im Allgemeinen Komplex
+	\item Bei einer Matrix mit reelen Koeffizienten gilt stets $\lambda$ ist Eigenwert $\Rightarrow \overline{\lambda}$
+		ist ebenfalls Eigenwert.
+	\item Das heißt aus dem FS einer Reelen Matrix lässt sich stets ein reeles Fundamentalsystem konstruieren.
+\end{enumerate}
+
+\subsection{Submultiplikativität von $\norm{\cdot}_F$}
+Für $A,B \in \C^{n \times n}$ gilt
+\begin{eqnarray*}
+	\norm{A B}_F \leq \norm{A}_F \norm{B}_F
+\end{eqnarray*}
+mit $\norm{A}_F = \sum_{i=1}^n \sum_{j=1}^n \sqrt{ \abs{a_{ij}}^2}$
+
+\subsubsection{Bemerkung}
+Es gilt also auch, dass
+\begin{eqnarray*}
+ 	\norm{A^k}_F \leq \norm{A}_F^k
+\end{eqnarray*}
+
+\subsection{Folgenkonvergenz für Matrizen}
+Sei ${(A_k)}_{k=1}^\infty$ eine Folge in $\C^{n \times n}$, dann konvergiert die Folge gegen $A \in \C^{n \times n}$,
+wenn gilt:
+\begin{eqnarray*}
+	\forall \varepsilon > 0: \exists k(\varepsilon): \norm{A_k - A}_F < \varepsilon\ \forall k \geq k(\varepsilon)
+\end{eqnarray*}
+
+\subsubsection{Bemerkung}
+\begin{enumerate}[label= (\alph*)]
+	\item Da $\C^{n \times n}$ ein endlicher Vektorraum ist könnte man eine beliebige Matrix-Norm wählen
+	\item In $\C^{n \times n}$ konvergiert jede Cauchy-Folge
+	\item Für eine Reihe $\sum_{k=0}^\infty A_k$ definiert man die Konvergenz über die Konvergenz der Partialsummen
+		$B_l := \sum_{k=0}^l A_k$
+\end{enumerate}
+
+\subsection{Definition Matrix-Exponentialfunktion}
+Für $A \in \C^{n \times n}$ definieren wir die Matrix Exponentialfunktion durch:
+\begin{eqnarray*}
+	\exp: \C^{n \times n} \to \C^{n \times n}, A \mapsto \exp(A) = \sum_{k=0}^\infty \frac{A^k}{k!}
+\end{eqnarray*}
+
+\subsubsection{Bemerkung}
+$e^A = \exp(A)$ lässt sich leicht ausrechnen, wenn $A$ diagonalierbar ist.
+
+\subsection{Rechenregeln Matrix-Exponentialfunktion}
+Es gilt:
+\begin{enumerate}[label= (\alph*)]
+	\item $e^{A+B} = e^A + e^B$ für alle $A,B \in \C^{n \times n}$
+	\item ${(e^A)}^{-1} = e^{-A}$ für alle $A \in \C^{n \times n}$
+		d.h. $e^A$ ist stets invertierbar. 
+\end{enumerate}
+
+\subsection{Zusammenhang Matrix Exponentialfunktion und FS}
+Sei $A \in \R^{n \times n}$ dann ist $Y(x) = \exp{(x A)}$ ein FS von $y' = Ay$
