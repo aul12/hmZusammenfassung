@@ -400,10 +400,10 @@ so heißt $A$ diagonalisierbar.
 		\end{eqnarray*}
 		d.h $V$ besteht aus den Eigenvektoren von $A$ und die Diagonalmatrix aus den Zugehörigen Eigenwerten.
 	\item Ist $A$ diagonalisierbar, dann gilt:
-		\begin{eqnarray*}
+		\begin{equation*}
 			A^l = (V D V^{-1}) (V D V^{-1}) \cdots (V D V^{-1}) = V D^l V^{-1} = V 
 			\operatorname{diag}(\lambda_1^l, \ldots, \lambda_n^l) V^{-1}
-		\end{eqnarray*}
+		\end{equation*}
 	\item So ein $V$ existiert nur wenn $n$-linear Unabhängige Eigenvektoren existieren, da die Matrix $V$ sonst nicht
 		invertierbar ist.
 	\item Selbst wenn $A$ eine reele Matrix ist sind die Eigenwerte und -vektoren im Allgemeinen Komplex
@@ -414,23 +414,23 @@ so heißt $A$ diagonalisierbar.
 
 \subsection{Submultiplikativität von $\norm{\cdot}_F$}
 Für $A,B \in \C^{n \times n}$ gilt
-\begin{eqnarray*}
+\begin{equation*}
 	\norm{A B}_F \leq \norm{A}_F \norm{B}_F
-\end{eqnarray*}
+\end{equation*}
 mit $\norm{A}_F = \sum_{i=1}^n \sum_{j=1}^n \sqrt{ \abs{a_{ij}}^2}$
 
 \subsubsection{Bemerkung}
 Es gilt also auch, dass
-\begin{eqnarray*}
+\begin{equation*}
  	\norm{A^k}_F \leq \norm{A}_F^k
-\end{eqnarray*}
+\end{equation*}
 
 \subsection{Folgenkonvergenz für Matrizen}
 Sei ${(A_k)}_{k=1}^\infty$ eine Folge in $\C^{n \times n}$, dann konvergiert die Folge gegen $A \in \C^{n \times n}$,
 wenn gilt:
-\begin{eqnarray*}
+\begin{equation*}
 	\forall \varepsilon > 0: \exists k(\varepsilon): \norm{A_k - A}_F < \varepsilon\ \forall k \geq k(\varepsilon)
-\end{eqnarray*}
+\end{equation*}
 
 \subsubsection{Bemerkung}
 \begin{enumerate}[label= (\alph*)]
@@ -442,9 +442,9 @@ wenn gilt:
 
 \subsection{Definition Matrix-Exponentialfunktion}
 Für $A \in \C^{n \times n}$ definieren wir die Matrix Exponentialfunktion durch:
-\begin{eqnarray*}
+\begin{equation*}
 	\exp: \C^{n \times n} \to \C^{n \times n}, A \mapsto \exp(A) = \sum_{k=0}^\infty \frac{A^k}{k!}
-\end{eqnarray*}
+\end{equation*}
 
 \subsubsection{Bemerkung}
 $e^A = \exp(A)$ lässt sich leicht ausrechnen, wenn $A$ diagonalierbar ist.
@@ -459,3 +459,200 @@ Es gilt:
 
 \subsection{Zusammenhang Matrix Exponentialfunktion und FS}
 Sei $A \in \R^{n \times n}$ dann ist $Y(x) = \exp{(x A)}$ ein FS von $y' = Ay$
+
+\subsection{Cayley Hamilton}
+Sei $A \in \R^{n \times n}$ und $p_A(\lambda) = \det(\lambda I - A)$, dann gilt für die zugeordnete Matrix-Funktion $p_A(A) = \vec{0}$.
+
+\subsection{Algorithmus von Putzer}
+Sei $A \in \R^{n \times n}$ mit Eigenwerten $\lambda_1, \ldots, \lambda_n \in \C$.
+
+Definiere
+\begin{equation*}
+	B_j := \prod_{k=1}^{j-1} (A - \lambda_k I)\ \ j\in\{1, \ldots, n+1\}
+\end{equation*}
+und Funktionen $v_1, \ldots, v_n: \R \to \C$ mit
+\begin{eqnarray*}
+	v_k(x) = \begin{cases}
+		e^{\lambda_1 x} & \text{ für } k = 1 \\
+		v_k' = \lambda_k v_k + v_{k-1}\ \land\ v_k(0) = 0 &
+		\text{ sonst}
+	\end{cases}
+\end{eqnarray*}
+dann ist
+\begin{equation*}
+	e^{xA} = \sum_{j=1}^n v_j(x) B_j
+\end{equation*}
+
+\subsubsection{Bemerkung}
+So kann also $e^{xA}$ berechnet werden, wenn $A$ nicht diagonaliserbar ist.
+
+\subsection{Jordan-Blöcke}
+Eine Matrix $A \in \R^{n \times n}$ mit
+\begin{equation*}
+	A = \begin{pmatrix}
+		1 & 1 & 0 & \cdots & 0 & 0 & 0 \\
+		0 & 1 & 1 & \cdots & 0 & 0 & 0 \\
+		0 & 0 & 1 & \cdots & 0 & 0 & 0 \\
+		\vdots & \vdots & \vdots & \ddots & \ddots & \vdots & \vdots \\
+		0 & 0 & 0 & \cdots & 1 & 1 & 0 \\
+		0 & 0 & 0 & \cdots & 0 & 1 & 1 \\
+		0 & 0 & 0 & \cdots & 0 & 0 & 1
+	\end{pmatrix}
+\end{equation*}
+nennt man Jordan-Block. Solche Matrizen sind nicht diagonalisierbar, d.h. es muss Putzer verwendet werden.
+
+\section{Differentialgleichungen höherer Ordnung}
+\subsection{Differentialgleichungen höhere Ordnung}
+Sei $G \subseteq \R^{n+1}$ und $f: G \to \R$ stetig. Eine Funktion $y: I \subseteq \R \to \R$ heißt Lösung von
+\begin{equation*}
+	y^{(n)} = f(x, y', \ldots, y^{(n-1)})
+\end{equation*}
+wenn $y$ auf dem Intervall $I$ $n$-mal differentierbar ist und
+\begin{enumerate}
+	\item 
+		\begin{equation*}
+			\begin{pmatrix}
+				x \\ y(x) \\ y'(x) \\ \vdots \\ y^{(n-1)}(x)
+			\end{pmatrix}
+			\in G\ \forall x \in I
+		\end{equation*}
+		und es gilt
+		\begin{eqnarray*}
+			y'(x) &=& y_1'(x) \\
+			&\vdots& \\
+			y^{(n-1)}(x) &=& y_{n-1}'(x)\\
+			y_n'(x) &=& y^{(n)}(x) = f(x, y(x), y'(x), \ldots, y^{(n-1)}(x)) = f(x, y_1(x), \ldots, y_n(x))
+		\end{eqnarray*}
+\end{enumerate}
+
+\subsection{Picard-Lindelöf für DGLen höherer Ordnung}
+Eine DGL $n$-ter Ordnung $y^{(n)} = f(x, y, y', \ldots, y^{(n-1)})$ mit Anfangsbedingung 
+$y(x_0) = b_1, y'(x_0) = b_2, \ldots, y^{(n-1)}(x_0) = b_n$ ist eindeutig lösbar, wenn $f$ die L-Bed.:
+\begin{equation*}
+	\exists L > 0: \abs{f(x, y_1, \ldots, y_n) - f(x, \tilde{y_1}, \ldots, \tilde{y_n})} < L
+	\norm{\begin{pmatrix}
+		y_1 \\ \vdots \\ y_n
+	\end{pmatrix}} -
+	\begin{pmatrix}
+		\tilde{y_1} \\ \vdots \\ \tilde{y_n}
+	\end{pmatrix}
+\end{equation*}
+erfüllt.
+
+\subsection{Definition lineare DGL n-ter Ordnung}
+Seien $a_k: I \to \R$ stetige Funktionen für $k\in \{0, \ldots, n-1\}$, dann heißt eine DGL der Form
+\begin{equation*}
+	y^{(n)} + \sum_{k=0}^{n+1} a_k(x) y_{(k)} = h(x)
+\end{equation*}
+eine lineare DGL n-ter Ordnung. Falls $h(x) \cong 0$ gilt nennt man dies eine homogene DGL, sonst einen inhomogene DGL.
+Das zugehörige AWP hat Anfangsbedinungen $y(x_0) = \eta_1, \ldots, y^{(n-1)}(x_0) = \eta_n$.
+
+\subsection{DGL-System zu einer linearen DGL n-ter Ordnung}
+Bei einer linearen DGL n-ter Ordnung lautet das zugehörige System der homogenen DGL $n$-ter Ordnung
+\begin{equation*}
+	\vec{y}' = \begin{pmatrix}
+		y_1' \\ \vdots \\ y_n'
+	\end{pmatrix}
+	= F(x,\vec{y}) = A(x) \begin{pmatrix}
+		y_1 \\ \vdots \\ y_n
+	\end{pmatrix}
+\end{equation*}
+mit
+\begin{equation*}
+	A(x) = \begin{pmatrix}
+		0 & 1 & 0 & \cdots & 0 & 0 & 0 \\
+		0 & 0 & 1 & \cdots & 0 & 0 & 0 \\
+		0 & 0 & 0 & \cdots & 0 & 0 & 0 \\
+		\vdots & \vdots & \vdots & \ddots & \ddots & \vdots & \vdots \\
+		0 & 0 & 0 & \cdots & 0 & 1 & 0 \\
+		0 & 0 & 0 & \cdots & 0 & 0 & 1 \\
+		-a_0(x) & -a_1(x) & -a_2(x) & \cdots & -a_{n-3}(x) & -a_{n-2}(x) & -a{n-1}(x)
+	\end{pmatrix}
+\end{equation*}
+die Arte der Matrix von $A(x)$ heißt Frobenius-Matrix.
+
+Bei einer inhomogenen linearen DGL $n$-ter Ordnung lautet das System:
+\begin{equation*}
+	\vec{y}' = A(x) \vec{y} + b(x)
+\end{equation*}
+mit $A(x)$ wie oben und
+\begin{equation*}
+	b(x) = \begin{pmatrix}
+		0 \\ \vdots \\ 0 \\ h(x)
+	\end{pmatrix}
+\end{equation*}
+
+\subsection{FS und Wronski-Determinante}
+Schreibt man eine linear DGL $n$-ter Ordnug in ein System 1. Ordnung um, so können Begriffe wie Wronski-Determinante und FS entsprechend
+übertragen werden.
+
+\subsection{Definiton FS und Wronski-Determinante}
+Sei $I  \subseteq \R$ ein Intervall mit $\abs{I} > 0$ und $a_0, \ldots, a_{n-1}: I \to \R$ stetig. Sind $y_1, \ldots, y_n$
+(homogene) Lösungen von
+\begin{equation*}
+	y^{(n)} + \sum_{k=0}^{n-1} a_k(x) y^{(k)} = 0
+\end{equation*}
+\begin{enumerate}[label= (\alph*)]
+	\item Die Lösungen $y_1, \ldots, y_n$ heißen Fundamentalsystem wenn $y_1, \ldots, y_n$ linear unabhängig sind.
+	\item Wir definieren $W: I \to \R$ mit
+		\begin{equation*}
+			W(x) = \det \begin{pmatrix}
+				y_1(x) & \cdots & y_n(x) \\
+				y_1'(x) & \cdots & y_n'(x) \\
+				\vdots & \vdots & \vdots \\
+				y_1^{(n-1)}(x) & \cdots & y_n^{(n-1)}(x)
+			\end{pmatrix}
+		\end{equation*}
+		und nennen diese Funktion die Wronski-Determinante (von $y_1, \ldots, y_n$).
+\end{enumerate}
+
+\subsection{Lösungsraum linearer DGLen n-ter Ordnung}
+Sei $y^{(n)} + \sum_{k=0}^{n-1} a_k(x) y^{(k)} = h(x)$ eine lineare DGL $n$-ter Ordnung mit $a_0, \ldots, a_{n-1}: I \to \R$ stetig auf
+$I \subseteq \R$ ($I$ ein Intervall mit $\abs{I}>0$).
+\begin{enumerate}[label= (\alph*)]
+	\item Die Lösungsmenge von homogenen Problemen $y^{(n)} + \sum_{k=0}^{n-1} a_k(x) y^{(k)} = 0$ ist ein Unterraum von $C^n(I)$
+	\item Ist $y_p$ eine partikuläre Lösung d.h. Lösung von $y^{(n)} + \sum_{k=0}^{n-1} a_k(x) y^{(k)} = h(x)$ und $y: I \to \R$ eine
+		weitere partikuläre Lösung, dann ist $y-y_p$ eine homogene Lösung.
+\end{enumerate}
+
+\subsubsection{Bemerkung}
+Diese Aussagen kann man nutzen um ein AWP zu lösen:
+\begin{enumerate}
+	\item $y_p$ und FS $y_1, \ldots, y_n$ (also Basis des homogenen Lösungsraums bestimmen).
+	\item Mit $y = y_p + \alpha_1 y_1 + \ldots + \alpha_n y_n$ hat man die allgemeine Lösung die mit
+		$y(x_0) = \eta_1, y'(x_0) = \eta_2, \ldots, y^{(n-1)}(x_0) \eta_n$ die $\alpha_1, \ldots, \alpha_n$ als Lösung eines LGS bestimmt
+		werden können. 
+\end{enumerate}
+
+\subsection{Lösungen und Wronksi-Determninanten}
+Sind $y_1, \ldots, y_n$ (homogene) Lösungen von $y^{(n)} + \sum_{k=0}^{n-1} a_k(x) y^{(k)} = 0$ mit Wronski-Det $W: I \to \R, x\mapsto W(x)$,
+dann gilt
+\begin{enumerate}[label= (\alph*)]
+	\item $W'(x) = -a{n-1}(x) W(x)$ und deshalb
+		$W(x) = W(x_0) \exp \left( \int_{x_0}^x -a_{n-1}(t) \dt \right)$
+	\item Folgende Aussagen sind äquivalent
+		\begin{enumerate}
+			\item $y_1, \ldots, y_n$ bilden ein FS
+			\item $W(x) \neq 0\ \forall x \in I$
+			\item $\exists x  \in I: W(x)  \neq 0$ 
+		\end{enumerate}
+	\item Eine Lösung von $y^{(n)} + \sum_{k=0}^{n-1} a_k(x) y^{(k)} = h(x)$ ist bestimmt durch
+		$y_p = \sum_{k=1}^n c_k(x) y_k(x)$ mit
+		\begin{enumerate}
+			\item $y_1, \ldots, y_n$ einem Fundamentalsystems der homogenen DGL
+			\item
+				\begin{equation*}
+					c_k(x) = \int^x  \frac{W_k(t)}{W(t)} \dt
+				\end{equation*} 
+			\item Dabei ist $W_k: I \to \R$ definiert als
+				\begin{equation*}
+					W_k(x) = \det \begin{pmatrix}
+						y_1(x) & \cdots & y_{k-1}(x) & 0 & y_{k+1}(x) & \cdots & y_n(x) \\
+						y_1'(x) & \cdots & y_{k-1}'(x) & 0 & y_{k+1}'(x) & \cdots & y_n'(x) \\
+						\vdots & \cdots & \vdots & \vdots & \vdots & \cdots & \vdots \\
+						y_1^{(n-2)}(x) & \cdots & y_{k-1}^{(n-2)}(x) & 0 & y_{k+1}^{(n-2)}(x) & \cdots & y_n^{(k-2)}(x)\\  
+						y_1^{(n-1)}(x) & \cdots & y_{k-1}^{(n-1)}(x) & h(x) & y_{k+1}^{(n-1)}(x) & \cdots & y_n^{(k-1)}(x)\\  
+					\end{pmatrix}
+				\end{equation*}
+		\end{enumerate}
+\end{enumerate}
