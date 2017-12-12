@@ -656,3 +656,56 @@ dann gilt
 				\end{equation*}
 		\end{enumerate}
 \end{enumerate}
+
+\section{Lineare DGLen n-ter Ordnung mit konstanten Koeffizienten}
+\subsection{Charakterisitisches Polynom einer Frobenius Matrix}
+Seien $a_0, \ldots, a_{n-1} \in \C$ und $A$ eine Frobenius Matrix mit
+\begin{equation*}
+	A = \begin{pmatrix}
+		0 & 1 & 0 & \cdots & 0 & 0 & 0 \\
+		0 & 0 & 1 & \cdots & 0 & 0 & 0 \\
+		0 & 0 & 0 & \ddots & 0 & 0 & 0 \\
+		\vdots & \vdots & \vdots & \ddots & \ddots & \vdots & \vdots \\
+		0 & 0 & 0 & \cdots & 0 & 1 & 0 \\
+		0 & 0 & 0 & \cdots & 0 & 0 & 1 \\
+		-a_0 & -a_1 & -a_2 & \cdots & -a_{n-3} & -a_{n-2} & -a_{n-1}
+	\end{pmatrix}
+\end{equation*}
+dann ist $p_A(\lambda) = \det(\lambda I - A) = \lambda^n + \sum_{k=0}^{n-1} a_k \lambda^k$.
+
+\subsection{Zusammenhang Nullstellen des char. Polynoms und Lösung der (hom.) DGL}
+Seien $a_0, \ldots, a_{n-1} \in \R$ und $L(y) := y^{(n)} + \sum_{k=0}^{n-1} a_k y^{(k)}$ mit
+$L: C^{(n)}(\R) \to C(\R)$ dann gilt:
+\begin{enumerate}[label= (\alph*)]
+	\item $L(e^{\lambda x}) = p_A(\lambda) \cdot e^{\lambda x}$
+	\item Wenn $p_A(\lambda) = 0$ ist, dann ist $y(x) = e^{\lambda x}$ eine Lösung von $L(y) = 0$
+\end{enumerate}
+
+\subsection{FS für lineare DGLen n-ter Ordnung mit konstanten Koeffizienten}
+Seien $a_0, \ldots, a_{n-1} \in \R, L(y) = y^{(n)} + \sum_{k=0}^{n-1} a_k y^{(k)}$ und
+$\lambda_1, \ldots, \lambda_n$ sind Nullstellen von $p_A(\lambda) = \lambda^n + \sum_{k=0}^{n-1} a_k \lambda^k$
+mit Vielfachheiten $r_1, \ldots, r_p$ also $p_A(\lambda) = {(\lambda - \tilde{\lambda_1})}^{r_1} \cdot
+{(\lambda - \tilde{\lambda_2})}^{r_2} \cdots {(\lambda - \tilde{\lambda_p})}^{r_p}$. Dann erhält man ein FS von
+$L(y)$ mit den durch
+\begin{eqnarray*}
+	e^{\lambda_1 x}, x \cdot e^{\lambda_1 x}, x^2 \cdot e^{\lambda_1 x}, \cdots, x^{r_1} e^{\lambda_1 x} \\
+	e^{\lambda_2 x}, x \cdot e^{\lambda_2 x}, x^2 \cdot e^{\lambda_2 x}, \cdots, x^{r_2} e^{\lambda_1 x} \\
+	\vdots \\
+	e^{\lambda_p x}, x \cdot e^{\lambda_p x}, x^2 \cdot e^{\lambda_p x}, \cdots, x^{r_p} e^{\lambda_p x} \\
+\end{eqnarray*} 
+dargestellten (eventuell komplexen) Funktionen in $x$.
+
+Diese Funktionen bezeichnen wir mit $y_{i,l}$ mit
+\begin{equation*}
+	y_{i,l}(x) = x^{l-1} e^{\lambda_i x} \ \text{ mit } 1 \leq i \leq p \land 1 \leq l \leq r_i
+\end{equation*}
+
+\subsubsection{Bemerkung}
+\begin{enumerate}
+	\item Das heißt die allgemeine homogene Lösung von $L(y)=0$ ist gegeben durch:
+		\begin{equation*}
+			y_h(x) \sum_{i=1}^p \sum_{l=1}^{r_i} \alpha_{i,l} y_{i,l}(x)
+		\end{equation*} 
+	\item Aus der komplexen homogenen Lösung lassen sich wieder reele homogene Lösungen durch Linearkombinationen
+		bestimmen. 
+\end{enumerate}
