@@ -112,9 +112,53 @@ dann gilt
 \end{enumerate}
 
 \subsection{Ableitung der Fouriertransformierten}
-Ist $f: \R \to \C$ stückweise stetig, $\int_{-\infty}^\infty \abs{f(t)} \dt < infty$ sowie
+Ist $f: \R \to \C$ stückweise stetig, $\int_{-\infty}^\infty \abs{f(t)} \dt < \infty$ sowie
 $\int_{-\infty}^\infty \abs{t f(t)}\dt < \infty$. Definiere $g(t) = t f(t)$. Ist $f$ differentierbar, dann ist 
 $F_f$ ebenfalls differentierbar und es gilt:
 \begin{equation*}
     F_f'(x) = \ddx F_f(x) = -i F_g(x)
+\end{equation*}
+
+\subsection{Fouriertransformation der Ableitung}
+Sei $f: \R \to \C$ stetig differentierbar und $\int_{-\infty}^\infty \abs{f(t)} \dt < \infty$ und
+$\int_{-\infty}^\infty \abs{f'(t)} \dt < \infty$ sowie $\lim{t \to \infty} f(t) = \lim_{t \to - \infty} = 0$, dann
+folgt
+\begin{equation*}
+    F_{f'} (x) = ixF_f(x)
+\end{equation*}
+
+\subsection{Definition inverse Fouriertransformation}
+Sei $f: \R \to \R$ Lipschitz-Stetig und stückweise stetig differentierbar mit $\int_{-\infty}^\infty < \infty$
+dann gilt:
+\begin{equation*}
+    f(t) = \frac{1}{2\pi} \int_{-\infty}^\infty \exp(itx) F_f(x) \dx
+\end{equation*}
+
+\subsection{Plancherel}
+Ist $f$ Lipschitz stetig auf $\R$ und stückweise stetig differentierbar mit $\int_{-\infty}^\infty \abs{f(t)} \dt
+<\infty$, dann konvergiert $\int_{-\infty}^\infty \abs{f(t)}^2 \dt < \infty$ und es gilt:
+\begin{equation*}
+    \int_{-\infty}^\infty \abs{f(t)}^2 \dt = \int_{-\infty}^\infty \abs{F_f(x)}^2 \dx
+\end{equation*}
+
+\subsection{Definition Faltung}
+Seien $f,g: \R \to \C$ gegeben und das Integral $\int_{-\infty}^\infty f(x-t) g(t) \dt$ existiert für alle
+$x \in \R$, dann heißt die Funktion $f * g: \R \to \C$ mit
+\begin{equation*}
+    (f*g)(x) := \int_{-\infty}^\infty f(x-t)g(t) \dt
+\end{equation*}
+die Faltung von $f$ und $g$.
+
+\subsection{Fouriertransformation der Faltung}
+Sei $f,g: \R \to \C$ stetig und $\int_{-\infty}^\infty \abs{f(t)} \dt < \infty$ und 
+$\int_{-\infty}^\infty \abs{g(t)} \dt < \infty$. Ferner sei $g$ beschränkt, dann konvergiert
+$\int_{-\infty}^\infty f(x-t)g(t) \dt\ \forall x \in \R$ und es gilt: 
+\begin{equation*}
+    F_{f*g}(x) = F_f(x) \cdot F_g(x)
+\end{equation*}
+
+\subsection{Fouriertransformation im Distributionenellen Sinne}
+Für eine Distribution $f \in D'$ definieren wir die Fouriertransformation $F_f$ durch:
+\begin{equation*}
+    <F_f, \Phi> = <f, F_\Phi> \forall \Phi \in D
 \end{equation*}
