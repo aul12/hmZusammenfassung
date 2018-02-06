@@ -1,0 +1,120 @@
+%!TEX root = ../main.tex
+\section{Äquivalenzrelation und Äquivalenzklassen}
+\subsection{Definition}
+Sei $X$ eine beliebige Menge, mit $\tilde{}$ wird eine Eigenschaft zwischen zwei
+Elementen definiert (Formal: $\tilde{}: X \times X \to \{\text{Wahr}, \text{Falsch}\}$).
+Diese Relation heißt Äquivalenzrelation wenn gilt:
+\begin{enumerate}
+    \item $a \tilde{} a \ \forall a \in X$ 
+    \item $a \tilde{} b \Rightarrow b \tilde{} a\ \forall a,b \in X$
+    \item $a \tilde{} b \land b \tilde{} c \Rightarrow a \tilde{} c\ \forall a,b,c \in X$
+\end{enumerate}
+Mit so einer Relation kann man $X$ in Äquivalenzklassen $\hat{x}$ zerlegen:
+\begin{equation*}
+    \hat{x} := \{A \subseteq X: \text{Für} a,b \in X \text{ gilt } a \tilde{} b \land \text{für kein} y \in A^C  \text{gilt} y \tilde{} a \text{ für } a \in A\}
+\end{equation*}
+$A$ ist die größte Teilmenge von $X$ in der alle Elemente in Relation stehen.
+
+\section{Distributionen}
+\subsection{Testfunktionen}
+\begin{enumerate}
+    \item Eine Funktion $\Phi: \R \to \R$ heißt Testfunktion, wenn $\Phi \in C_0^\infty$ gilt, d.h $\Phi \in C^\infty$
+        und
+        \begin{equation*}
+            \exists c > 0:\ \Phi(x)=0\ \forall x \notin [-c, c]
+        \end{equation*}
+        die Menge aller Testfunktionen bezeichnen wir mit $D$ d.h. $D = C_0^\infty$.
+    \item Eine Folge ${(\Phi_n)}_{n=1}^\infty \subseteq D$ heißt konvergent, wenn ein $\Phi \in D$ existiert mit
+        $\Phi_n$ konvergiert gleichmäßig gegen
+        \begin{equation*}
+            \Phi \Leftrightarrow \forall \varepsilon > 0: \exists n_0:\ \abs{\Phi(x) - \Phi_n(x)} < \varepsilon\ 
+            \forall x \in \R, n \geq n_0
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Distributionen}
+Eine Funktion $f: D \to \R$ heißt Distribution, wenn
+\begin{enumerate}
+    \item $f$ ein lineares Funktional ist, das heißt es gilt:
+        \begin{enumerate}
+            \item Der Wertebereich von $f$ ist $\R$ (oder $\C$)
+            \item $\forall \Phi, \Psi \in D, \alpha, \beta \in \R$ gilt
+                \begin{equation*}
+                    f(\alpha \Phi + \beta \Psi) = \alpha f(\Phi) + \beta f(\Psi)
+                \end{equation*}
+        \end{enumerate}
+    \item $f$ ist stetig, d.h.
+        \begin{equation}
+            \Phi_n \to \Phi (n \to \infty) \Rightarrow f(\Phi_n) \to f(\Phi) (n \to \infty)
+        \end{equation}
+\end{enumerate}
+
+\subsubsection{Bemerkung:}
+Die Menge aller Distribution nennen wir $D'$
+
+\subsection{Duale Paarung und Repräsentanten}
+\begin{enumerate}
+    \item Ist $f \in D'$ und $\Phi \in D$ dann schreibt man
+        \begin{equation*}
+            <f, \Phi> = f(\Phi)
+        \end{equation*}
+    \item Eine Funktion $\tilde{f}: \R \to \R$ heißt Repräsentant von $f \in D'$, wenn gilt
+        \begin{equation*}
+            <f, \Phi> = \int_{-\infty}^\infty \tilde{f}(x) \Phi(x) \dx = <\tilde{f}, \Phi>
+        \end{equation*}
+    das heißt $f$ kann man sich vorstellen.
+\end{enumerate}
+\subsubsection{Bemerkung:}
+Wenn eine Distribution einen Repräsentanten besitzt ist dieser nicht eindeutig.
+
+\subsection{Ableitung einer Distribution}
+Sei $f\in D'$, dann heißt $f'$ die schwache Ableitung von
+$f$ wenn gilt:
+\begin{equation*}
+    <f', \Phi> = -<f, \Phi'>\ \forall \Phi \in D
+\end{equation*}
+
+\section{Fouriertransformation}
+\subsection{Definition Fourier-Trafo}
+Sei $f: \R \to \C$ stückweise stetig und gelte
+\begin{equation*}
+    \int_{-\infty}^\infty \abs{f(t)} \dt < \infty
+\end{equation*}
+dann heißt
+\begin{equation*}
+    \hat{f}(x) = F_f(x) = \infty_{-\infty}^\infty
+    f(t) \exp(-itx) \dt
+\end{equation*}
+die Fourier-Transformierte von $f$.
+
+\subsection{Stetigkeit der Fourier-Transformierten}
+Sei $f: \R \to \C$ stückweise stetig und $\int_{-\infty}^\infty \abs{f(t)} \dt < \infty$
+dann ist $F_f(x)$ beschränkt und stetig.
+
+\subsection{Zeitliche Verschiebung und Skalierung der Fouriertransformierten}
+Seien $f_1, f_2, f: \R \to \C$ stückweise stetig und $\int_{-\infty}^\infty \abs{f(t)} \dt < \infty$ sowie
+$\int_{-\infty}^\infty \abs{f_k(t)} \dt\ k \in \{1,2\}$.
+
+Definiere $g: \R \to \C$ mit
+\begin{equation*}
+    g(t) = f(a*t + b)
+\end{equation*}
+dann gilt
+\begin{enumerate}
+    \item 
+        \begin{equation*}
+            F_g(x) = \frac{1}{\abs{x}} \exp(i x \frac{b}{a}) \cdot F_f(\frac{x}{a})\ \text{für } a \neq 0
+        \end{equation*}
+    \item
+        \begin{equation*}
+            F_{\alpha f_1 + \beta f_2} (x) = \alpha F_{f_1}(x) + \beta F_{f_2}(x)
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Ableitung der Fouriertransformierten}
+Ist $f: \R \to \C$ stückweise stetig, $\int_{-\infty}^\infty \abs{f(t)} \dt < infty$ sowie
+$\int_{-\infty}^\infty \abs{t f(t)}\dt < \infty$. Definiere $g(t) = t f(t)$. Ist $f$ differentierbar, dann ist 
+$F_f$ ebenfalls differentierbar und es gilt:
+\begin{equation*}
+    F_f'(x) = \ddx F_f(x) = -i F_g(x)
+\end{equation*}
