@@ -1,0 +1,110 @@
+\section{Grundlagen}
+\subsection{Definition Stetigkeit}
+Sei $M\subseteq\C$ und $f: M \to \C$
+\begin{enumerate}
+    \item $f$ heißt stetig in $z_0 \in M$, wenn gilt
+        \begin{equation*}
+            \forall \varepsilon > 0\ \exists \delta > 0: \abs{f(z) - f(z_o)} < \varepsilon\ \forall z \in M
+            \land \abs{z-z_0} < \delta
+        \end{equation*}
+    \item $f$ heißt stetig aus $M$, wenn $f$ in jedem $z_0 \in M$ stetig ist
+    \item Eine stetige Funktion $\delta[a,b] \subseteq \R \to \C$ heißt Kurve in $\C$
+\end{enumerate}
+
+\subsection{Definition Argument}
+Sei $z \in \C, z \neq 0$. Jede Zahl $\phi \in \R$ mit
+\begin{equation*}
+    \frac{z}{\abs{z}} = \exp(i \phi)
+\end{equation*}
+heißt ein Argument vo $z$ und wird mit $\arg(z)$ bezeichnet. Das einedeutig bestimmte Argument aus dem Intervall
+$[0, 2\pi)$ heißt Hauptargument von $z$ und wird mit $\Arg(z)$ bezeichnet.
+
+\subsubsection{Bemerkung:}
+Das Intervall des Hauptarguments könnte man auch als $[-\pi, \pi)$ oder $(-\pi, \pi]$ wählen.
+
+\subsection{Komplexe Wurzel}
+\begin{enumerate}
+    \item Es existieren genau zwei stetige Funktionen $\C\backslash(-\infty, 0] \to \C$ mit $g(z) = z^2$.
+        Diese sind:
+        \begin{eqnarray*}
+            g_1(z) &=& \sqrt{\abs{x}} \exp(i \frac{\Arg(z)}{2}) \\
+            g_2(z) &=& -\sqrt{\abs{x}} \exp(i \frac{\Arg(z)}{2}) 
+        \end{eqnarray*}
+    \item Es existiert keine stetige Funktion $g: \C \to \C$ mit $g(z^2) = z$
+\end{enumerate}
+
+\subsection{Definition komplexer Logarithmus}
+Zu jedem $z \in \C \backslash \{0\}$ existiert ein eindeutig bestimmtes $w \in \C$
+\begin{enumerate}
+    \item $\Im(w) \in (-\pi, \pi]$
+    \item $\exp(w) = z$
+\end{enumerate}
+dieses $w$ nennen wir den Hauptwert des Logarithmus von $z$ und bezeichnen diesen mit $w = \Log(z)$.
+
+\subsubsection{Bemerkung:}
+Durch die Funktion
+\begin{equation*}
+    \Log: \C \backslash \{0\} \to \{z \in \C: \Im(z) \in (-\pi, \pi]\}
+\end{equation*}
+mit $\Log(z) := \log(\abs{z}) + i \Arg(z)$ bezeichnen wir den Hauptwert des komplexen Logarithmus.
+
+\section{Komplexe Differenzierbarkeit}
+\subsection{Definition}
+Sei $M \subseteq \C$ offen und $f: M \to \C$:
+$f$ heißt differentierbar in $z_0 \in M$, wenn der Grenzwert
+\begin{equation*}
+    f'(z_0) = \lim_{z \to z_0} \frac{f(z)- f(z_0)}{z-z_0}
+\end{equation*}
+existiert. Dieser Grenzwert heißt dann Ableitung von $f$ bei $z_0$.
+
+\subsection{Cauchy-Riemann'sche Differentialgleichungen}
+Sei $M \subseteq \C$ und $M \neq \emptyset, f:M \to \C$ weiter sei $z_0 = x_0 + i y_0 \in M$ und $x_0, y_0 \in \R$.
+Definiere:
+\begin{eqnarray*}
+    u(x,y) &=& \Re(f(x+iy)) \\
+    v(x,y) &=& \Im(f(x+iy))
+\end{eqnarray*}
+sowie $F: \tilde{M} \subseteq \R^2 \to \R^2$ mit $F(x,y) = (u(x,y), v(x,y))^T$ dann gilt:
+\begin{equation*}
+    f \text{ ist differentierbar in } z_0 \Leftrightarrow \text{In } z_0 \text{ gelten die CR-DGLen}
+\end{equation*}
+Die CR-DGLen lauten:
+\begin{eqnarray*}
+    u_x(x_0, y_0) &=& v_y(x_0, y_0) \\
+    u_y(x_0, y_0) &=& v_x(x_0, y_0)
+\end{eqnarray*}
+
+\subsubsection{Bemerkung:}
+Wenn die CR-DGLen erfüllt sind ist die Jacobi-Matrix $f'(x_0)$ eine Dreh-Matrix.
+
+\subsection{Definition Holomorphe Funktionen}
+Sei $M \subseteq \C$ offen, $M \neq \emptyset, z \in M, f: M \to \C$:
+\begin{enumerate}
+    \item $f$ heißt in $z_0$ holomorph, wenn ein $\varepsilon > 0$ existiert, so dass $f$ auf $U_\varepsilon(z_0)$
+        komplex differentierbar ist
+    \item $f$ heißt auf $M$ holomorph, wenn $f$ in jedem $z_0 \in M$ holomorph ist
+\end{enumerate}
+
+\subsubsection{Bemerkung:}
+Statt Holomorph sagt man auch analytisch.
+
+\subsection{Definition orientierter Winkel}
+Für $z_1, z_2 \in \C \backslash \{0\}$ heißt $\arg(\frac{z_2}{z_1}) := arg(z_2) - arg(z_1)$ der orientierte Winkel
+von $z_1$ nach $z_2$.
+
+\subsection{Definition Winkeltreue}
+Seien $\gamma_1: I_1 \to \C, \gamma_2: I_2 \to \C$ mit reelem Intervallen $I_1, I_2$ zwei stetig differentierbare
+Kurven. Gelte etwa $c = \gamma_1(t_1) = \gamma_2(t_2)$ für $t_1 \in I_1, t_2 \in I_2$ und weiter sei $M$ eine
+offene Menge mit $c \in M$ und $f \in H(M)$ mit $f'(c) \neq 0$. Dann schneiden sich die Kurven $\gamma_1, \gamma_2$
+im gleichen Winkel wie die abgebildeten Kurven $f \circ \gamma_1, f \circ \gamma_2$.
+
+\subsection{Biholomorphe Funktionen}
+Seien $M_1, M_2 \subseteq \C, M_1, M_2 \neq \emptyset$. Eine bijektive Funktion $f: M_1 \to M_2$ heißt biholomorph,
+wenn $f \in H(M_1)$ und $f^{-1} \in H(M_2)$.
+
+\subsection{Ableitung der Umkehrfunktion}
+Seien $M_1, M_2 \subseteq \C$ und nicht leer $f: M_1 \to M_2$ biholomorph und $f'(z) \neq 0\ \forall z \in M_1$ dann
+gilt:
+\begin{equation*}
+    \frac{\text{d}}{\text{d}z} f^{-1}(z) = \frac{1}{f'(f^{-1}(z))}
+\end{equation*}
