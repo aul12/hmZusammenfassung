@@ -283,3 +283,102 @@ Sei $f(z) = \sum_{k=0}^\infty a_k {(z-z_0)}^k$ eine Potenzreihe mit Konvergenzra
     \sum_{k=0}^\infty \abs{a_k}^2 R^{2k} = \frac{1}{2 \pi} \int_0^{2\pi} \abs{f(z_0 + R e^{it})}^2 \dt
     \leq \max_{\abs{z-z_0} = R} \abs{f(z)}^2
 \end{equation*}
+
+\section{Isolierte Singularitäten}
+\subsection{Definition isolierte Singularitäten}
+Sei $M \in \C$ und $f \in H(M)$, dann heißt ein isolierter Punkt von $M^C$ eine isolierte Singularität von $f$.
+
+\subsection{Charakterisierung von isolierten Singularitäten}
+Eine isolierte Singularität $z_0$ von $f$ heißt:
+\begin{enumerate}
+    \item hebbar, falls $f$ in einer punktierten $\varepsilon$-Umgebung von $z_0$ beschränkt ist
+    \item Polstelle (oder Pol) $n$-ter Ordnung, wenn ein $n \in \N$ existiert, so dass die durch ${(z-z_0)} f(z)$
+        definierte Funktion in $z_0$ eine hebbare Singularität besitzt.
+    \item wesentliche Singularität, wenn $z_0$ weder eine hebbare Singularität oder Polstelle ist
+\end{enumerate}
+
+\subsection{Riemannscher Hebbarkeitssatz}
+Sei $G \in \C$ ein Gebiet, $f \in H(G)$ und $z_0$ eine hebbare Singularität von $f$, dann gilt:
+\begin{equation*}
+    z_0 \text{ hebbar} \Leftrightarrow \exists g \in H(U_\varepsilon(z_0)):\ \varepsilon > 0 \land g(z) = f(z)\ 
+    \forall z \in \dot{U}_\varepsilon(z_0)
+\end{equation*}
+
+\subsection{Zusammenhang ganzrationale Funktionen und Polstellen}
+Sei $G \subseteq \C$ ein Gebiet, $ f \in H(G), z_0$ eine isolierte Singularität von $f$, dann gilt:
+\begin{equation*}
+    z_0 \text{ ist Pol mit Ordnung } m \Leftrightarrow \exists g \in H(U_\varepsilon(z_0)):\ \varepsilon > 0 \land
+    g(z_0) \neq 0 \land f(z) = \frac{g(z)}{{(z-z_0)}^m}
+\end{equation*}
+
+\subsection{Eigenschaften wesentlicher Singularitäten}
+Sei $G \subseteq \C$ ein Gebiet, $f \in H(G), z_0$ eine isolierte Singularität, dann gilt:
+\begin{equation*}
+    z_0 \text{ ist eine wesentliche Singularität} \Leftrightarrow f \text{ kommt auf jder punktierten } \varepsilon
+    \text{-Umgebung von } z_0 \text{ jedem Wert von } \C \text{ beliebig nahe} \Leftrightarrow
+    \forall \varepsilon > 0: \overline{f(\dot{U}_\varepsilon (z_0))} = \C
+\end{equation*}
+
+\subsection{Variation von Kurven}
+Sei $R=\{z \in \C: r_1 \leq \abs{z} \leq r_2\}$ mit $0 \leq r_1 < r_2 \leq \infty$ ein Ringgebiet und $f \in H(R)$.
+Dann gilt:
+\begin{equation*}
+    \int_{\abs{z} = d_1} f(z) \dz = \int_{\abs{z} = d_2} f(z) \dz
+\end{equation*}
+für $d_1, d_2$ mit $r_1 < d_1, d_2 < r_2$.
+
+\subsection{Holomorphie der Stammfunktion}
+Sei $r>0$ und $h: \{ w \in \C: \abs{w} = r\} \to \C$ stetig, dann ist die Funktion $F: U_r(0) \to \C$ mit
+\begin{equation*}
+    F(z) = \int_{\abs{w} = r} \frac{h(w)}{z-w} \intd{w}
+\end{equation*}
+holomorph.
+
+\subsection{Laurentzerlegung}
+Sei $G = \{z \in \C: r<\abs{z-z_0} < R\}$ mit $0 \leq r < R \leq \infty$ und $f\in H(G)$. Dann existiert
+\begin{enumerate}
+    \item $g \in H(U_R(0))$
+    \item $h \in H(U_{\frac{1}{r}} (0)$
+\end{enumerate}
+und es gilt
+\begin{equation*}
+    f(z) = g(z) + h(1/z)
+\end{equation*}
+Setzt man zusätzlich die Bedinung $h(0) = 0$ voraus, dann ist die Zerlegung eindeutig.
+
+\subsection{Definition Laurentreihe}
+Eine unendliche Reihe der Form
+\begin{equation*}
+    \sum_{k=-\infty}^\infty a_k {(z-z_0)}^k
+\end{equation*}
+heißt formale Laurent-Reihe. Dabei heißt
+\begin{equation*}
+    \sum_{k=-\infty}^{-1} a_k {(z-z_0)}^k
+\end{equation*}
+der Hauptteil der Laurentreihe und
+\begin{equation*}
+    \sum_{k=0}^\infty a_k {(z-z_0)}^k
+\end{equation*}
+der Nebenteil der Laurentreihe. Die Laurentreihe ist konvergent wenn der Hauptteil und der Nebenteil (einzeln)
+konvergieren. In dem Fall ist:
+\begin{equation*}
+    \sum_{-\infty}^\infty a_k {(z-z_0)}^k = \sum_{0}^\infty a_k {(z-z_0)}^k + 
+        \sum_{-\infty}^{-1} a_k {(z-z_0)}^k
+\end{equation*}
+
+\subsubsection{Bemerkung:}
+Das Konvergenzgebiet einer Laurentreihe ist ein Ringgebiet.
+
+\subsection{Berechnung der Laurent-Koeffizienten mit Cauchy und Taylor}
+Sei $f(z) = \sum_{k=-\infty}^\infty a_k {(z-z_0)}^k$ für $z$ mit $r < \abs{z-z_0} < R$ dann gilt:
+\begin{equation*}
+    a_k = \frac{1}{2 \pi i} \int_{\abs{w-z_0} = d} \frac{f(w)}{{w-z_0}^{k+1}} \intd{w}
+\end{equation*}
+
+\subsection{Zusammenhang Holomorphie und Laurentreihen}
+Ist $f$ holomorph auf einem Ringgebiet $G = \{z:\ r < \abs{z-z_0} < R\}$ dann ist $f$ als Laurentreihe auf $G$
+darstellbar und die Koeffizienten sind eindeutig festgelegt.
+
+
+
+
