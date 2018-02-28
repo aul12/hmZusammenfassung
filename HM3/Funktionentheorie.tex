@@ -233,3 +233,53 @@ Sei $G \subseteq \C$ ein Gebiet und $f \in H(G)$, dann gilt
         \end{equation*}
         für $z_1 \in U_R(z_0)$.
 \end{enumerate}
+
+\section{Eigenschaften holomorpher Funktionen}
+\subsection{Holomorphe Funktionen und Potenzreihen}
+Sei $G \in \C$ ein Gebiet, $z_0 \in G, R > 0$ mit $U_R(z_0) \subseteq G$. Weiter sei $f \in H(G)$, dann gilt:
+\begin{equation*}
+    f(z) = \sum_{n=0}^\infty a_n {(z-z_0)}^n\ \forall z \in U_R(z_0)
+\end{equation*}
+
+\subsection{Abschätzung der Ableitung}
+Sei $G \subseteq \C$ und $f \in H(G)$, dann gilt für alle $n \in \N_0$ und alle $z_0 \in G$ und $r>0$ mit
+$\overline{U_R(z_0)} \subseteq G$:
+\begin{equation*}
+    \abs{f^{(n)}(z_0)} \leq \frac{n!}{r^n} \max_{\abs{z-z_0} = r} f(z)
+\end{equation*}
+
+\subsection{Definition ganze Funktion}
+Eine Funktion $f \in H(\C)$ heißt ganze Funktion.
+
+\subsection{Satz von Lionville}
+Jede ganze, beschränkte Funktion ist konstant.
+
+\subsection{Fundamentalsatz der Algebra}
+Ist $p$ ein Polynom vom Grad $n$ mit $n \geq 1$, dann besitzt $p$ eine Nullstelle (in $\C$).
+
+\subsection{Identitätssatz für holomorphe Funktionen}
+Sei $G \subseteq \C$ und $f \in  H(G)$ dann sind folgende Aussagen äquivalent:
+\begin{enumerate}
+    \item $f \equiv 0$ auf $G$
+    \item Die Menge der Nullstellen von $f$, d.h.
+            $\{z \in \C: f(z) = 0\}$ hat einen Häufungspunkt $z_0 \in G$
+    \item
+        \begin{equation*}
+            \exists z_0: f^{(k)}(z_0) = 0\ \forall k \in \N_0
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Maximumsprinzip}
+Sei $G \subseteq \C$ ein Gebiet und $f \in H(G)$, dann gilt:
+\begin{enumerate}
+    \item Besitzt $\abs{f}$ ein lokales Maximum, dann ist $\abs{f}$ konstant.
+    \item Ist $G$ beschränkt und $f$ stetig auf $\overline{G}$, so nimmt $\abs{f}$ sein Maximum auf dem
+        Rand an.
+\end{enumerate}
+
+\subsection{Abschätzung von Potenzreihen}
+Sei $f(z) = \sum_{k=0}^\infty a_k {(z-z_0)}^k$ eine Potenzreihe mit Konvergenzradius $R > 0$, dann gilt:
+\begin{equation*}
+    \sum_{k=0}^\infty \abs{a_k}^2 R^{2k} = \frac{1}{2 \pi} \int_0^{2\pi} \abs{f(z_0 + R e^{it})}^2 \dt
+    \leq \max_{\abs{z-z_0} = R} \abs{f(z)}^2
+\end{equation*}
