@@ -379,6 +379,87 @@ Sei $f(z) = \sum_{k=-\infty}^\infty a_k {(z-z_0)}^k$ für $z$ mit $r < \abs{z-z_
 Ist $f$ holomorph auf einem Ringgebiet $G = \{z:\ r < \abs{z-z_0} < R\}$ dann ist $f$ als Laurentreihe auf $G$
 darstellbar und die Koeffizienten sind eindeutig festgelegt.
 
+\section{Residuensatz}
+\subsection{Definition Resiuduum}
+Sei $f \in H(\dot{U}_R(z_0)), R>0$ mit zugehöriger Laurentreihe 
+$f(z) = \sum_{k=-\infty}^\infty a_k {(z-z_0)}^k$ dann
+heißt $a_{-1}$ das Residuum von $f$ bei $z_0$ und wird mit
+\begin{equation*}
+    \Res(f, z_0) = a_{-1} 
+\end{equation*}
+\subsubsection{Bemerkung:}
+\begin{enumerate}
+    \item Es gilt: 
+        \begin{equation*}
+            \Res(f,z_0) = \frac{1}{2\pi i} 
+            \int_{\abs{z-z_0} = r} f(w) \intd{w}
+        \end{equation*}
+        mit $0 < r < R$
+    \item Falls $f$ bei $z_0$ holomorph ist oder eine
+        hebbare Singularität hat ist
+        \begin{equation*}
+            \Res(f, z_0) = 0 
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Bestimmung des Residuums}
+Sei $f \in H(\dot{U}_R (z_0)), R > 0, z_0$ ein Pol
+$m$-ter Ordnung, dann gilt:
+\begin{equation*}
+    \Res(f, z_0) = \frac{1}{m-1} 
+    {\left( \frac{\text{d}}{\text{d}z} \right)}^{m-1}
+    {(z-z_0)}^n f(z) \big|_{z=z_0}
+\end{equation*}
+
+\subsection{L'Hospital für Residuen}
+Seien $f,g \in H(U_R(z_0))$ mit $f(z_0) \neq 0,
+g(z_0) = 0, g'(z_0) \neq 0$ dann besitzt $\frac{f}{g}$
+bei $z_0$ einen Pol 1-ter Ordnung und
+\begin{equation*}
+    \Res(\frac{f}{g}, z_0) = \frac{f(z_0)}{g'(z_0)} 
+\end{equation*}
+
+\subsection{Residuensatz}
+Sei $G \subseteq \C$ ein Elementargebiet und
+$z_1, \ldots z_n \in G$ verschiedene Punkte. Weiter sei
+$f \in H(G\backslash \{z_1, \ldots, z_n\}$ und $\gamma$
+eine geschlossene, stückweise glatte Kurve in
+$G \backslash \{z_1, \ldots, z_n\}$. Dann gilt:
+\begin{equation*}
+    \int_\gamma f(z) \intd{z} = 2 \pi i \sum_{k=1}^m
+    N_\gamma (z_0) Res(f, z_0)
+\end{equation*}
+
+\subsection{Anwendung des Residuensatz auf uneigentliche Integrale}
+Seien $z_1, \ldots, z_m (m \in \N)$ verschieden Punkte
+der oberen (bzw. unteren) Halbebene und $G$ die obere
+(bzw. untere) Halbebene von $\C$, dann gilt:
+\begin{equation*}
+    \lim_{\abs{z} \to \infty} z f(z) = 0 \Rightarrow
+    \int_{-\infty}^\infty f(x) \dx = 
+    2 \pi i \sum_{k=1}^m \Res(f, z_k) \left(
+    \text{bzw. } -2 \pi i \sum_{k=1}^m \Res(f, z_k)
+    \right)
+\end{equation*}
+
+\subsection{Anwendung des Residuensatz auf bestimmte uneigentliche Integrale}
+Für Polynone $p, q$ gilt (in der oberen Halbebene):
+\begin{enumerate}
+    \item 
+        \begin{equation*}
+            \int_{-\infty}^\infty \frac{p(x)}{q(x)}\dx=
+            2 \pi i \int_{k=1}^m \Res(\frac{p}{q},z_k)
+        \end{equation*}
+        falls Grad $p \geq$ Grad $q +2$
+    \item 
+        \begin{equation*}
+            \int_{-\infty}^\infty \frac{p(x)}{q(x)} 
+            e^{iwx} \dx=
+            2 \pi i \int_{k=1}^m \Res(\frac{p}{q}
+            e^{iwx},z_k)
+        \end{equation*}
+        falls Grad $p \geq$ Grad $q +1$
+\end{enumerate}
 
 
 
