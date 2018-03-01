@@ -9,7 +9,7 @@ nennt man eine Norm, wenn für $\lambda \in \K, x, y \in V$  stets gilt:
 \begin{enumerate}[label= (\alph*)]
 	\item 
 		\begin{equation*}
-			\norm{x} \geq 0 \forall x \in V\ \land\ \norm{x} = 0 \Leftrightarrow x = \vec{0}
+			\norm{x} \geq 0\ \forall x \in V\ \land\ \norm{x} = 0 \Leftrightarrow x = \vec{0}
 		\end{equation*}
 	\item 
 		\begin{equation*}
@@ -29,7 +29,7 @@ In dem Fall heißt heißt $V$ normierter Vektorraum. Einen Vektor $a \in V$ nenn
 		\end{equation*}
 		normieren, dann
 		\begin{equation*}
-			\norm{a} = \norm{\frac{1}{\norm{a}} \cdot a} = \abs{\frac{1}{\norm{a}}} \norm{a} = \frac{1}{\norm{a}} \norm{a} = 1
+            \norm{\tilde{a}} = \norm{\frac{1}{\norm{a}} \cdot a} = \abs{\frac{1}{\norm{a}}} \norm{a} = \frac{1}{\norm{a}} \norm{a} = 1
 		\end{equation*}
 	\item Es gilt in einem normierten Vektorraum auch, dass
 		\begin{equation*}
@@ -161,7 +161,7 @@ dann gilt: $\vspan{(x_1, \ldots, x_n)} = \vspan{(y_1, \ldots, y_n)}$ und $y_l \p
 für $l \neq k$.
 
 \subsection{Orthogonale Projektion}
-Sei $V$ ei innerer Produktraum und $x_1, \ldots, x_n$ linear unabhängig. Dann gilt
+Sei $V$ ein innerer Produktraum und $x_1, \ldots, x_n$ linear unabhängig. Dann gilt
 für $x \in V$
 \begin{enumerate}[label= (\alph*)]
 	\item
