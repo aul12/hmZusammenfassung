@@ -74,6 +74,30 @@ $f$ wenn gilt:
     <f', \Phi> = -<f, \Phi'>\ \forall \Phi \in D
 \end{equation*}
 
+\subsection{Kriterium für die Konvergenz einer Funktionenfolge gegen $\delta$}
+In der Praxis gibt es ein einfaches Kriterium, um zu prüfen ob eine Folge $\delta_n$ gegen die Delta-Distribution im Sinne von
+\begin{equation*}
+    <\delta, \Phi> = \lim_{n \to \infty} <\delta_n, \Phi> 
+\end{equation*}
+konvergiert:
+\begin{enumerate}
+    \item  
+        \begin{equation*}
+            \delta_n(x) \geq 0 \forall x 
+        \end{equation*}
+    \item
+        \begin{equation*}
+            \int_{-\infty}^\infty \delta_n(x) \dx = 1      
+        \end{equation*}
+    \item
+        \begin{equation*}
+            \forall \varepsilon > 0: \lim_{n \to \infty} \int_{-\varepsilon}^\varepsilon \delta_n(x) \dx = 1 
+        \end{equation*}
+\end{enumerate}
+
+\subsubsection{Bemerkung:}
+Das Kriterium ist allerdings nur hinreichend, nicht notwendig. Das heißt eine Folge $\delta_n$ kann gegen $\delta$ konvergieren, und das Kriterium nicht erfüllen.
+
 \section{Fouriertransformation}
 \subsection{Definition Fourier-Trafo}
 Sei $f: \R \to \C$ stückweise stetig und gelte
